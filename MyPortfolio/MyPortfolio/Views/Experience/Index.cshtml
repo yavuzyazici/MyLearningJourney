@@ -1,0 +1,199 @@
+﻿@model List<MyPortfolio.Models.MyPortfolioTblExperience>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            Experience
+        </h5>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addExperience">
+            <span class="tf-icons bx bxs-file-plus bx-18px me-2"></span>Add Experience
+        </button>
+    </div>
+    <!-- AddExperienceModal -->
+    <div class="modal fade" id="addExperience" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addExperienceTitle">Add Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Add", "Experience", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="ExperienceId" id="addExperienceId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="addExperienceCompanyName" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" name="CompanyName" id="addExperienceCompanyName" placeholder="Atak Domain, Domain Name API...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="addExperienceTitle" class="form-label">Title</label>
+                                    <textarea class="form-control" name="Title" id="addExperienceTitle" placeholder="Write your title on company."></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="addExperienceStartDate" class="form-label">Start Date</label>
+                                    <input class="form-control" name="StartDate" type="date" id="addExperienceStartDate">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="addExperienceEndDate" class="form-label">End Date</label>
+                                    <input class="form-control" type="date" name="EndDate" id="addExperienceEndDate">
+                                    <small>It can be skipped. Passing blank represents that the work is still in progress</small>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="addExperienceDesc" class="form-label">Description</label>
+                                    <textarea style="height:150px" name="Description" class="form-control" id="addExperienceDesc" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- UpdateExperienceModal -->
+    <div class="modal fade" id="updateExperience" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Update", "Experience", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="ExperienceId" id="updateExperienceId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="updateExperienceCompanyName" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" name="CompanyName" id="updateExperienceCompanyName" placeholder="Atak Domain, Domain Name API...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateExperienceTitle" class="form-label">Title</label>
+                                    <textarea class="form-control" name="Title" id="updateExperienceTitle" placeholder="Write your title on company."></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateExperienceStartDate" class="form-label">Start Date</label>
+                                    <input class="form-control" name="StartDate" type="date" id="updateExperienceStartDate">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateExperienceEndDate" class="form-label">End Date</label>
+                                    <input class="form-control" name="EndDate" type="date" id="updateExperienceEndDate">
+                                    <small>It can be skipped. Passing blank represents that the work is still in progress</small>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateExperienceDesc" class="form-label">Description</label>
+                                    <textarea style="height:150px" name="Description" class="form-control" id="updateExperienceDesc" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- DeleteExperienceModal -->
+    <div class="modal fade" id="deleteExperience" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Delete", "Experience", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="modal-body">
+                        <p>There is no come back. Are you sure?</p>
+                        <input class="form-control" type="hidden" name="ExperienceId" id="deleteExperienceId" placeholder="Id" readonly="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:-40px">
+        <div class="p-5">
+            <div class="mt-4">
+                <div class="list-group">
+                    @foreach (var experience in Model)
+                    {
+                        <div href="javascript:void(0);"
+                             class="list-group-item list-group-item-action flex-column align-items-start @(experience.EndDate == null ? "active" : "")">
+                            <div class="d-flex justify-content-between w-100">
+                                <h5 class="mb-1"><br />@experience.CompanyName</h5>
+                                <small><br />@experience.StartDate.ToString("yyyy MMMM") - @(experience.EndDate?.ToString("yyyy MMMM") ?? "Present")</small>
+                            </div>
+                            <h6 class="mb-1 bold">Title: @experience.Title</h6>
+                            <p class="mb-1">
+                                @experience.Description
+                            </p>
+
+                            <div class="d-flex justify-content-end mt-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li>
+                                            <a class="dropdown-item" onclick="showUpdateModal(@experience.ExperienceId, '@experience.CompanyName', '@experience.Title', '@experience.StartDate.ToString("yyyy-MM-dd")', '@(experience.EndDate?.ToString("yyyy-MM-dd") ?? null )', '@Html.Raw(HttpUtility.JavaScriptStringEncode(experience.Description))')">
+                                                <i class="bx bx-edit-alt me-1"></i> Update
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" onclick="showDeleteModal(@experience.ExperienceId)">
+                                                <i class="bx bx-trash me-1"></i> Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showUpdateModal(experienceId, experienceCompanyName, experienceTitle, startDate, endDate, experienceDesc) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#updateExperienceId').val(experienceId);
+        $('#updateExperienceCompanyName').val(experienceCompanyName)
+        $('#updateExperienceTitle').val(experienceTitle)
+        $('#updateExperienceStartDate').val(startDate)
+        $('#updateExperienceEndDate').val(endDate)
+        $('#updateExperienceDesc').val(experienceDesc)
+
+        // Modalı gösterir
+        $('#updateExperience').modal('show');
+    }
+    function showDeleteModal(experienceId) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#deleteExperienceId').val(experienceId);
+
+        // Modalı gösterir
+        $('#deleteExperience').modal('show');
+    }
+</script>

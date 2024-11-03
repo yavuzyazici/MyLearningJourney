@@ -1,0 +1,86 @@
+﻿@model MyPortfolio.Models.MyPortfolioTblExpertis
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            Expertise
+        </h5>
+    </div>
+
+    <!-- UpdateExpertiseModal -->
+    <div class="modal fade" id="updateExpertise" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Expertise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Update", "Expertise", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="ExpertiseId" id="updateExpertiseId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="Title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="Title" id="updateExpertiseTitle" placeholder="Hello World, MyPortfolio...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateExpertiseDesc" class="form-label">Description</label>
+                                    <textarea class="form-control" name="Description" id="updateExpertiseDesc" placeholder="Write your description text to here."></textarea>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Expertise Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                <tr>
+                    <td><i class="bx bx-flag bx-md text-primary me-4"></i> <span>@Model.ExpertiseId</span></td>
+                    <td>@Model.Title</td>
+                    <td>@Model.Description.Substring(0, 15)...</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary" onclick="showUpdateModal(@Model.ExpertiseId,'@Model.Title', '@Html.Raw(HttpUtility.JavaScriptStringEncode(@Model.Description))')">
+                            <span class="tf-icons bx bx-edit-alt bx-18px me-2"></span>Update
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<script>
+    function showUpdateModal(expertiseId, expertiseTitle, expertiseDesc) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#updateExpertiseId').val(expertiseId);
+        $('#updateExpertiseTitle').val(expertiseTitle)
+        $('#updateExpertiseDesc').val(expertiseDesc)
+
+        // Modalı gösterir
+        $('#updateExpertise').modal('show');
+    }
+</script>

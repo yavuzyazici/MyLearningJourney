@@ -1,0 +1,161 @@
+﻿@model List<MyPortfolio.Models.MyPortfolioTblSocialMedia>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            Social Medias
+        </h5>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSocialMedia">
+            <span class="tf-icons bx bxs-file-plus bx-18px me-2"></span>Add Social Media
+        </button>
+    </div>
+    <!-- AddSocialMediaModal -->
+    <div class="modal fade" id="addSocialMedia" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSocialMediaTitle">Add Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Add", "SocialMedia", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <div class="mb-4">
+                                    <label for="Name" class="form-label">Social Media Name</label>
+                                    <input type="text" class="form-control" name="Name" id="addSocialName" placeholder="Type the name of the social media platform.">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Url" class="form-label">Social Media Url</label>
+                                    <textarea class="form-control" name="Url" id="addSocialUrl" placeholder="Type your social media URL text to here."></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- UpdateSocialMediaModal -->
+    <div class="modal fade" id="updateSocialMedia" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Social Media</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Update", "SocialMedia", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="SocialMediaId" id="updateSocialId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="Name" class="form-label">Social Media Name</label>
+                                    <input type="text" class="form-control" name="Name" id="updateSocialName" placeholder="Github, Linkedin, Twitter...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Url" class="form-label">Social Media Url</label>
+                                    <textarea class="form-control" name="Url" id="updateSocialUrl" placeholder="Write your url text to here."></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- DeleteSocialMediaModal -->
+    <div class="modal fade" id="deleteSocialMedia" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteSocialMediaTitle">Delete Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Delete", "SocialMedia", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <p>There is no come back. Are you sure?</p>
+                        <!-- Kategori ID'si için gizli input -->
+                        <input type="hidden" name="SocialMediaId" id="modalItemId" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Social Media Id</th>
+                    <th>Name</th>
+                    <th>Url</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var socialMedia in Model)
+                {
+                    <tr>
+                        <td><i class="bx bx-link bx-md text-primary me-4"></i> <span>@socialMedia.SocialMediaId</span></td>
+                        <td>@socialMedia.Name</td>
+                        <td>@socialMedia.Url</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+
+                                <div class="dropdown-menu" style="">
+                                    <a class="dropdown-item" onclick="showUpdateModal(@socialMedia.SocialMediaId,'@socialMedia.Name', '@socialMedia.Url')"><i class="bx bx-edit-alt me-1"></i> Update</a>
+                                    <a class="dropdown-item" onclick="showDeleteModal(@socialMedia.SocialMediaId)"><i class="bx bx-trash me-1"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<script>
+    function showDeleteModal(socialMediaId) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+        $('#modalItemId').val(socialMediaId);
+
+        // Modalı gösterir
+        $('#deleteSocialMedia').modal('show');
+    }
+    function showUpdateModal(socialMediaId, socialMediaName, socialMediaUrl) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#updateSocialId').val(socialMediaId);
+        $('#updateSocialName').val(socialMediaName)
+        $('#updateSocialUrl').val(socialMediaUrl)
+
+        // Modalı gösterir
+        $('#updateSocialMedia').modal('show');
+    }
+</script>
