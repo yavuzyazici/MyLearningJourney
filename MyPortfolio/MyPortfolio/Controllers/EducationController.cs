@@ -33,6 +33,12 @@ namespace MyPortfolio.Controllers
             myEducation.StartDate = education.StartDate;
             myEducation.EndDate = education.EndDate;
             myEducation.Description = education.Description;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Education");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "Education");
         }
@@ -41,6 +47,12 @@ namespace MyPortfolio.Controllers
         {
             var myEducation = db.MyPortfolioTblEducations.Find(deleteEducationId);
             db.MyPortfolioTblEducations.Remove(myEducation);
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Education");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "Education");
         }

@@ -26,6 +26,12 @@ namespace MyPortfolio.Controllers
             myAbout.Description = about.Description;
             myAbout.ImageUrl = about.ImageUrl;
             myAbout.CvUrl = about.CvUrl;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "About");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "About");
         }

@@ -28,6 +28,7 @@ namespace MyPortfolio.Controllers
                 return RedirectToAction("Index", "Category");
             }
             db.MyPortfolioTblCategories.Add(category);
+
             db.SaveChanges();
             return RedirectToAction("Index", "Category");
         }
@@ -65,7 +66,7 @@ namespace MyPortfolio.Controllers
             {
                 TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
 
-                return RedirectToAction("Index", "Project");
+                return RedirectToAction("Index", "Category");
             }
 
             db.SaveChanges();

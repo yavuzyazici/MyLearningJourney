@@ -23,6 +23,12 @@ namespace MyPortfolio.Controllers
 
             myBanner.Title = banner.Title;
             myBanner.Description = banner.Description;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Banner");
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index", "Banner");

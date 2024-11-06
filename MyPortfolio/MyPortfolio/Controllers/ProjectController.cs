@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+
 
 namespace MyPortfolio.Controllers
 {
@@ -13,13 +15,28 @@ namespace MyPortfolio.Controllers
         public ActionResult Index()
         {
             var data = db.MyPortfolioTblProjects.ToList();
-            var categories = db.MyPortfolioTblCategories.ToList();
-            ViewBag.Categories = categories;
+            var categoryData = db.MyPortfolioTblCategories.ToList();
+
+            //List<SelectListItem> categories = (from x in categoryData
+            //                                   select new SelectListItem
+            //                                   {
+            //                                       Text = x.Name,
+            //                                       Value = x.CategoryId.ToString()
+            //                                   }).ToList();
+
+            ViewBag.Categories = categoryData;
+
             return View(data);
         }
         [HttpPost]
         public ActionResult Add(MyPortfolioTblProject project)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Project");
+            }
             db.MyPortfolioTblProjects.Add(project);
             db.SaveChanges();
 
@@ -34,8 +51,15 @@ namespace MyPortfolio.Controllers
             myProject.Description = project.Description;
             myProject.CategoryId = project.CategoryId;
             myProject.GithubUrl = project.GithubUrl;
-            db.SaveChanges();
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = db.MyPortfolioTblCategories.ToList();
 
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Project");
+            }
+            db.SaveChanges();
             return RedirectToAction("Index", "Project");
         }
         [HttpPost]

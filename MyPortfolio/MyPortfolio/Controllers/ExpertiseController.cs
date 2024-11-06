@@ -24,6 +24,12 @@ namespace MyPortfolio.Controllers
             var myExpertise = db.MyPortfolioTblExpertises.FirstOrDefault();
             myExpertise.Title = expertise.Title;
             myExpertise.Description = expertise.Description;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Expertise");
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index", "Expertise");

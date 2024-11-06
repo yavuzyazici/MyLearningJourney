@@ -21,6 +21,12 @@ namespace MyPortfolio.Controllers
             myContact.Email = contact.Email;
             myContact.Title = contact.Title;
             myContact.Description = contact.Description;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Contact");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "Contact");
         }
@@ -42,7 +48,15 @@ namespace MyPortfolio.Controllers
         [HttpPost]
         public ActionResult Delete(int MessageId)
         {
+            var myMessage = db.MyPortfolioTblMessages.FirstOrDefault(x => x.MessageId == MessageId);
+            db.MyPortfolioTblMessages.Remove(myMessage);
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
 
+                return RedirectToAction("Index", "Contact");
+            }
+            db.SaveChanges();
             return RedirectToAction("Messages", "Contact");
         }
     }

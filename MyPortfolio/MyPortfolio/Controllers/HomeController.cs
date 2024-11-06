@@ -31,14 +31,14 @@ namespace MyPortfolio.Controllers
             ViewBag.ExpertiseTitle = Expertise.Title;
             ViewBag.ExpertiseDescription = Expertise.Description;
 
-            var Experiences = db.MyPortfolioTblExperiences.ToList().OrderByDescending(x=>x.StartDate);
+            var Experiences = db.MyPortfolioTblExperiences.ToList().OrderByDescending(x => x.StartDate);
             ViewBag.Experiences = Experiences;
 
             var Educations = db.MyPortfolioTblEducations.ToList().OrderByDescending(x => x.StartDate);
             ViewBag.Educations = Educations;
 
             var Projects = db.MyPortfolioTblProjects.ToList();
-            ViewBag.Projects = Projects; 
+            ViewBag.Projects = Projects;
 
             var Testimonials = db.MyPortfolioTblTestimonials.ToList();
             ViewBag.Testimonials = Testimonials;
@@ -59,14 +59,14 @@ namespace MyPortfolio.Controllers
             // Modelin doğruluğunu kontrol et
             if (ModelState.IsValid)
             {
-                    model.IsRead = false;  // Yeni mesaj olarak işaretle
-                    db.MyPortfolioTblMessages.Add(model);  // Mesajı veritabanına ekle
-                    db.SaveChanges();  // Değişiklikleri kaydet
+                model.IsRead = false;  // Yeni mesaj olarak işaretle
+                db.MyPortfolioTblMessages.Add(model);  // Mesajı veritabanına ekle
+                db.SaveChanges();  // Değişiklikleri kaydet
 
-                    return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
-            return View(); 
+            return View();
         }
     }
 }

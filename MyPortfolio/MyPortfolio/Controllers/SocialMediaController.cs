@@ -22,6 +22,12 @@ namespace MyPortfolio.Controllers
         public ActionResult Add(MyPortfolioTblSocialMedia socialMedia)
         {
             db.MyPortfolioTblSocialMedias.Add(socialMedia);
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "SocialMedia");
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index", "SocialMedia");
@@ -33,6 +39,12 @@ namespace MyPortfolio.Controllers
             var mySocialMedia = db.MyPortfolioTblSocialMedias.Find(socialMedia.SocialMediaId);
             mySocialMedia.Name = socialMedia.Name;
             mySocialMedia.Url = socialMedia.Url;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "SocialMedia");
+            }
 
             db.SaveChanges();
 

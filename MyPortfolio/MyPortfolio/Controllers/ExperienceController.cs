@@ -21,6 +21,12 @@ namespace MyPortfolio.Controllers
         public ActionResult Add(MyPortfolioTblExperience experience)
         {
             db.MyPortfolioTblExperiences.Add(experience);
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Experience");
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index", "Experience");
@@ -34,6 +40,12 @@ namespace MyPortfolio.Controllers
             myExperience.StartDate = experience.StartDate;
             myExperience.EndDate = experience.EndDate;
             myExperience.Description = experience.Description;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Experience");
+            }
             db.SaveChanges();
 
             return RedirectToAction("Index", "Experience");
@@ -43,6 +55,12 @@ namespace MyPortfolio.Controllers
         {
             var myExperience = db.MyPortfolioTblExperiences.Find(ExperienceId);
             db.MyPortfolioTblExperiences.Remove(myExperience);
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Experience");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "Experience");
         }

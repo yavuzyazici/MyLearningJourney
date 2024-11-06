@@ -19,6 +19,12 @@ namespace MyPortfolio.Controllers
         [HttpPost]
         public ActionResult Add(MyPortfolioTblTestimonial testimonial)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Testimonial");
+            }
             db.MyPortfolioTblTestimonials.Add(testimonial);
             db.SaveChanges();
             return RedirectToAction("Index", "Testimonial");
@@ -32,6 +38,12 @@ namespace MyPortfolio.Controllers
             myTestimonial.Title = testimonial.Title;
             myTestimonial.ImageUrl = testimonial.ImageUrl;
             myTestimonial.Comment = testimonial.Comment;
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Testimonial");
+            }
             db.SaveChanges();
             return RedirectToAction("Index", "Testimonial");
         }
