@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbAIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MyPortfolioTblAbout">
+    <Key>
+      <PropertyRef Name="AboutId" />
+    </Key>
+    <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CvUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblBanner">
+    <Key>
+      <PropertyRef Name="BannerId" />
+    </Key>
+    <Property Name="BannerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MyPortfolioTblProjects" Relationship="Self.FK_MyPortfolioTblProjects_MyPortfolioTblCategories" FromRole="MyPortfolioTblCategories" ToRole="MyPortfolioTblProjects" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblContact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblEducation">
+    <Key>
+      <PropertyRef Name="EducationId" />
+    </Key>
+    <Property Name="EducationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblExperience">
+    <Key>
+      <PropertyRef Name="ExperienceId" />
+    </Key>
+    <Property Name="ExperienceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblExpertis">
+    <Key>
+      <PropertyRef Name="ExpertiseId" />
+    </Key>
+    <Property Name="ExpertiseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblMessage">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MessageContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="MessageDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblProject">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="GithubUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MyPortfolioTblCategory" Relationship="Self.FK_MyPortfolioTblProjects_MyPortfolioTblCategories" FromRole="MyPortfolioTblProjects" ToRole="MyPortfolioTblCategories" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblSocialMedia">
+    <Key>
+      <PropertyRef Name="SocialMediaId" />
+    </Key>
+    <Property Name="SocialMediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MyPortfolioTblTestimonial">
+    <Key>
+      <PropertyRef Name="TestimonialId" />
+    </Key>
+    <Property Name="TestimonialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePictureUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_MyPortfolioTblProjects_MyPortfolioTblCategories">
+    <End Role="MyPortfolioTblCategories" Type="Self.MyPortfolioTblCategory" Multiplicity="1" />
+    <End Role="MyPortfolioTblProjects" Type="Self.MyPortfolioTblProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MyPortfolioTblCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MyPortfolioTblProjects">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbAIOEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MyPortfolioTblAbouts" EntityType="Self.MyPortfolioTblAbout" />
+    <EntitySet Name="MyPortfolioTblBanners" EntityType="Self.MyPortfolioTblBanner" />
+    <EntitySet Name="MyPortfolioTblCategories" EntityType="Self.MyPortfolioTblCategory" />
+    <EntitySet Name="MyPortfolioTblContacts" EntityType="Self.MyPortfolioTblContact" />
+    <EntitySet Name="MyPortfolioTblEducations" EntityType="Self.MyPortfolioTblEducation" />
+    <EntitySet Name="MyPortfolioTblExperiences" EntityType="Self.MyPortfolioTblExperience" />
+    <EntitySet Name="MyPortfolioTblExpertises" EntityType="Self.MyPortfolioTblExpertis" />
+    <EntitySet Name="MyPortfolioTblMessages" EntityType="Self.MyPortfolioTblMessage" />
+    <EntitySet Name="MyPortfolioTblProjects" EntityType="Self.MyPortfolioTblProject" />
+    <EntitySet Name="MyPortfolioTblSocialMedias" EntityType="Self.MyPortfolioTblSocialMedia" />
+    <EntitySet Name="MyPortfolioTblTestimonials" EntityType="Self.MyPortfolioTblTestimonial" />
+    <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+    <AssociationSet Name="FK_MyPortfolioTblProjects_MyPortfolioTblCategories" Association="Self.FK_MyPortfolioTblProjects_MyPortfolioTblCategories">
+      <End Role="MyPortfolioTblCategories" EntitySet="MyPortfolioTblCategories" />
+      <End Role="MyPortfolioTblProjects" EntitySet="MyPortfolioTblProjects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

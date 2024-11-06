@@ -1,0 +1,141 @@
+﻿@model List<MyPortfolio.Models.MyPortfolioTblMessage>
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            Messages
+        </h5>
+    </div>
+    <!-- IsReadMessageModal -->
+    <div class="modal fade" id="isReadMessage" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message Read Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Read", "Contact", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="MessageId" id="isReadMessageId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="isReadMessageRead" class="form-label">IsRead:</label>
+                                    <select id="isReadMessageRead" name="IsRead" class="form-select">
+                                        <option value="">Select an option</option>
+                                        <option value="True">Readed</option>
+                                        <option value="False">Not Readed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- DeleteMessageModal -->
+    <div class="modal fade" id="deleteMessage" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Delete", "Contact", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="modal-body">
+                        <p>There is no come back. Are you sure?</p>
+                        <input class="form-control" type="hidden" name="MessageId" id="deleteMessageId" placeholder="Id" readonly="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:-60px">
+        <div class="p-5">
+            <div class="mt-4">
+                <div class="list-group">
+                    @foreach (var message in Model)
+                    {
+                        <div class="mt-4">
+                            <div class="list-group">
+                                <div href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex justify-content-between w-100">
+                                        <h5 class="mb-1">@message.Name</h5>
+                                        <small class="text-muted">
+                                            @{
+                                                var date = DateTime.Now;
+                                                var messageDate = message.MessageDate.Value;
+                                                int year = date.Year - messageDate.Year;
+                                                int month = date.Month - messageDate.Month;
+                                                int day = date.Day - messageDate.Day;
+
+                                                var totalDay = (year * 365) + (month * 30) + day;
+                                            }
+                                            @totalDay Days Ago
+                                            @(message.IsRead == false ? Html.Raw("<span class=\"badge badge-center rounded-pill bg-label-info\">!</span>") : Html.Raw("") )
+                                        </small>
+                                    </div>
+                                    <p class="mb-1">
+                                        @message.MessageContent
+                                    </p>
+                                    <small class="text-muted">@message.Email</small>
+                                    <div class="dropdown float-end mb-3 me-3">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" onclick="showReadModal(@message.MessageId, '@message.IsRead.ToString()')"><i class="bx bx-edit-alt me-1"></i>Change Read Status</a>
+                                            <a class="dropdown-item" onclick="showDeleteModal('@message.IsRead.ToString()')"><i class="bx bx-trash me-1"></i>Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showReadModal(messageId, messageRead) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+        $('#isReadMessageId').val(messageId);
+        if (messageRead == true) {
+            messageRead = 1
+        }
+        else {
+            messageId = 0
+        }
+        $('#isReadMessageRead').val(messageRead);
+
+        // Modalı gösterir
+        $('#isReadMessage').modal('show');
+    }
+    function showDeleteModal(messageId) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#deleteMessageId').val(messageId);
+
+        // Modalı gösterir
+        $('#deleteMessage').modal('show');
+    }
+</script>

@@ -34,5 +34,13 @@ namespace MyPortfolio.Controllers
                 return RedirectToAction("Index", "Banner");
             }
         }
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

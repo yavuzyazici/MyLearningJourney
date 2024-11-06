@@ -1,0 +1,148 @@
+﻿@model List<MyPortfolio.Models.MyPortfolioTblCategory>
+@{
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            Category List
+        </h5>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">
+            <span class="tf-icons bx bxs-file-plus bx-18px me-2"></span>Add Category
+        </button>
+    </div>
+    <!-- AddCategoryModal -->
+    <div class="modal fade" id="addCategory" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryTitle">Add Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Add", "Category", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <label for="nameWithTitle" class="form-label">Name</label>
+                                <input type="text" id="nameWithTitle" name="Name" class="form-control" placeholder="Enter Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- DeleteCategoryModal -->
+    <div class="modal fade" id="deleteCategory" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCategoryTitle">Delete Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Delete", "Category", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <p>Bu işlem geri alınamaz. Emin misiniz?</p>
+                        <!-- Kategori ID'si için gizli input -->
+                        <input type="hidden" name="CategoryId" id="modalItemId" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- UpdateCategoryModal -->
+    <div class="modal fade" id="updateCategory" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateCategoryTitle">Update Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Update", "Category", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <div class="mb-4">
+                                    <label for="CategoryId" class="form-label">Category Id</label>
+                                    <input class="form-control" type="text" name="CategoryId" id="updateCategoryId" placeholder="Id" readonly="">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Name" class="form-label">Category Name</label>
+                                    <input type="text" class="form-control" name="Name" id="updateCategoryName" placeholder="SaaS App, Blog, Tools...">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category Id</th>
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td><i class="bx bx-category bx-md text-primary me-4"></i> <span>@category.CategoryId</span></td>
+                        <td>@category.Name</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu" style="">
+                                    <a class="dropdown-item" onclick="showUpdateModal(@category.CategoryId,'@category.Name')"><i class="bx bx-edit-alt me-1"></i> Update</a>
+                                    <a class="dropdown-item" onclick="showDeleteModal(@category.CategoryId)"><i class="bx bx-trash me-1"></i> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<script>
+    function showDeleteModal(categoryId) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+        $('#modalItemId').val(categoryId);
+
+        // Modalı gösterir
+        $('#deleteCategory').modal('show');
+    }
+    function showUpdateModal(categoryId, categoryName) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+        $('#updateCategoryId').val(categoryId);
+        $('#updateCategoryName').val(categoryName)
+
+        // Modalı gösterir
+        $('#updateCategory').modal('show');
+    }
+</script>

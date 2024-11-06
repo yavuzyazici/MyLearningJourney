@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace MyPortfolio.Controllers
 {
     public class AdminLayoutController : Controller
     {
+        DbAIOEntities1 db = new DbAIOEntities1();
         public ActionResult Layout()
         {
             return View();
@@ -17,5 +19,18 @@ namespace MyPortfolio.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult AdminLayoutNavbar()
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            var user = db.TblUsers.FirstOrDefault(x => x.Id == userId);
+            return PartialView(user);
+        }
+
+        public ActionResult AdminLayoutFooter()
+        {
+            return PartialView();
+        }
+
     }
 }

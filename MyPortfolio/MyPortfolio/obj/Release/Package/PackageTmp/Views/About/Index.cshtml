@@ -1,0 +1,99 @@
+﻿@model MyPortfolio.Models.MyPortfolioTblAbout
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="d-flex justify-content-between align-items-center p-3">
+        <h5 class="card-header mb-0">
+            About
+        </h5>
+    </div>
+
+    <!-- UpdateAboutModal -->
+    <div class="modal fade" id="updateAbout" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update About</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Update", "About", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="AboutId" id="updateAboutId" placeholder="Id" readonly="">
+                                <div class="mb-4">
+                                    <label for="Title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="Title" id="updateAboutTitle" placeholder="About Me, About...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateAboutDesc" class="form-label">Description</label>
+                                    <textarea style="height:150px" class="form-control" name="Description" id="updateAboutDesc" placeholder="Type your description text to here."></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateImgUrl" class="form-label">Image Url</label>
+                                    <input class="form-control" name="ImageUrl" id="updateImgUrl" placeholder="Type your image url to here">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="updateCvUrl" class="form-label">CV Url</label>
+                                    <input class="form-control" name="CvUrl" id="updateCvUrl" placeholder="Type your cv url to here.">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>About Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>ImageUrl</th>
+                    <th>CvUrl</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                <tr>
+                    <td><i class="bx bx-flag bx-md text-primary me-4"></i> <span>@Model.AboutId</span></td>
+                    <td>@Model.Title</td>
+                    <td>@Model.Description.Substring(0, 20)...</td>
+                    <td>@Model.ImageUrl</td>
+                    <td>@Model.CvUrl</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary" onclick="showUpdateModal(@Model.AboutId,'@Model.Title', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Description))', '@Model.ImageUrl', '@Model.CvUrl')">
+                            <span class="tf-icons bx bx-edit-alt bx-18px me-2"></span>Update
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<script>
+    function showUpdateModal(aboutId, aboutTitle, aboutDesc, imageUrl, cvUrl) {
+        // Modal içindeki gizli input'a ID değerini aktarır
+
+        $('#updateAboutId').val(aboutId);
+        $('#updateAboutTitle').val(aboutTitle)
+        $('#updateAboutDesc').val(aboutDesc)
+        $('#updateImgUrl').val(imageUrl)
+        $('#updateCvUrl').val(cvUrl)
+
+        // Modalı gösterir
+        $('#updateAbout').modal('show');
+    }
+</script>
+
