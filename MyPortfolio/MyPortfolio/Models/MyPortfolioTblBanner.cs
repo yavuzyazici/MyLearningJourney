@@ -11,11 +11,17 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblBanner
     {
+        [Required(ErrorMessage = "Id is required.")]
         public int BannerId { get; set; }
+        [Required(ErrorMessage = "Title is required.")]
+        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        [MaxLength(150, ErrorMessage = "Description can be max 150 character")]
         public string Description { get; set; }
     }
 }

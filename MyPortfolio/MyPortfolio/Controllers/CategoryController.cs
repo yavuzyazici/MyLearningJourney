@@ -21,6 +21,12 @@ namespace MyPortfolio.Controllers
         [HttpPost]
         public ActionResult Add(MyPortfolioTblCategory category)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Category");
+            }
             db.MyPortfolioTblCategories.Add(category);
             db.SaveChanges();
             return RedirectToAction("Index", "Category");
@@ -30,6 +36,17 @@ namespace MyPortfolio.Controllers
         public ActionResult Delete(int CategoryId)
         {
             var c = db.MyPortfolioTblCategories.Find(CategoryId);
+
+            var projectExist = db.MyPortfolioTblProjects.Where(x=> x.CategoryId == c.CategoryId).Any();
+
+            if (projectExist)
+            {
+                ModelState.AddModelError("", "This category is used. You cant delete");
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Category");
+            }
+
             if (c != null)
             {
                 db.MyPortfolioTblCategories.Remove(c);
@@ -43,6 +60,14 @@ namespace MyPortfolio.Controllers
         {
             var c = db.MyPortfolioTblCategories.Find(category.CategoryId);
             c.Name = category.Name;
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Project");
+            }
+
             db.SaveChanges();
             return RedirectToAction("Index", "Category");
         }

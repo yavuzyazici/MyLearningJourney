@@ -11,14 +11,23 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblProject
     {
+        [Required(ErrorMessage = "Project Id is required.")]
         public int ProjectId { get; set; }
+        [Required(ErrorMessage = "Project name is required.")]
+        [MaxLength(100, ErrorMessage ="Project name can be max 100 character")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Image URL is required.")]
         public string ImageUrl { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        [MaxLength(400, ErrorMessage = "Description cannot exceed 400 characters.")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Category is required.")]
         public int CategoryId { get; set; }
+        [Required(ErrorMessage = "Github URL is required.")]
         public string GithubUrl { get; set; }
     
         public virtual MyPortfolioTblCategory MyPortfolioTblCategory { get; set; }

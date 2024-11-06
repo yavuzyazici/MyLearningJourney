@@ -11,7 +11,8 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +20,12 @@ namespace MyPortfolio.Models
         {
             this.MyPortfolioTblProjects = new HashSet<MyPortfolioTblProject>();
         }
-    
+
+        [Required(ErrorMessage = "CategoryId is required.")]
+        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
         public int CategoryId { get; set; }
+        [Required(ErrorMessage = "Category Name is required.")]
+        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

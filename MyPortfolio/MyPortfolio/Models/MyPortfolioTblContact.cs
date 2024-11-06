@@ -11,13 +11,23 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblContact
     {
+        [Required(ErrorMessage = "Contact Id is required.")]
         public int ContactId { get; set; }
+        [Required(ErrorMessage = "Phone is required.")]
+        [MaxLength(20, ErrorMessage = "Phone can be max 20 character")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Email is required.")]
+        [MaxLength(50, ErrorMessage = "Email can be max 50 character")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Title is required.")]
+        [MaxLength(20, ErrorMessage = "Phone can be max 20 character")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        [MaxLength(150, ErrorMessage = "Description can be max 150 character")]
         public string Description { get; set; }
     }
 }

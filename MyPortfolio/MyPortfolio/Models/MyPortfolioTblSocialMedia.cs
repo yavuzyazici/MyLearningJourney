@@ -11,11 +11,16 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class MyPortfolioTblSocialMedia
     {
+        [Required(ErrorMessage = "SocialMediaId is required.")]
         public int SocialMediaId { get; set; }
+        [Required(ErrorMessage = "Name is required.")]
+        [MaxLength(50, ErrorMessage = "Name can be max 50 character")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Url is required.")]
         public string Url { get; set; }
     }
 }

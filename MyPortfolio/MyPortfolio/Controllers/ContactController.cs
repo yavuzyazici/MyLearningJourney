@@ -28,7 +28,7 @@ namespace MyPortfolio.Controllers
         [HttpGet]
         public ActionResult Messages()
         {
-            var data = db.MyPortfolioTblMessages.ToList();
+            var data = db.MyPortfolioTblMessages.OrderByDescending(x=> x.IsRead == false).ToList();
             return View(data);
         }
         [HttpPost]

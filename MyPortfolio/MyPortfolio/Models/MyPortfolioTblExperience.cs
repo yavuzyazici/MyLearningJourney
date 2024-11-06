@@ -11,14 +11,23 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblExperience
     {
+        [Required(ErrorMessage = "ExperienceId is required.")]
         public int ExperienceId { get; set; }
+        [Required(ErrorMessage = "CompanyName is required.")]
+        [MaxLength(100, ErrorMessage = "CompanyName can be max 100 character")]
         public string CompanyName { get; set; }
+        [Required(ErrorMessage = "Title is required.")]
+        [MaxLength(50, ErrorMessage = "Title can be max 50 character")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "StartDate is required.")]
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        [MaxLength(100, ErrorMessage = "Description can be max 100 character")]
         public string Description { get; set; }
     }
 }
