@@ -53,26 +53,8 @@
 
         <!-- ## site header
         ================================================== -->
-        <header class="s-header">
-
-            <div class="header-mobile">
-                <span class="mobile-home-link"><a href="/">Yavuz.</a></span>
-                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
-            </div>
-
-            <div class="row wide main-nav-wrap">
-                <nav class="column lg-12 main-nav">
-                    <ul>
-                        <li><a href="/" class="home-link">Yavuz.</a></li>
-                        <li class="current"><a href="#intro" class="smoothscroll">Banner</a></li>
-                        <li><a href="#about" class="smoothscroll">About Me</a></li>
-                        <li><a href="#works" class="smoothscroll">Projects</a></li>
-                        <li><a href="#contact" class="smoothscroll">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-        </header> <!-- end s-header -->
+        @Html.Action("HomeHeader", "Home") 
+    <!-- end s-header -->
         <!-- ## main content
         ==================================================- -->
         <main class="s-content">
@@ -80,119 +62,24 @@
 
             <!-- ### intro
             ================================================== -->
-            <section id="intro" class="s-intro target-section">
-
-                <div class="row intro-content wide">
-
-                    <div class="column">
-                        <div class="text-pretitle with-line">
-                            @ViewBag.BannerTitle
-                        </div>
-
-                        <h1 class="text-huge-title">
-                            @ViewBag.BannerDescription
-                        </h1>
-                    </div>
-
-                    <ul class="intro-social">
-                        @foreach (var social in ViewBag.Socials)
-                        {
-                            <li><a href="@social.Url">@social.Name</a></li>
-                        }
-                    </ul>
-
-                </div> <!-- end intro content -->
-
-                <a href="#about" class="intro-scrolldown smoothscroll">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" /></svg>
-                </a>
-
-            </section> <!-- end s-intro -->
+            @Html.Action("HomeBanner", "Home")
+            <!-- end s-intro -->
             <!-- ### about
             ================================================== -->
             <section id="about" class="s-about target-section">
-                <div class="row about-info wide" data-animate-block>
-                    <div class="column lg-6 md-12 about-info__pic-block">
-                        <img src="@ViewBag.AboutImageURL"
-                             srcset="@ViewBag.AboutImageURL" alt="About Picture" class="about-info__pic" data-animate-el>
-                    </div>
-                    <div class="column lg-6 md-12">
-                        <div class="about-info__text">
-                            <h2 class="text-pretitle with-line" data-animate-el>
-                                @ViewBag.AboutTitle
-                            </h2>
-                            <p class="attention-getter" data-animate-el>
-                                @ViewBag.AboutDescription
-                            </p>
-                            <a href="@ViewBag.AboutCvURL" target="_blank" class="btn btn--medium u-fullwidth" data-animate-el>CV</a>
-                        </div>
-                    </div>
-                </div> <!-- about-info -->
+                @Html.Action("HomeAbout", "Home")
+                <!-- about-info -->
 
-                <div class="row about-expertise" data-animate-block>
-                    <div class="column lg-12">
-
-                        <h2 class="text-pretitle" data-animate-el>@ViewBag.ExpertiseTitle</h2>
-
-                        <p class="h1">@ViewBag.ExpertiseDescription</p>
-
-                    </div>
-                </div> <!-- end about-expertise -->
+                @Html.Action("HomeExpertise", "Home")
+                <!-- end about-expertise -->
 
                 <div class="row about-timelines" data-animate-block>
 
-                    <div class="column lg-6 tab-12">
+                    @Html.Action("HomeExperience", "Home") 
+    <!-- end column -->
 
-                        <h2 class="text-pretitle" data-animate-el>
-                            Experience
-                        </h2>
-
-                        <div class="timeline" data-animate-el>
-
-                            @foreach (var experience in ViewBag.Experiences)
-                            {
-                                <div class="timeline__block">
-                                    <div class="timeline__bullet"></div>
-                                    <div class="timeline__header">
-                                        <h4 class="timeline__title">@experience.CompanyName</h4>
-                                        <h5 class="timeline__meta">@experience.Title</h5>
-                                        <p class="timeline__timeframe">@experience.StartDate.ToString("yyyy MMMM") - @(experience.EndDate== null ? "Günümüz" : experience.EndDate.ToString("yyyy MMMM"))</p>
-                                    </div>
-                                    <div class="timeline__desc">
-                                        <p>@experience.Description</p>
-                                    </div>
-                                </div>
-                            }
-                        </div> <!-- end timeline -->
-
-                    </div> <!-- end column -->
-
-                    <div class="column lg-6 tab-12">
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Education
-                        </h2>
-
-                        <div class="timeline" data-animate-el>
-
-                            @foreach (var experience in ViewBag.Educations)
-                            {
-                                <div class="timeline__block">
-                                    <div class="timeline__bullet"></div>
-                                    <div class="timeline__header">
-                                        <h4 class="timeline__title">@experience.SchoolName</h4>
-                                        <h5 class="timeline__meta">@experience.Department</h5>
-                                        <p class="timeline__timeframe">@experience.StartDate.ToString("yyyy MMMM") - @(experience.EndDate== null ? "Günümüz" : experience.EndDate.ToString("yyyy MMMM"))</p>
-                                    </div>
-                                    <div class="timeline__desc">
-                                        <p>@experience.Description</p>
-                                    </div>
-                                </div>
-                            }
-
-                        </div> <!-- end timeline -->
-
-                    </div> <!-- end column -->
+                    @Html.Action("HomeEducation", "Home") 
+    <!-- end column -->
 
 
                 </div> <!-- end about-timelines -->
@@ -202,189 +89,31 @@
             ================================================== -->
             <section id="works" class="s-works target-section">
 
+                @Html.Action("HomeProjects","Home") 
 
-                <div class="row works-portfolio">
+    <!-- end works-portfolio -->
 
-                    <div class="column lg-12" data-animate-block>
-
-                        <h2 class="text-pretitle" data-animate-el>
-                            Projects
-                        </h2>
-                        <p class="h1" data-animate-el>
-                            You can take a look at my recent work.
-                        </p>
-
-                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
-
-                            @foreach (var project in ViewBag.Projects)
-                            {
-                                <li class="folio-list__item column" data-animate-el>
-                                    <a class="folio-list__item-link" href="#modal-@project.ProjectId">
-                                        <div class="folio-list__item-pic">
-                                            <img src="@project.ImageUrl"
-                                                 srcset="@project.ImageUrl" alt="Project Image of @project.Name">
-                                        </div>
-
-                                        <div class="folio-list__item-text">
-                                            <div class="folio-list__item-cat">
-                                                @project.MyPortfolioTblCategory.Name
-                                            </div>
-                                            <div class="folio-list__item-title">
-                                                @project.Name
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="folio-list__proj-link" href="#" title="project link">
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                                    </a>
-                                </li>
-                            }
-                        </ul> <!-- end folio-list -->
-
-                    </div> <!-- end column -->
-                    <!-- Modal Templates Popup
-                    -------------------------------------------- -->
-
-                    @foreach (var project in ViewBag.Projects)
-                    {
-                        <div id="modal-@project.ProjectId" hidden>
-                            <div class="modal-popup">
-                                <img src="@project.ImageUrl" alt="Project Image of @project.Name">
-
-                                <div class="modal-popup__desc">
-                                    <h5>@project.Name</h5>
-                                    <p>@project.Description</p>
-                                    <ul class="modal-popup__cat">
-                                        <li>@project.MyPortfolioTblCategory.Name</li>
-                                    </ul>
-                                </div>
-
-                                <a href="@project.GithubUrl" class="modal-popup__details">Project Link</a>
-                            </div>
-                        </div>
-                    }
-                    <!-- end modal -->
-
-                </div> <!-- end works-portfolio -->
-
-                <div class="row testimonials">
-                    <div class="column lg-12" data-animate-block>
-
-                        <div class="swiper-container testimonial-slider" data-animate-el>
-
-                            <div class="swiper-wrapper">
-
-                                @foreach (var testimonial in ViewBag.Testimonials)
-                                {
-                                    <div class="testimonial-slider__slide swiper-slide">
-                                        <div class="testimonial-slider__author">
-                                            <img src="@(testimonial.ImageUrl== null ? "/wwwroot/images/avatars/no-pic.png" : testimonial.ImageUrl)
-                                            " alt="Author image" class="testimonial-slider__avatar">
-                                            <cite class="testimonial-slider__cite">
-                                                <strong>@testimonial.NameSurname</strong>
-                                                <span>@testimonial.Title</span>
-                                            </cite>
-                                        </div>
-                                        <p>
-                                            @testimonial.Comment
-                                        </p>
-                                    </div>
-                                }
-
-                            </div> <!-- end swiper-wrapper -->
-
-                            <div class="swiper-pagination"></div>
-
-                        </div> <!-- end swiper-container -->
-
-                    </div> <!-- end column -->
-                </div> <!-- end row testimonials -->
+                @Html.Action("HomeTestimonials", "Home") 
+    <!-- end row testimonials -->
 
             </section> <!-- end s-works -->
             <!-- ### contact
             ================================================== -->
             <section id="contact" class="s-contact target-section">
 
-                <div class="row contact-top">
-                    <div class="column lg-12">
-                        <h2 class="text-pretitle">
-                            ViewBag.Contact.Title
-                        </h2>
-
-                        <p class="h1">
-                            ViewBag.Contact.Description
-                        </p>
-                    </div>
-                </div> <!-- end contact-top -->
-                <div class="row input-container">
-                    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-                    {
-                        <div class="col-xs-12">
-                            <div class="styled-input wide">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="Name" required />
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="styled-input wide">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" name="Email" required />
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="styled-input wide">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="MessageContent" required></textarea>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <button type="submit" class="btn btn--medium u-fullwidth contact-btn">Mesaj Gönder</button>
-                        </div>
-                    }
-                </div>
-                <div class="row contact-bottom">
-                    <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
-                        <h3 class="text-pretitle">İletişim Bilgileri</h3>
-                        <p class="contact-links">
-                            <a href="mailto:@ViewBag.Contact.Email" class="mailtoui">@ViewBag.Contact.Email</a> <br>
-                            <a href="tel:@ViewBag.Contact.Phone">@ViewBag.Contact.Phone</a>
-                        </p>
-                    </div>
-                    <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
-                        <h3 class="text-pretitle">Sosyal Medya</h3>
-                        <ul class="contact-social">
-                            @foreach (var social in ViewBag.Socials)
-                            {
-                                <li><a href="@social.Url">@social.Name</a></li>
-                            }
-                        </ul>
-                    </div>
-                    <div class="column lg-4 md-12 contact-block">
-                        <a href="mailto:@ViewBag.Contact.Email" class="mailtoui btn btn--medium u-fullwidth contact-btn">Selam Ver.</a>
-                    </div>
-                </div> <!-- end contact-bottom -->
+                @Html.Action("HomeContact", "Home")
+            
+    <!-- end contact-bottom -->
 
             </section> <!-- end contact -->
 
         </main> <!-- end s-content -->
         <!-- ## footer
         ================================================== -->
-        <footer class="s-footer">
+        
+    @Html.Action("HomeFooter", "Home")
 
-            <div class="row">
-                <div class="column ss-copyright">
-                    <span>© Copyright Luther @DateTime.Now.Year</span>
-                    <span>Design by <a href="https://www.styleshout.com/">StyleShout</a> Distribution By <a href="https://themewagon.com">Themewagon</a></span>
-                </div>
-
-                <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z" /></svg>
-                    </a>
-                </div>
-            </div>
-
-        </footer> <!-- end s-footer -->
+    <!-- end s-footer -->
 
     </div> <!-- end -s-pagewrap -->
     <!-- Java Script

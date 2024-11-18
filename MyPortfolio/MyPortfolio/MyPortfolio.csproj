@@ -884,6 +884,19 @@
     <Content Include="Views\AdminLayout\AdminLayoutHead.cshtml" />
     <Content Include="Views\AdminLayout\AdminLayoutNavbar.cshtml" />
     <Content Include="Views\AdminLayout\AdminLayoutFooter.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutScripts.cshtml" />
+    <Content Include="Views\AdminLayout\AdminLayoutErrors.cshtml" />
+    <Content Include="Views\Home\HomeBanner.cshtml" />
+    <Content Include="Views\Home\HomeSocialMedia.cshtml" />
+    <Content Include="Views\Home\HomeAbout.cshtml" />
+    <Content Include="Views\Home\HomeExpertise.cshtml" />
+    <Content Include="Views\Home\HomeExperience.cshtml" />
+    <Content Include="Views\Home\HomeEducation.cshtml" />
+    <Content Include="Views\Home\HomeProjects.cshtml" />
+    <Content Include="Views\Home\HomeTestimonials.cshtml" />
+    <Content Include="Views\Home\HomeContact.cshtml" />
+    <Content Include="Views\Home\HomeFooter.cshtml" />
+    <Content Include="Views\Home\HomeHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

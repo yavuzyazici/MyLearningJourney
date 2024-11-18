@@ -11,11 +11,18 @@ namespace MyPortfolio.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblExpertis
     {
+        [Required(ErrorMessage = "Expertise Id is required.")]
         public int ExpertiseId { get; set; }
+        [Required(ErrorMessage = "Title is required.")]
+        [MaxLength(50, ErrorMessage = "Title can be max 50 character")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        [MaxLength(200, ErrorMessage = "Description can be max 200 character")]
+        [MinLength(10, ErrorMessage = "Description can be min 10 character")]
         public string Description { get; set; }
     }
 }

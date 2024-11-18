@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using MyPortfolio.Models;
 using System.Data.Entity;
+using System.Reflection;
 
 namespace MyPortfolio.Controllers
 {
@@ -16,38 +17,11 @@ namespace MyPortfolio.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var Banner = db.MyPortfolioTblBanners.FirstOrDefault();
+            
 
-            ViewBag.BannerTitle = Banner.Title;
-            ViewBag.BannerDescription = Banner.Description;
+            
 
-            var About = db.MyPortfolioTblAbouts.FirstOrDefault();
-            ViewBag.AboutTitle = About.Title;
-            ViewBag.AboutDescription = About.Description;
-            ViewBag.AboutImageURL = About.ImageUrl;
-            ViewBag.AboutCvURL = About.CvUrl;
-
-            var Expertise = db.MyPortfolioTblExpertises.FirstOrDefault();
-            ViewBag.ExpertiseTitle = Expertise.Title;
-            ViewBag.ExpertiseDescription = Expertise.Description;
-
-            var Experiences = db.MyPortfolioTblExperiences.ToList().OrderByDescending(x => x.StartDate);
-            ViewBag.Experiences = Experiences;
-
-            var Educations = db.MyPortfolioTblEducations.ToList().OrderByDescending(x => x.StartDate);
-            ViewBag.Educations = Educations;
-
-            var Projects = db.MyPortfolioTblProjects.ToList();
-            ViewBag.Projects = Projects;
-
-            var Testimonials = db.MyPortfolioTblTestimonials.ToList();
-            ViewBag.Testimonials = Testimonials;
-
-            var Contact = db.MyPortfolioTblContacts.FirstOrDefault();
-            ViewBag.Contact = Contact;
-
-            var Socials = db.MyPortfolioTblSocialMedias.ToList();
-            ViewBag.Socials = Socials;
+           
 
             return View();
         }
@@ -67,6 +41,61 @@ namespace MyPortfolio.Controllers
             }
 
             return View();
+        }
+
+        public PartialViewResult HomeHeader()
+        {
+            return PartialView();
+        }
+        public PartialViewResult HomeBanner()
+        {
+            var banner = db.MyPortfolioTblBanners.FirstOrDefault();
+            return PartialView(banner);
+        }
+        public PartialViewResult HomeAbout()
+        {
+            var about = db.MyPortfolioTblAbouts.FirstOrDefault();
+
+            return PartialView(about);
+        }
+        public PartialViewResult HomeSocialMedia()
+        {
+            var socials = db.MyPortfolioTblSocialMedias.ToList();
+            return PartialView(socials);
+        }
+        public PartialViewResult HomeExpertise()
+        {
+            var expertise = db.MyPortfolioTblExpertises.FirstOrDefault();
+            return PartialView(expertise);
+        }
+        public PartialViewResult HomeExperience()
+        {
+            var experiences = db.MyPortfolioTblExperiences.OrderByDescending(x => x.StartDate).ToList();
+            return PartialView(experiences);
+        }
+        public PartialViewResult HomeEducation()
+        {
+            var educations = db.MyPortfolioTblEducations.OrderByDescending(x => x.StartDate).ToList();
+            return PartialView(educations);
+        }
+        public PartialViewResult HomeProjects()
+        {
+            var projects = db.MyPortfolioTblProjects.ToList();
+            return PartialView(projects);
+        }
+        public PartialViewResult HomeTestimonials()
+        {
+            var testimonials = db.MyPortfolioTblTestimonials.ToList();
+            return PartialView(testimonials);
+        }
+        public PartialViewResult HomeContact()
+        {
+            var contact = db.MyPortfolioTblContacts.FirstOrDefault();
+            return PartialView(contact);
+        }
+        public PartialViewResult HomeFooter()
+        {
+            return PartialView();
         }
     }
 }

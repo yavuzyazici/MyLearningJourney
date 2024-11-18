@@ -51,6 +51,8 @@ E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\roslyn\vbc.rsp
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\roslyn\VBCSCompiler.exe
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\roslyn\VBCSCompiler.exe.config
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\Antlr3.Runtime.dll
+E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.dll
+E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.SqlServer.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\Microsoft.Web.Infrastructure.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.WebPages.Deploymen
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.WebPages.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.WebPages.Razor.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\WebGrease.dll
+E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.xml
+E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.SqlServer.xml
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.Helpers.xml
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.Mvc.xml
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\System.Web.Optimization.xml
@@ -77,7 +81,3 @@ E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\obj\Debug\MyPortfolio.csproj.Core
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\obj\Debug\MyPortfo.01A62FBD.Up2Date
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\obj\Debug\MyPortfolio.dll
 E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\obj\Debug\MyPortfolio.pdb
-E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.dll
-E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.SqlServer.dll
-E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.xml
-E:\Github\egitim-fasli\MyPortfolio\MyPortfolio\bin\EntityFramework.SqlServer.xml

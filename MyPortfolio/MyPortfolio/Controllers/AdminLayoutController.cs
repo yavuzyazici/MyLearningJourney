@@ -14,23 +14,27 @@ namespace MyPortfolio.Controllers
         {
             return View();
         }
-
         public ActionResult AdminLayoutHead()
         {
             return PartialView();
         }
-
         public ActionResult AdminLayoutNavbar()
         {
             int userId = Convert.ToInt32(Session["UserId"]);
             var user = db.TblUsers.FirstOrDefault(x => x.Id == userId);
             return PartialView(user);
         }
-
+        public ActionResult AdminLayoutErrors()
+        {
+            return PartialView();
+        }
         public ActionResult AdminLayoutFooter()
         {
             return PartialView();
         }
-
+        public ActionResult AdminLayoutScripts()
+        {
+            return PartialView();
+        }
     }
 }

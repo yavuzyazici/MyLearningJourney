@@ -1,0 +1,20 @@
+﻿@{
+    var errors = TempData["Errors"] as List<string>;
+}
+@if (errors != null)
+{
+    <div class="bs-toast toast fade show bg-danger position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="bx bx-bell me-2"></i>
+            <div class="me-auto fw-medium">Bootstrap</div>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        @foreach (var error in errors)
+        {
+            <ol class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-action text-white">@error</li>
+            </ol>
+        }
+    </div>
+}

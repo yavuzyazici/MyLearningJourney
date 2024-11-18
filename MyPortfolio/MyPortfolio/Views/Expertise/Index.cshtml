@@ -60,7 +60,7 @@
                 <tr>
                     <td><i class="bx bx-flag bx-md text-primary me-4"></i> <span>@Model.ExpertiseId</span></td>
                     <td>@Model.Title</td>
-                    <td>@Model.Description.Substring(0, 15)...</td>
+                    <td>@Model.Description.Substring(0, 10)...</td>
                     <td>
                         <button type="button" class="btn btn-outline-primary" onclick="showUpdateModal(@Model.ExpertiseId,'@Model.Title', '@Html.Raw(HttpUtility.JavaScriptStringEncode(@Model.Description))')">
                             <span class="tf-icons bx bx-edit-alt bx-18px me-2"></span>Update

@@ -1,0 +1,57 @@
+﻿@model MyPortfolio.Models.MyPortfolioTblContact
+<div class="row contact-top">
+    <div class="column lg-12">
+        <h2 class="text-pretitle">
+            @Model.Title
+        </h2>
+
+        <p class="h1">
+            @Model.Description
+        </p>
+    </div>
+</div>
+
+<div class="row input-container">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="col-xs-12">
+            <div class="styled-input wide">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="Name" required />
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="styled-input wide">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" required />
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="styled-input wide">
+                <label for="message">Message</label>
+                <textarea id="message" name="MessageContent" required></textarea>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn--medium u-fullwidth contact-btn">Sent Message</button>
+        </div>
+    }
+</div>
+<div class="row contact-bottom">
+    <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
+        <h3 class="text-pretitle">Contact Informations</h3>
+        <p class="contact-links">
+            <a href="mailto:@Model.Email" class="mailtoui">@Model.Email</a> <br>
+            <a href="tel:@Model.Phone">@Model.Phone</a>
+        </p>
+    </div>
+    <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+        <h3 class="text-pretitle">Social Media</h3>
+        <ul class="contact-social">
+            @Html.Action("HomeSocialMedia", "Home")
+        </ul>
+    </div>
+    <div class="column lg-4 md-12 contact-block">
+        <a href="mailto:@Model.Email" class="mailtoui btn btn--medium u-fullwidth contact-btn">Salute.</a>
+    </div>
+</div> 

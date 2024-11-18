@@ -24,13 +24,13 @@ namespace MyPortfolio.Controllers
             var myUser = db.TblUsers.FirstOrDefault(x => (x.EMail == email_username || x.UserName == email_username) & x.Password == Password);
             if (myUser == null)
             {
-                return RedirectToAction("Index", "Login");
+                ModelState.AddModelError("", "Email or password is incorrect");
+                return View("Index");
             }
             else
             {
                 FormsAuthentication.SetAuthCookie(myUser.UserName, false);
                 Session["UserId"] = myUser.Id;
-                Session["Username"] = myUser.UserName;
                 return RedirectToAction("Index", "Banner");
             }
         }
