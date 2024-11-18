@@ -99,3 +99,4 @@ node_modules/
 
 # Other generated files
 *.localhistory
+*.vsidx
