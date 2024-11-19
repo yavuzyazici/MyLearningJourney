@@ -59,17 +59,25 @@ namespace MyPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update(MyPortfolioTblCategory category)
         {
-            var c = db.MyPortfolioTblCategories.Find(category.CategoryId);
-            c.Name = category.Name;
-
-            if (!ModelState.IsValid)
+            try
             {
-                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                var c = db.MyPortfolioTblCategories.Find(category.CategoryId);
+                c.Name = category.Name;
 
-                return RedirectToAction("Index", "Category");
+                if (!ModelState.IsValid)
+                {
+                    TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                    return RedirectToAction("Index", "Category");
+                }
+                db.SaveChanges();
             }
+            catch (Exception ex)
+            {
 
-            db.SaveChanges();
+                throw ex;
+            }
+            
             return RedirectToAction("Index", "Category");
         }
     }
