@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace MyPortfolio.Controllers
 {
-    [Authorize]
     public class ExpertiseController : Controller
     {
         DbAIOEntities1 db = new DbAIOEntities1();
@@ -19,7 +18,7 @@ namespace MyPortfolio.Controllers
             return View(data);
         }
         [HttpPost]
-        public ActionResult Update(MyPortfolioTblExpertis expertise)
+        public ActionResult Update(MyPortfolioTblExpertise expertise)
         {
             var myExpertise = db.MyPortfolioTblExpertises.FirstOrDefault();
             myExpertise.Title = expertise.Title;

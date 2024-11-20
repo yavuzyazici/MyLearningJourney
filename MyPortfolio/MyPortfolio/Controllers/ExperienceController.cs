@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace MyPortfolio.Controllers
 {
-    [Authorize]
     public class ExperienceController : Controller
     {
         DbAIOEntities1 db = new DbAIOEntities1();
@@ -21,6 +20,12 @@ namespace MyPortfolio.Controllers
         public ActionResult Add(MyPortfolioTblExperience experience)
         {
             db.MyPortfolioTblExperiences.Add(experience);
+
+            if (experience.EndDate.HasValue && experience.EndDate < experience.StartDate)
+            {
+                ModelState.AddModelError("", "End date connot be earlier than start date");
+            }
+
             if (!ModelState.IsValid)
             {
                 TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();

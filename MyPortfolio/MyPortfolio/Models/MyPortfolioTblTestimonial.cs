@@ -10,23 +10,26 @@
 namespace MyPortfolio.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MyPortfolioTblTestimonial
     {
-        [Required(ErrorMessage = "TestimonialId is required.")]
+        [Key]
         public int TestimonialId { get; set; }
-        [Required(ErrorMessage = "NameSurname is required.")]
-        [MaxLength(50, ErrorMessage = "NameSurname can be max 50 character")]
+        [Required(ErrorMessage = "Name and surname are required.")]
+        [StringLength(50, ErrorMessage = "Name and surname must not exceed 50 characters.")]
         public string NameSurname { get; set; }
-        [Required(ErrorMessage = "Title is required.")]
-        [MaxLength(50, ErrorMessage = "Title can be max 50 character")]
+
+        [Required(ErrorMessage = "Title cannot be empty. Please provide a title.")]
+        [StringLength(50, ErrorMessage = "Title must not exceed 50 characters.")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "ImageUrl is required.")]
+
+        [Required(ErrorMessage = "Please upload an image URL.")]
         public string ImageUrl { get; set; }
-        [Required(ErrorMessage = "Comment is required.")]
-        [MaxLength(250, ErrorMessage = "Comment can be max 250 character")]
+
+        [Required(ErrorMessage = "Comment cannot be empty. Please provide your feedback.")]
+        [StringLeSngth(250, ErrorMessage = "Comments must not exceed 250 characters.")]
         public string Comment { get; set; }
     }
 }

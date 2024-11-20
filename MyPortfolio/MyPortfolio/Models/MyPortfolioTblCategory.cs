@@ -20,12 +20,10 @@ namespace MyPortfolio.Models
         {
             this.MyPortfolioTblProjects = new HashSet<MyPortfolioTblProject>();
         }
-
-        [Required(ErrorMessage = "CategoryId is required.")]
-        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
+        [Key]
         public int CategoryId { get; set; }
-        [Required(ErrorMessage = "Category Name is required.")]
-        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
+        [Required(ErrorMessage = "Name is required.")]
+        [StringLength(25, ErrorMessage = "Name name cannot exceed 25 characters.")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

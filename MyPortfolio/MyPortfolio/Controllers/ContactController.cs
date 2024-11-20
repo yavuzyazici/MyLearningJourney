@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using MyPortfolio.Models;
 namespace MyPortfolio.Controllers
 {
-    [Authorize]
     public class ContactController : Controller
     {
         DbAIOEntities1 db = new DbAIOEntities1();

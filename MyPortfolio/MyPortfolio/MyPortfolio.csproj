@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ExpertiseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\SocialMediaController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
@@ -178,7 +179,7 @@
     <Compile Include="Models\MyPortfolioTblExperience.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MyPortfolioTblExpertis.cs">
+    <Compile Include="Models\MyPortfolioTblExpertise.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyPortfolioTblMessage.cs">
@@ -897,6 +898,7 @@
     <Content Include="Views\Home\HomeContact.cshtml" />
     <Content Include="Views\Home\HomeFooter.cshtml" />
     <Content Include="Views\Home\HomeHeader.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

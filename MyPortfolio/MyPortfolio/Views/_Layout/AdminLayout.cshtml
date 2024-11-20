@@ -110,7 +110,7 @@
                             <li class="menu-item @(ViewContext.RouteData.Values["action"].ToString() == "Messages"  && ViewContext.RouteData.Values["controller"].ToString() == "Contact" ? "active" : "")">
                                 <a href="~/Contact/Messages" class="menu-link">
                                     <div class="text-truncate" data-i18n="Contact">Messages</div>
-                                    <span class="badge rounded-pill bg-info ms-auto">5</span>
+                                    <span class="badge rounded-pill bg-info ms-auto">@Session["NonReadedMessagesCount"]</span>
                                 </a>
                             </li>
                         </ul>

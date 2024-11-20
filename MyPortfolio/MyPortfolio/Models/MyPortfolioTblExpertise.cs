@@ -13,16 +13,16 @@ namespace MyPortfolio.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class MyPortfolioTblExpertis
+    public partial class MyPortfolioTblExpertise
     {
-        [Required(ErrorMessage = "Expertise Id is required.")]
+        [Key]
         public int ExpertiseId { get; set; }
         [Required(ErrorMessage = "Title is required.")]
-        [MaxLength(50, ErrorMessage = "Title can be max 50 character")]
+        [StringLength(50, ErrorMessage = "Title cannot exceed 50 characters.")]
         public string Title { get; set; }
+
         [Required(ErrorMessage = "Description is required.")]
-        [MaxLength(200, ErrorMessage = "Description can be max 200 character")]
-        [MinLength(10, ErrorMessage = "Description can be min 10 character")]
+        [StringLength(200, ErrorMessage = "Description cannot exceed 200 characters.")]
         public string Description { get; set; }
     }
 }

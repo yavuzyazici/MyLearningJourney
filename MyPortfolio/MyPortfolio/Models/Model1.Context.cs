@@ -31,7 +31,7 @@ namespace MyPortfolio.Models
         public virtual DbSet<MyPortfolioTblContact> MyPortfolioTblContacts { get; set; }
         public virtual DbSet<MyPortfolioTblEducation> MyPortfolioTblEducations { get; set; }
         public virtual DbSet<MyPortfolioTblExperience> MyPortfolioTblExperiences { get; set; }
-        public virtual DbSet<MyPortfolioTblExpertis> MyPortfolioTblExpertises { get; set; }
+        public virtual DbSet<MyPortfolioTblExpertise> MyPortfolioTblExpertises { get; set; }
         public virtual DbSet<MyPortfolioTblMessage> MyPortfolioTblMessages { get; set; }
         public virtual DbSet<MyPortfolioTblProject> MyPortfolioTblProjects { get; set; }
         public virtual DbSet<MyPortfolioTblSocialMedia> MyPortfolioTblSocialMedias { get; set; }

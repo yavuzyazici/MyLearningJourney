@@ -9,11 +9,11 @@
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblBanner" Width="2.125" PointX="2.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblCategory" Width="1.625" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblContact" Width="1.25" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblEducation" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblEducation" Width="1.5" PointX="5.375" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblExperience" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblExpertis" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblExpertise" Width="3.375" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblMessage" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblProject" Width="1.75" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblProject" Width="1.75" PointX="3.125" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblSocialMedia" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblTestimonial" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.TblUser" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />

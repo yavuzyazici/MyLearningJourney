@@ -15,15 +15,15 @@ namespace MyPortfolio.Models
 
     public partial class MyPortfolioTblAbout
     {
-        [Required(ErrorMessage = "Id is required.")]
+        [Key]
         public int AboutId { get; set; }
-        [Required(ErrorMessage = "ImageUrl is required.")]
+        [Required(ErrorMessage = "Image URL is required.")]
         public string ImageUrl { get; set; }
-        [MaxLength(50, ErrorMessage = "Title cannot exceed 50 characters.")]
         [Required(ErrorMessage = "Title is required.")]
+        [StringLength(50, ErrorMessage = "Title cannot exceed 50 characters.")]
         public string Title { get; set; }
-        [MaxLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         [Required(ErrorMessage = "Description is required.")]
+        [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         public string Description { get; set; }
         [Required(ErrorMessage = "CvUrl is required.")]
         public string CvUrl { get; set; }

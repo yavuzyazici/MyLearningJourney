@@ -15,19 +15,25 @@ namespace MyPortfolio.Models
 
     public partial class MyPortfolioTblContact
     {
-        [Required(ErrorMessage = "Contact Id is required.")]
+        [Key]
         public int ContactId { get; set; }
-        [Required(ErrorMessage = "Phone is required.")]
-        [MaxLength(20, ErrorMessage = "Phone can be max 20 character")]
+
+        [Required(ErrorMessage = "Phone number is required.")]
+        [StringLength(20, ErrorMessage = "Phone number cannot exceed 20 characters.")]
+        [Phone(ErrorMessage = "Please provide a valid phone number.")]
         public string Phone { get; set; }
-        [Required(ErrorMessage = "Email is required.")]
-        [MaxLength(50, ErrorMessage = "Email can be max 50 character")]
+
+        [Required(ErrorMessage = "Email address is required.")]
+        [StringLength(50, ErrorMessage = "Email address cannot exceed 50 characters.")]
+        [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
         public string Email { get; set; }
+
         [Required(ErrorMessage = "Title is required.")]
-        [MaxLength(20, ErrorMessage = "Phone can be max 20 character")]
+        [StringLength(20, ErrorMessage = "Title cannot exceed 20 characters.")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Description is required.")]
-        [MaxLength(150, ErrorMessage = "Description can be max 150 character")]
+        
+        [Required(ErrorMessage = "Title is required.")]
+        [StringLength(150, ErrorMessage = "Description cannot exceed 150 characters.")]
         public string Description { get; set; }
     }
 }

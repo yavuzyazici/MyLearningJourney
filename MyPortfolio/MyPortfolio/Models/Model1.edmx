@@ -213,7 +213,7 @@
           <Property Name="EndDate" Type="DateTime" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="MyPortfolioTblExpertis">
+        <EntityType Name="MyPortfolioTblExpertise">
           <Key>
             <PropertyRef Name="ExpertiseId" />
           </Key>
@@ -292,7 +292,7 @@
           <EntitySet Name="MyPortfolioTblContacts" EntityType="Self.MyPortfolioTblContact" />
           <EntitySet Name="MyPortfolioTblEducations" EntityType="Self.MyPortfolioTblEducation" />
           <EntitySet Name="MyPortfolioTblExperiences" EntityType="Self.MyPortfolioTblExperience" />
-          <EntitySet Name="MyPortfolioTblExpertises" EntityType="Self.MyPortfolioTblExpertis" />
+          <EntitySet Name="MyPortfolioTblExpertises" EntityType="DbAIOModel.MyPortfolioTblExpertise" />
           <EntitySet Name="MyPortfolioTblMessages" EntityType="Self.MyPortfolioTblMessage" />
           <EntitySet Name="MyPortfolioTblProjects" EntityType="Self.MyPortfolioTblProject" />
           <EntitySet Name="MyPortfolioTblSocialMedias" EntityType="Self.MyPortfolioTblSocialMedia" />
@@ -373,7 +373,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MyPortfolioTblExpertises">
-            <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblExpertis">
+            <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblExpertise">
               <MappingFragment StoreEntitySet="MyPortfolioTblExpertises">
                 <ScalarProperty Name="ExpertiseId" ColumnName="ExpertiseId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

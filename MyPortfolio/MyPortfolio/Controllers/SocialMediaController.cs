@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace MyPortfolio.Controllers
 {
-    [Authorize]
     public class SocialMediaController : Controller
     {
         DbAIOEntities1 db = new DbAIOEntities1();

@@ -16,6 +16,7 @@ namespace MyPortfolio.Controllers
         }
         public ActionResult AdminLayoutHead()
         {
+            Session["NonReadedMessagesCount"] = db.MyPortfolioTblMessages.Count(x => x.IsRead == false);
             return PartialView();
         }
         public ActionResult AdminLayoutNavbar()

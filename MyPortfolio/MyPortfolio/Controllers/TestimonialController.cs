@@ -4,7 +4,6 @@ using System.Web.Mvc;
 
 namespace MyPortfolio.Controllers
 {
-    [Authorize]
     public class TestimonialController : Controller
     {
         DbAIOEntities1 db = new DbAIOEntities1();

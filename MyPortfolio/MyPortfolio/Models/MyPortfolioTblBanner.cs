@@ -15,13 +15,14 @@ namespace MyPortfolio.Models
 
     public partial class MyPortfolioTblBanner
     {
-        [Required(ErrorMessage = "Id is required.")]
+        [Key]
         public int BannerId { get; set; }
         [Required(ErrorMessage = "Title is required.")]
-        [MaxLength(25, ErrorMessage = "Title can be max 25 character")]
+        [StringLength(25, ErrorMessage = "Title cannot exceed 25 characters.")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Description is required.")]
-        [MaxLength(150, ErrorMessage = "Description can be max 150 character")]
+
+        [Required(ErrorMessage = "Description address is required.")]
+        [StringLength(150,ErrorMessage = "Description cannot exceed 150 characters.")]
         public string Description { get; set; }
     }
 }

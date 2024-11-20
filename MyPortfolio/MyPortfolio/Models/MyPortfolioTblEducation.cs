@@ -15,23 +15,25 @@ namespace MyPortfolio.Models
 
     public partial class MyPortfolioTblEducation
     {
-        [Required(ErrorMessage = "EducationId is required.")]
+        [Key]
         public int EducationId { get; set; }
 
-        [Required(ErrorMessage = "SchoolName is required.")]
-        [MaxLength(100, ErrorMessage = "SchoolName can be max 100 character")]
+        [Required(ErrorMessage = "School name is required.")]
+        [StringLength(100, ErrorMessage = "School name cannot exceed 100 characters.")]
         public string SchoolName { get; set; }
 
-        [Required(ErrorMessage = "Department is required.")]
-        [MaxLength(40, ErrorMessage = "Department can be max 40 character")]
+        [Required(ErrorMessage = "Department name is required.")]
+        [StringLength(40, ErrorMessage = "Department name cannot exceed 40 characters.")]
         public string Department { get; set; }
 
-        [Required(ErrorMessage = "StartDate is required.")]
-        public System.DateTime StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
+        [Required(ErrorMessage = "Start date is required.")]
+        [DataType(DataType.Date, ErrorMessage = "Start date must be a valid date.")]
+        public DateTime StartDate { get; set; }
 
-        [Required(ErrorMessage = "Description is required.")]
-        [MaxLength(100, ErrorMessage = "Description can be max 100 character")]
+        [DataType(DataType.Date, ErrorMessage = "End date must be a valid date.")]
+        public DateTime? EndDate { get; set; }
+
+        [StringLength(100, ErrorMessage = "Description cannot exceed 100 characters.")]
         public string Description { get; set; }
     }
 }
