@@ -1,4 +1,4 @@
 
-# Eğitim Süreci
+# Education Process
 
-.NET öğrenim sürecimde yapmış olduğum projeleri bu repo altında tutuyorum.
+I keep the projects I made during my .NET learning process under this repo.
