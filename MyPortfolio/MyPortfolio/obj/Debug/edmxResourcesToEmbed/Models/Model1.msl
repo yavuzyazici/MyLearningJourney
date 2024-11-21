@@ -129,5 +129,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MyPortfolioTblMetas">
+      <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblMeta">
+        <MappingFragment StoreEntitySet="MyPortfolioTblMetas">
+          <ScalarProperty Name="PageOgImage" ColumnName="PageOgImage" />
+          <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+          <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

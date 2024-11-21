@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ExpertiseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MetaController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\SocialMediaController.cs" />
@@ -183,6 +184,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyPortfolioTblMessage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyPortfolioTblMeta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyPortfolioTblProject.cs">
@@ -899,10 +903,12 @@
     <Content Include="Views\Home\HomeFooter.cshtml" />
     <Content Include="Views\Home\HomeHeader.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Meta\Index.cshtml" />
+    <Content Include="Views\Home\HomeHead.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Dashboard\" />
+    <Folder Include="wwwroot\assets\img\og\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

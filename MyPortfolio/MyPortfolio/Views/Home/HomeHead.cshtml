@@ -1,0 +1,46 @@
+﻿@model MyPortfolio.Models.MyPortfolioTblMeta
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>@Model.PageTitle</title>
+    <meta name="description" content="@Model.PageDescription">
+    <meta name="keywords" content="yavuz yazıcı, yavuz yazici, Yavuz Selim Yazıcı, Yavuz Selim Yazici, yavuz selim yazici, selim yazıcı, selim yazici">
+    <meta name="author" content="Yavuz Selim Yazıcı">
+
+    <meta property="og:title" content="@Model.PageTitle">
+    <meta property="og:url" content="@AppDomain.CurrentDomain.BaseDirectory">
+    <meta property="og:image" content="@(AppDomain.CurrentDomain.BaseDirectory+Model.PageOgImage)">
+    <meta property="og:image:alt" content="@Model.PageTitle">
+    <meta property="og:description" content="@Model.PageDescription">
+
+
+    <meta name="DC.title" content="@Model.PageTitle" />
+    <meta name="DC.description" content="@Model.PageDescription" />
+    <meta name="DC.language" content="en" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@Model.PageTitle">
+    <meta name="twitter:description" content="@Model.PageDescription">
+    <meta name="twitter:image" content="@(AppDomain.CurrentDomain.BaseDirectory+Model.PageOgImage)">
+    <meta name="twitter:image:alt" content="@Model.PageTitle">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/wwwroot/css/vendor.css">
+    <link rel="stylesheet" href="~/wwwroot/css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/wwwroot/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/wwwroot/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/wwwroot/favicon-16x16.png">
+    <link rel="manifest" href="~/wwwroot/site.webmanifest">
+
+</head>

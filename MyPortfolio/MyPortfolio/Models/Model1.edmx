@@ -28,7 +28,7 @@
             <PropertyRef Name="CategoryId" />
           </Key>
           <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="25" />
+          <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="MyPortfolioTblContacts">
           <Key>
@@ -81,6 +81,15 @@
           <Property Name="IsRead" Type="bit" Nullable="false" />
           <Property Name="MessageDate" Type="date" />
         </EntityType>
+        <EntityType Name="MyPortfolioTblMetas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PageTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PageDescription" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="PageOgImage" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="MyPortfolioTblProjects">
           <Key>
             <PropertyRef Name="ProjectId" />
@@ -117,9 +126,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="UserName" Type="varchar" MaxLength="30" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProfilePictureUrl" Type="varchar" MaxLength="500" />
-          <Property Name="EMail" Type="varchar" MaxLength="100" />
+          <Property Name="EMail" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_MyPortfolioTblProjects_MyPortfolioTblCategories">
           <End Role="MyPortfolioTblCategories" Type="Self.MyPortfolioTblCategories" Multiplicity="1" />
@@ -142,6 +151,7 @@
           <EntitySet Name="MyPortfolioTblExperiences" EntityType="Self.MyPortfolioTblExperiences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyPortfolioTblExpertises" EntityType="Self.MyPortfolioTblExpertises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyPortfolioTblMessages" EntityType="Self.MyPortfolioTblMessages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyPortfolioTblMetas" EntityType="Self.MyPortfolioTblMetas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyPortfolioTblProjects" EntityType="Self.MyPortfolioTblProjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyPortfolioTblSocialMedias" EntityType="Self.MyPortfolioTblSocialMedias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MyPortfolioTblTestimonials" EntityType="Self.MyPortfolioTblTestimonials" Schema="dbo" store:Type="Tables" />
@@ -178,7 +188,7 @@
             <PropertyRef Name="CategoryId" />
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="MyPortfolioTblProjects" Relationship="Self.FK_MyPortfolioTblProjects_MyPortfolioTblCategories" FromRole="MyPortfolioTblCategories" ToRole="MyPortfolioTblProjects" />
         </EntityType>
         <EntityType Name="MyPortfolioTblContact">
@@ -269,9 +279,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProfilePictureUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="FK_MyPortfolioTblProjects_MyPortfolioTblCategories">
           <End Role="MyPortfolioTblCategories" Type="Self.MyPortfolioTblCategory" Multiplicity="1" />
@@ -302,7 +312,17 @@
             <End Role="MyPortfolioTblCategories" EntitySet="MyPortfolioTblCategories" />
             <End Role="MyPortfolioTblProjects" EntitySet="MyPortfolioTblProjects" />
           </AssociationSet>
+          <EntitySet Name="MyPortfolioTblMetas" EntityType="DbAIOModel.MyPortfolioTblMeta" />
         </EntityContainer>
+        <EntityType Name="MyPortfolioTblMeta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PageTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PageDescription" Type="String" Nullable="false" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="PageOgImage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -434,6 +454,16 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyPortfolioTblMetas">
+            <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblMeta">
+              <MappingFragment StoreEntitySet="MyPortfolioTblMetas">
+                <ScalarProperty Name="PageOgImage" ColumnName="PageOgImage" />
+                <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+                <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

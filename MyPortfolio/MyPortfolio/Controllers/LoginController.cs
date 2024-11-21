@@ -29,7 +29,7 @@ namespace MyPortfolio.Controllers
                 FormsAuthentication.SetAuthCookie(myUser.UserName, false);
                 Session["UserId"] = myUser.Id;
                 
-                return RedirectToAction("Index", "Banner");
+                return RedirectToAction("Index", "Meta");
             }
         }
         [HttpGet]

@@ -29,7 +29,7 @@ namespace MyPortfolio.Models
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "Comment cannot be empty. Please provide your feedback.")]
-        [StringLeSngth(250, ErrorMessage = "Comments must not exceed 250 characters.")]
+        [StringLength(250, ErrorMessage = "Comments must not exceed 250 characters.")]
         public string Comment { get; set; }
     }
 }

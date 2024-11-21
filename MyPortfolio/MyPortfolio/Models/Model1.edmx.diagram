@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblTestimonial" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbAIOModel.TblUser" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="DbAIOModel.FK_MyPortfolioTblProjects_MyPortfolioTblCategories" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbAIOModel.MyPortfolioTblMeta" Width="1.5" PointX="7.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

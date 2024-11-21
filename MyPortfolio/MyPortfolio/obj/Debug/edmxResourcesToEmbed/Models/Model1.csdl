@@ -23,7 +23,7 @@
       <PropertyRef Name="CategoryId" />
     </Key>
     <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="MyPortfolioTblProjects" Relationship="Self.FK_MyPortfolioTblProjects_MyPortfolioTblCategories" FromRole="MyPortfolioTblCategories" ToRole="MyPortfolioTblProjects" />
   </EntityType>
   <EntityType Name="MyPortfolioTblContact">
@@ -114,9 +114,9 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProfilePictureUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <Association Name="FK_MyPortfolioTblProjects_MyPortfolioTblCategories">
     <End Role="MyPortfolioTblCategories" Type="Self.MyPortfolioTblCategory" Multiplicity="1" />
@@ -147,5 +147,15 @@
       <End Role="MyPortfolioTblCategories" EntitySet="MyPortfolioTblCategories" />
       <End Role="MyPortfolioTblProjects" EntitySet="MyPortfolioTblProjects" />
     </AssociationSet>
+    <EntitySet Name="MyPortfolioTblMetas" EntityType="DbAIOModel.MyPortfolioTblMeta" />
   </EntityContainer>
+  <EntityType Name="MyPortfolioTblMeta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PageDescription" Type="String" Nullable="false" MaxLength="160" FixedLength="false" Unicode="true" />
+    <Property Name="PageOgImage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

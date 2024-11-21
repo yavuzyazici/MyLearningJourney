@@ -39,6 +39,13 @@
 
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+                    <!-- Meta -->
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Meta" ? "active" : "")">
+                        <a href="~/Meta/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                            <div class="text-truncate" data-i18n="Meta">Meta</div>
+                        </a>
+                    </li>
                     <!-- Banner -->
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Banner" ? "active" : "")">
                         <a href="~/Banner/Index" class="menu-link">

@@ -37,6 +37,11 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
+        public PartialViewResult HomeHead()
+        {
+            var meta = db.MyPortfolioTblMetas.FirstOrDefault();
+            return PartialView(meta);
+        }
         public PartialViewResult HomeHeader()
         {
             return PartialView();

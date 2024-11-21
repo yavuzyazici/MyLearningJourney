@@ -20,11 +20,12 @@ In this project the following technologies are used:
 In user panel:
 - You can send message via form
 - You can view experiences, projects, about texts...
-There is not much thing at User Side to be honest
+There is not much thing at user side to be honest
+
 ## Admin Side
 
 In admin panel:
-- You can update banner, about, expertises, contact texts
+- You can update meta, banner, about, expertises, contact texts
 - You can add, update, or delete social media profiles, experiences, education, projects, testimonials, and categories.
 - You can check your messages
 - You can edit your admin user profile

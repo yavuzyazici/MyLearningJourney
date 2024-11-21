@@ -1,0 +1,65 @@
+﻿@model MyPortfolio.Models.MyPortfolioTblMeta
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout/AdminLayout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+    <div class="row fv-plugins-icon-container">
+        <div class="col-md-12">
+            <div class="nav-align-top">
+                <ul class="nav nav-pills flex-column flex-md-row mb-6">
+                    <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Meta</a></li>
+                </ul>
+            </div>
+            <div class="card mb-6">
+                <form action="/Profile/Index" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework"></form>
+                <!-- Account -->
+                @using (Html.BeginForm("Index", "Meta", FormMethod.Post, new { @class = "fv-plugins-bootstrap5 fv-plugins-framework", @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center pb-4 border-bottom">
+                            <img src="@Model.PageOgImage" alt="Image Preview" class="img-fluid rounded" style="max-width: 600px;">
+                        </div>
+                    </div>
+                    <div class="card-body pt-4">
+
+                        <div class="row g-6">
+                            <div class="col-md-6 fv-plugins-icon-container">
+                                <label for="PageTitle" class="form-label">Name</label>
+                                <input class="form-control" type="text" name="PageTitle" id="PageTitle" value="@Model.PageTitle" placeholder="Title">
+                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="PageDescription" class="form-label">Description</label>
+                                <input class="form-control" type="text" id="PageDescription" name="PageDescription" value="@Model.PageDescription" placeholder="Description">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="PageOgImage" class="form-label">OgImage</label>
+                                <input class="form-control" type="text" id="PageOgImage" name="PageOgImage" value="@Model.PageOgImage" placeholder="Og Image">
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="button-wrapper">
+                                    <label for="ogImage" class="form-label">Upload Og Image</label>
+                                    <input type="file" class="form-control" name="ogImage" id="ogImage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                            <button type="reset" class="btn btn-label-secondary">Cancel</button>
+                        </div>
+                        <input type="hidden">
+                    </div>
+                }
+                <!-- /Account -->
+            </div>
+        </div>
+    </div>
+
+
+</div>
