@@ -1,0 +1,17 @@
+﻿@model BasicCRUDoperations.Models.Entity.BasicCRUDTblCategory
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+        <label>Category Name</label>
+        <input type="text" name="CategoryName" class="form-control" value="@Model.CategoryName" />
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info">Update Category</button>
+    </div>
+</form>

@@ -1,0 +1,20 @@
+﻿@model BasicCRUDoperations.Models.Entity.BasicCRUDTblCustomer
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+        <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
+        <label>Customer Name</label>
+        <input type="text" name="CustomerName" class="form-control" value="@Model.CustomerName"/>
+        <br />
+        <label>Customer Surname</label>
+        <input type="text" name="CustomerSurname" class="form-control" value="@Model.CustomerSurname"/>
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info">Update Customer</button>
+    </div>
+</form>

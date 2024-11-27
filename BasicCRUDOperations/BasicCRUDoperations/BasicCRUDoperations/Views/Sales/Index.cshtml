@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Sale Something</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>Product</label>
+        <select class="form-control" name="Product">
+            @foreach (var item in ViewBag.Products)
+            {
+                <option value="@item.ProductId">@item.ProductName</option>
+            }
+        </select>
+        <br />
+        <label>Customer</label>
+        <select class="form-control" name="Customer">
+            @foreach (var item in ViewBag.Customers)
+            {
+                <option value="@item.CustomerId">@(item.CustomerName + ' ' + item.CustomerSurname)</option>
+            }
+        </select>
+        <br />
+        <label>Period</label>
+        <input type="number" name="Period" placeholder="How many you gonna sell?" class="form-control" />
+        <br />
+        <label>Price</label>
+        <input type="text" name="Price" placeholder="For how much money you gonna sell?" class="form-control" />
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-info">Sale It!!!</button>
+    </div>
+</form>

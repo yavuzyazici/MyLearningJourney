@@ -1,0 +1,29 @@
+﻿@model List<BasicCRUDoperations.Models.Entity.BasicCRUDTblCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<a href="/Category/AddCategory/" class="btn btn-primary">Add Category</a>
+
+<br />
+<br />
+<table id="tableList" class="table table-bordered stripe hover">
+    <thead>
+        <tr>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td><a href="/Category/Delete/@category.CategoryId" class="btn btn-danger">Delete</a> <a href="/Category/Update/@category.CategoryId" class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model List<BasicCRUDoperations.Models.Entity.BasicCRUDTblCustomer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<a href="/Customer/AddCustomer/" class="btn btn-primary">Add Customer</a>
+
+<br />
+<br />
+<table id="tableList" class="table table-bordered stripe hover">
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Customer Surname</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.CustomerName</td>
+                <td>@customer.CustomerSurname</td>
+                <td><a href="/Customer/Delete/@customer.CustomerId" class="btn btn-danger">Delete</a> <a href="/Customer/Update/@customer.CustomerId" class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

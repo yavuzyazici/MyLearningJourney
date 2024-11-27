@@ -1,0 +1,5 @@
+
+*.dll
+/BasicCRUDOperations/BasicCRUDoperations/BasicCRUDoperations/bin
+*.vsidx
+*.vsidx

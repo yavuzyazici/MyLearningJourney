@@ -1,0 +1,38 @@
+﻿@model List<BasicCRUDoperations.Models.Entity.BasicCRUDTblProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<a href="/Product/AddProduct/" class="btn btn-primary">Add Product</a>
+
+<br />
+<br />
+<table id="tableList" class="table table-bordered stripe hover">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.Brand</td>
+                <td>@product.BasicCRUDTblCategory.CategoryName</td>
+                <td>@product.Price</td>
+                <td>@product.Stock</td>
+                <td><a href="/Product/Delete/@product.ProductId" class="btn btn-danger">Delete</a> <a href="/Product/Update/@product.ProductId" class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

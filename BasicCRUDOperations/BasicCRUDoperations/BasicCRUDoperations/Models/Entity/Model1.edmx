@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbAIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BasicCRUDTblCategories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblCustomers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerSurname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblProducts">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCategory" Type="smallint" />
+          <Property Name="Brand" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Stock" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblSales">
+          <Key>
+            <PropertyRef Name="SalesId" />
+          </Key>
+          <Property Name="SalesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="int" />
+          <Property Name="Customer" Type="int" />
+          <Property Name="Period" Type="tinyint" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_BasicCRUDTblProducts_BasicCRUDTblCategories">
+          <End Role="BasicCRUDTblCategories" Type="Self.BasicCRUDTblCategories" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblProducts" Type="Self.BasicCRUDTblProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblCategories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblProducts">
+              <PropertyRef Name="ProductCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasicCRUDTblSales_BasicCRUDTblCustomers">
+          <End Role="BasicCRUDTblCustomers" Type="Self.BasicCRUDTblCustomers" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblSales" Type="Self.BasicCRUDTblSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblCustomers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblSales">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasicCRUDTblSales_BasicCRUDTblProducts">
+          <End Role="BasicCRUDTblProducts" Type="Self.BasicCRUDTblProducts" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblSales" Type="Self.BasicCRUDTblSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblProducts">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblSales">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbAIOModelStoreContainer">
+          <EntitySet Name="BasicCRUDTblCategories" EntityType="Self.BasicCRUDTblCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BasicCRUDTblCustomers" EntityType="Self.BasicCRUDTblCustomers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BasicCRUDTblProducts" EntityType="Self.BasicCRUDTblProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BasicCRUDTblSales" EntityType="Self.BasicCRUDTblSales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BasicCRUDTblProducts_BasicCRUDTblCategories" Association="Self.FK_BasicCRUDTblProducts_BasicCRUDTblCategories">
+            <End Role="BasicCRUDTblCategories" EntitySet="BasicCRUDTblCategories" />
+            <End Role="BasicCRUDTblProducts" EntitySet="BasicCRUDTblProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasicCRUDTblSales_BasicCRUDTblCustomers" Association="Self.FK_BasicCRUDTblSales_BasicCRUDTblCustomers">
+            <End Role="BasicCRUDTblCustomers" EntitySet="BasicCRUDTblCustomers" />
+            <End Role="BasicCRUDTblSales" EntitySet="BasicCRUDTblSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasicCRUDTblSales_BasicCRUDTblProducts" Association="Self.FK_BasicCRUDTblSales_BasicCRUDTblProducts">
+            <End Role="BasicCRUDTblProducts" EntitySet="BasicCRUDTblProducts" />
+            <End Role="BasicCRUDTblSales" EntitySet="BasicCRUDTblSales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbAIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BasicCRUDTblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BasicCRUDTblProducts" Relationship="Self.FK_BasicCRUDTblProducts_BasicCRUDTblCategories" FromRole="BasicCRUDTblCategories" ToRole="BasicCRUDTblProducts" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BasicCRUDTblSales" Relationship="Self.FK_BasicCRUDTblSales_BasicCRUDTblCustomers" FromRole="BasicCRUDTblCustomers" ToRole="BasicCRUDTblSales" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCategory" Type="Int16" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Stock" Type="Byte" />
+          <NavigationProperty Name="BasicCRUDTblCategory" Relationship="Self.FK_BasicCRUDTblProducts_BasicCRUDTblCategories" FromRole="BasicCRUDTblProducts" ToRole="BasicCRUDTblCategories" />
+          <NavigationProperty Name="BasicCRUDTblSales" Relationship="Self.FK_BasicCRUDTblSales_BasicCRUDTblProducts" FromRole="BasicCRUDTblProducts" ToRole="BasicCRUDTblSales" />
+        </EntityType>
+        <EntityType Name="BasicCRUDTblSale">
+          <Key>
+            <PropertyRef Name="SalesId" />
+          </Key>
+          <Property Name="SalesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="Int32" />
+          <Property Name="Customer" Type="Int32" />
+          <Property Name="Period" Type="Byte" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="BasicCRUDTblCustomer" Relationship="Self.FK_BasicCRUDTblSales_BasicCRUDTblCustomers" FromRole="BasicCRUDTblSales" ToRole="BasicCRUDTblCustomers" />
+          <NavigationProperty Name="BasicCRUDTblProduct" Relationship="Self.FK_BasicCRUDTblSales_BasicCRUDTblProducts" FromRole="BasicCRUDTblSales" ToRole="BasicCRUDTblProducts" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_BasicCRUDTblProducts_BasicCRUDTblCategories">
+          <End Role="BasicCRUDTblCategories" Type="Self.BasicCRUDTblCategory" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblProducts" Type="Self.BasicCRUDTblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblCategories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblProducts">
+              <PropertyRef Name="ProductCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasicCRUDTblSales_BasicCRUDTblCustomers">
+          <End Role="BasicCRUDTblCustomers" Type="Self.BasicCRUDTblCustomer" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblSales" Type="Self.BasicCRUDTblSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblCustomers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblSales">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BasicCRUDTblSales_BasicCRUDTblProducts">
+          <End Role="BasicCRUDTblProducts" Type="Self.BasicCRUDTblProduct" Multiplicity="0..1" />
+          <End Role="BasicCRUDTblSales" Type="Self.BasicCRUDTblSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BasicCRUDTblProducts">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BasicCRUDTblSales">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbAIOEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BasicCRUDTblCategories" EntityType="Self.BasicCRUDTblCategory" />
+          <EntitySet Name="BasicCRUDTblCustomers" EntityType="Self.BasicCRUDTblCustomer" />
+          <EntitySet Name="BasicCRUDTblProducts" EntityType="Self.BasicCRUDTblProduct" />
+          <EntitySet Name="BasicCRUDTblSales" EntityType="Self.BasicCRUDTblSale" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_BasicCRUDTblProducts_BasicCRUDTblCategories" Association="Self.FK_BasicCRUDTblProducts_BasicCRUDTblCategories">
+            <End Role="BasicCRUDTblCategories" EntitySet="BasicCRUDTblCategories" />
+            <End Role="BasicCRUDTblProducts" EntitySet="BasicCRUDTblProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasicCRUDTblSales_BasicCRUDTblCustomers" Association="Self.FK_BasicCRUDTblSales_BasicCRUDTblCustomers">
+            <End Role="BasicCRUDTblCustomers" EntitySet="BasicCRUDTblCustomers" />
+            <End Role="BasicCRUDTblSales" EntitySet="BasicCRUDTblSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BasicCRUDTblSales_BasicCRUDTblProducts" Association="Self.FK_BasicCRUDTblSales_BasicCRUDTblProducts">
+            <End Role="BasicCRUDTblProducts" EntitySet="BasicCRUDTblProducts" />
+            <End Role="BasicCRUDTblSales" EntitySet="BasicCRUDTblSales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbAIOModelStoreContainer" CdmEntityContainer="DbAIOEntities1">
+          <EntitySetMapping Name="BasicCRUDTblCategories">
+            <EntityTypeMapping TypeName="DbAIOModel.BasicCRUDTblCategory">
+              <MappingFragment StoreEntitySet="BasicCRUDTblCategories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BasicCRUDTblCustomers">
+            <EntityTypeMapping TypeName="DbAIOModel.BasicCRUDTblCustomer">
+              <MappingFragment StoreEntitySet="BasicCRUDTblCustomers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerSurname" ColumnName="CustomerSurname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BasicCRUDTblProducts">
+            <EntityTypeMapping TypeName="DbAIOModel.BasicCRUDTblProduct">
+              <MappingFragment StoreEntitySet="BasicCRUDTblProducts">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BasicCRUDTblSales">
+            <EntityTypeMapping TypeName="DbAIOModel.BasicCRUDTblSale">
+              <MappingFragment StoreEntitySet="BasicCRUDTblSales">
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbAIOModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
