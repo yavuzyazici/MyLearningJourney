@@ -33,7 +33,6 @@ namespace MyPortfolio.Models
         public string Password { get; set; }
 
         [StringLength(500, ErrorMessage = "Profile picture URL cannot be longer than 500 characters.")]
-        [Url(ErrorMessage = "Profile picture URL must be a valid URL.")]
         public string ProfilePictureUrl { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]

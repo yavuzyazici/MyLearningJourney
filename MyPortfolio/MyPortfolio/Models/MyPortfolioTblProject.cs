@@ -12,6 +12,8 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class MyPortfolioTblProject
     {
@@ -35,6 +37,8 @@ namespace MyPortfolio.Models
 
         [Required(ErrorMessage = "Github Url is required.")]
         public string GithubUrl { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ProjectImage { get; set; }
 
         public virtual MyPortfolioTblCategory MyPortfolioTblCategory { get; set; }
     }

@@ -12,6 +12,8 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class MyPortfolioTblAbout
     {
@@ -27,5 +29,9 @@ namespace MyPortfolio.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "CvUrl is required.")]
         public string CvUrl { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase AboutImage { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase AboutCV { get; set; }
     }
 }

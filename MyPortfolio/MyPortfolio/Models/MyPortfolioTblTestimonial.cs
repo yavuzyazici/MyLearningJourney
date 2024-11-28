@@ -12,6 +12,8 @@ namespace MyPortfolio.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class MyPortfolioTblTestimonial
     {
@@ -25,11 +27,12 @@ namespace MyPortfolio.Models
         [StringLength(50, ErrorMessage = "Title must not exceed 50 characters.")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Please upload an image URL.")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "Comment cannot be empty. Please provide your feedback.")]
         [StringLength(250, ErrorMessage = "Comments must not exceed 250 characters.")]
         public string Comment { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase TestimonialImage { get; set; }
     }
 }

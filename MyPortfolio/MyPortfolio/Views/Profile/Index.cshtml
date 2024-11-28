@@ -15,10 +15,8 @@
                 </ul>
             </div>
             <div class="card mb-6">
-                <form action="/Profile/Index" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework" ></form>
-                <!-- Account -->
-                @using (Html.BeginForm("Index", "Profile", FormMethod.Post, new { @class = "fv-plugins-bootstrap5 fv-plugins-framework" , @enctype = "multipart/form-data"}))
-                {
+                <form action="/Profile/Index" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+                    <!-- Account -->
                     @Html.AntiForgeryToken()
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-6 pb-4 border-bottom">
@@ -54,18 +52,37 @@
                             </div>
                         </div>
                         <div class="mt-6">
-                            <div class="col-md-6">
-                                <label for="Password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="Password" name="Password" placeholder="Type your password for save changes">
-                            </div>
+
                             <br />
                             <button type="submit" class="btn btn-primary me-3">Save changes</button>
                             <button type="reset" class="btn btn-label-secondary">Cancel</button>
                         </div>
-                        <input type="hidden">
                     </div>
-                }
-                <!-- /Account -->
+                    <!-- /Account -->
+                </form>
+            </div>
+            <div class="card mb-6">
+                <form action="/Profile/RenewPassword" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+                    <!-- Account -->
+                    @Html.AntiForgeryToken()
+                    <div class="card-body pt-4">
+                        <div class="row g-6">
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Type your current password">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Type your new password">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                            <button type="reset" class="btn btn-label-secondary">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- /Account -->
+                </form>
             </div>
         </div>
     </div>

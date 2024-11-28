@@ -282,6 +282,7 @@
     <Content Include="wwwroot\assets\img\layouts\layout-fluid-light.png" />
     <Content Include="wwwroot\assets\img\layouts\layout-without-menu-light.png" />
     <Content Include="wwwroot\assets\img\layouts\layout-without-navbar-light.png" />
+    <Content Include="wwwroot\assets\img\project\homepage.png" />
     <Content Include="wwwroot\assets\js\config.js" />
     <Content Include="wwwroot\assets\js\dashboards-analytics.js" />
     <Content Include="wwwroot\assets\js\extended-ui-perfect-scrollbar.js" />
@@ -908,6 +909,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="wwwroot\assets\img\about\cv\" />
+    <Folder Include="wwwroot\assets\img\about\images\" />
     <Folder Include="wwwroot\assets\img\og\" />
   </ItemGroup>
   <ItemGroup>

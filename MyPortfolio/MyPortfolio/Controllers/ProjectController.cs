@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.IO;
 
 
 namespace MyPortfolio.Controllers
@@ -28,6 +29,17 @@ namespace MyPortfolio.Controllers
 
             return View(data);
         }
+        public void SaveImage(MyPortfolioTblProject project)
+        {
+            if (project.ProjectImage != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "wwwroot\\assets\\img\\";
+                var fileName = Path.Combine(saveLocation, project.ProjectImage.FileName);
+                project.ProjectImage.SaveAs(fileName);
+                project.ImageUrl = "/wwwroot/assets/img/" + project.ProjectImage.FileName;
+            }
+        }
         [HttpPost]
         public ActionResult Add(MyPortfolioTblProject project)
         {
@@ -37,6 +49,7 @@ namespace MyPortfolio.Controllers
 
                 return RedirectToAction("Index", "Project");
             }
+            SaveImage(project);
             db.MyPortfolioTblProjects.Add(project);
             db.SaveChanges();
 
@@ -46,11 +59,7 @@ namespace MyPortfolio.Controllers
         public ActionResult Update(MyPortfolioTblProject project)
         {
             var myProject = db.MyPortfolioTblProjects.Find(project.ProjectId);
-            myProject.Name = project.Name;
-            myProject.ImageUrl = project.ImageUrl;
-            myProject.Description = project.Description;
-            myProject.CategoryId = project.CategoryId;
-            myProject.GithubUrl = project.GithubUrl;
+            
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = db.MyPortfolioTblCategories.ToList();
@@ -59,6 +68,13 @@ namespace MyPortfolio.Controllers
 
                 return RedirectToAction("Index", "Project");
             }
+            SaveImage(project);
+            
+            myProject.Name = project.Name;
+            myProject.ImageUrl = project.ImageUrl;
+            myProject.Description = project.Description;
+            myProject.CategoryId = project.CategoryId;
+            myProject.GithubUrl = project.GithubUrl;
             db.SaveChanges();
             return RedirectToAction("Index", "Project");
         }

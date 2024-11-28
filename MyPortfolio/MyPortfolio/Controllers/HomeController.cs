@@ -24,16 +24,17 @@ namespace MyPortfolio.Controllers
         public ActionResult Index(MyPortfolioTblMessage model)
         {
             model.MessageDate = DateTime.Now;
-            // Modelin doğruluğunu kontrol et
-            if (ModelState.IsValid)
+            model.IsRead = false;
+            
+            if (!ModelState.IsValid)
             {
-                model.IsRead = false;  // Yeni mesaj olarak işaretle
-                db.MyPortfolioTblMessages.Add(model);  // Mesajı veritabanına ekle
-                db.SaveChanges();  // Değişiklikleri kaydet
+                TempData["MessageErrors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
 
                 return RedirectToAction("Index", "Home");
             }
 
+            db.MyPortfolioTblMessages.Add(model);
+            db.SaveChanges();
             return View();
         }
 

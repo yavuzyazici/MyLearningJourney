@@ -1,4 +1,6 @@
 ﻿using MyPortfolio.Models;
+using System.IO;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,7 +16,17 @@ namespace MyPortfolio.Controllers
             var data = db.MyPortfolioTblTestimonials.ToList();
             return View(data);
         }
-
+        public void SaveImage(MyPortfolioTblTestimonial testimonial)
+        {
+            if (testimonial.TestimonialImage != null)
+            {
+                var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var saveLocation = currentDirectory + "wwwroot\\assets\\img\\";
+                var fileName = Path.Combine(saveLocation, testimonial.TestimonialImage.FileName);
+                testimonial.TestimonialImage.SaveAs(fileName);
+                testimonial.ImageUrl = "/wwwroot/assets/img/" + testimonial.TestimonialImage.FileName;
+            }
+        }
         [HttpPost]
         public ActionResult Add(MyPortfolioTblTestimonial testimonial)
         {
@@ -24,6 +36,7 @@ namespace MyPortfolio.Controllers
 
                 return RedirectToAction("Index", "Testimonial");
             }
+            SaveImage(testimonial);
             db.MyPortfolioTblTestimonials.Add(testimonial);
             db.SaveChanges();
             return RedirectToAction("Index", "Testimonial");
@@ -33,16 +46,17 @@ namespace MyPortfolio.Controllers
         public ActionResult Update(MyPortfolioTblTestimonial testimonial)
         {
             var myTestimonial = db.MyPortfolioTblTestimonials.Find(testimonial.TestimonialId);
-            myTestimonial.NameSurname = testimonial.NameSurname;
-            myTestimonial.Title = testimonial.Title;
-            myTestimonial.ImageUrl = testimonial.ImageUrl;
-            myTestimonial.Comment = testimonial.Comment;
             if (!ModelState.IsValid)
             {
                 TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
 
                 return RedirectToAction("Index", "Testimonial");
             }
+            SaveImage(testimonial);
+            myTestimonial.NameSurname = testimonial.NameSurname;
+            myTestimonial.Title = testimonial.Title;
+            myTestimonial.ImageUrl = testimonial.ImageUrl;
+            myTestimonial.Comment = testimonial.Comment;
             db.SaveChanges();
             return RedirectToAction("Index", "Testimonial");
         }
