@@ -34,16 +34,50 @@ In admin panel:
 
 Below are screenshots of various sections of the admin panel:
 
-| Homepage | Login | Meta | Banner |
-|----------|-------|------|--------|
-| ![Homepage](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/homepage.png) | ![Login](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/login.png) | ![Meta](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/meta.png) | ![Banner](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/banner.png) |
+| Homepage |
+|----------|
+| ![Homepage](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/homepage.png) |
 
-| Social Media | About | Experience | Projects |
-|--------------|-------|------------|----------|
-| ![Social Media](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/socialmedia.png) | ![About](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/about.png) | ![Experience](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/experience.png) | ![Projects](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/projects.png) |
+| Login |
+|-------|
+| ![Login](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/login.png) |
 
-| Testimonial | Contact Messages | Category | Profile |
-|-------------|------------------|----------|---------|
-| ![Testimonial](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/testimonial.png) | ![Contact Messages](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/contact-messages.png) | ![Category](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/category.png) | ![Profile](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/profile.png) |
+| Meta |
+|------|
+| ![Meta](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/meta.png) |
 
----
+| Banner |
+|--------|
+| ![Banner](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/banner.png) |
+
+| Social Media |
+|--------------|
+| ![Social Media](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/socialmedia.png) |
+
+| About |
+|-------|
+| ![About](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/about.png) |
+
+| Experience |
+|------------|
+| ![Experience](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/experience.png) |
+
+| Projects |
+|----------|
+| ![Projects](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/projects.png) |
+
+| Testimonial |
+|-------------|
+| ![Testimonial](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/testimonial.png) |
+
+| Contact Messages |
+|------------------|
+| ![Contact Messages](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/contact-messages.png) |
+
+| Category |
+|----------|
+| ![Category](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/category.png) |
+
+| Profile |
+|---------|
+| ![Profile](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/profile.png) |
