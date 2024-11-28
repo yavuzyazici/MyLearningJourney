@@ -1,32 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Github\\egitim-fasli\\MyPortfolio\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\views\\project\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\views\\project\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\models\\tbluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\models\\tbluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|e:\\github\\egitim-fasli\\myportfolio\\myportfolio\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BE2474A-6352-49DE-96EC-586D5525EF2B}|MyPortfolio\\MyPortfolio.csproj|solutionrelative:myportfolio\\controllers\\projectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,89 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TblUser.cs",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Models\\TblUser.cs",
-              "RelativeDocumentMoniker": "MyPortfolio\\Models\\TblUser.cs",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Models\\TblUser.cs",
-              "RelativeToolTip": "MyPortfolio\\Models\\TblUser.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T13:49:04.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Views\\Profile\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyPortfolio\\Views\\Profile\\Index.cshtml",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Views\\Profile\\Index.cshtml",
-              "RelativeToolTip": "MyPortfolio\\Views\\Profile\\Index.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAUwEsAAABvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T13:33:43.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProfileController.cs",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\ProfileController.cs",
-              "RelativeDocumentMoniker": "MyPortfolio\\Controllers\\ProfileController.cs",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\ProfileController.cs",
-              "RelativeToolTip": "MyPortfolio\\Controllers\\ProfileController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAADwv1MAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T13:29:24.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Views\\Project\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyPortfolio\\Views\\Project\\Index.cshtml",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Views\\Project\\Index.cshtml",
-              "RelativeToolTip": "MyPortfolio\\Views\\Project\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAHEAAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T13:14:10.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProjectController.cs",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\ProjectController.cs",
-              "RelativeDocumentMoniker": "MyPortfolio\\Controllers\\ProjectController.cs",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\ProjectController.cs",
-              "RelativeToolTip": "MyPortfolio\\Controllers\\ProjectController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCEAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T13:09:48.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AboutController.cs",
-              "DocumentMoniker": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\AboutController.cs",
-              "RelativeDocumentMoniker": "MyPortfolio\\Controllers\\AboutController.cs",
-              "ToolTip": "E:\\Github\\egitim-fasli\\MyPortfolio\\MyPortfolio\\Controllers\\AboutController.cs",
-              "RelativeToolTip": "MyPortfolio\\Controllers\\AboutController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwB0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T13:01:32.788Z",
-              "EditorCaption": ""
             }
           ]
         }
