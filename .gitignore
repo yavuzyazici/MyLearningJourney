@@ -8,6 +8,7 @@ MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/original/Web.config
 MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/assist/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Views/Web.config
+MyPortfolio/MyPortfolio/obj
 
 # Ignore web.config files in multiple locations
 MyPortfolio/MyPortfolio/Web.config
