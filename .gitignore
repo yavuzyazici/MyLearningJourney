@@ -17,3 +17,4 @@ MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Views/Web.config
 MyPortfolio/MyPortfolio/Web.config
 *.config
+/MyPortfolio/MyPortfolio/bin
