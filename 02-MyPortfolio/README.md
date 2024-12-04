@@ -36,48 +36,48 @@ Below are screenshots of various sections of the admin panel:
 
 | Homepage |
 |----------|
-| ![Homepage](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/homepage.png) |
+| ![Homepage](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/homepage.png) |
 
 | Login |
 |-------|
-| ![Login](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/login.png) |
+| ![Login](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/login.png) |
 
 | Meta |
 |------|
-| ![Meta](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/meta.png) |
+| ![Meta](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/meta.png) |
 
 | Banner |
 |--------|
-| ![Banner](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/banner.png) |
+| ![Banner](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/banner.png) |
 
 | Social Media |
 |--------------|
-| ![Social Media](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/socialmedia.png) |
+| ![Social Media](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/socialmedia.png) |
 
 | About |
 |-------|
-| ![About](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/about.png) |
+| ![About](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/about.png) |
 
 | Experience |
 |------------|
-| ![Experience](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/experience.png) |
+| ![Experience](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/experience.png) |
 
 | Projects |
 |----------|
-| ![Projects](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/projects.png) |
+| ![Projects](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/projects.png) |
 
 | Testimonial |
 |-------------|
-| ![Testimonial](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/testimonial.png) |
+| ![Testimonial](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/testimonial.png) |
 
 | Contact Messages |
 |------------------|
-| ![Contact Messages](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/contact-messages.png) |
+| ![Contact Messages](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/contact-messages.png) |
 
 | Category |
 |----------|
-| ![Category](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/category.png) |
+| ![Category](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/category.png) |
 
 | Profile |
 |---------|
-| ![Profile](https://raw.githubusercontent.com/yavuzyazici/egitim-fasli/refs/heads/main/MyPortfolio/MyPortfolio/wwwroot/assets/img/project/profile.png) |
+| ![Profile](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/profile.png) |
