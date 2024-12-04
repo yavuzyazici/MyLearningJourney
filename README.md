@@ -1,4 +1,8 @@
+# MyLearningJourney
 
-# Education Process
+This repository contains the tutorials and projects I have developed on .NET Core and MVC.
 
-I keep the projects I made during my .NET learning process under this repo.
+## Projeler
+
+1. [Basic CRUD Operations](./01-BasicCRUDOperations)
+2. [MVC MyPortfolio](./02-MyPortfolio)
