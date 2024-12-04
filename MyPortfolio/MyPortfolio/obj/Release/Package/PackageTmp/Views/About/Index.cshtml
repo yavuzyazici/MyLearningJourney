@@ -19,7 +19,7 @@
                     <h5 class="modal-title">Update About</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                @using (Html.BeginForm("Update", "About", FormMethod.Post))
+                @using (Html.BeginForm("Update", "About", FormMethod.Post, new {@enctype = "multipart/form-data"}))
                 {
                     @Html.AntiForgeryToken()
                     <div class="modal-body">
@@ -39,8 +39,20 @@
                                     <input class="form-control" name="ImageUrl" id="updateImgUrl" placeholder="Type your image url to here">
                                 </div>
                                 <div class="mb-4">
+                                    <div class="button-wrapper">
+                                        <label for="AboutImage" class="form-label">Upload About Image</label>
+                                        <input type="file" class="form-control" name="AboutImage" id="AboutImage">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
                                     <label for="updateCvUrl" class="form-label">CV Url</label>
                                     <input class="form-control" name="CvUrl" id="updateCvUrl" placeholder="Type your cv url to here.">
+                                </div>
+                                <div class="mb-4">
+                                    <div class="button-wrapper">
+                                        <label for="AboutCV" class="form-label">Upload CV</label>
+                                        <input type="file" class="form-control" name="AboutCV" id="AboutCV">
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">

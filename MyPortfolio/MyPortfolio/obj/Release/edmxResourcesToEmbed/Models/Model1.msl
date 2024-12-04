@@ -65,7 +65,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MyPortfolioTblExpertises">
-      <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblExpertis">
+      <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblExpertise">
         <MappingFragment StoreEntitySet="MyPortfolioTblExpertises">
           <ScalarProperty Name="ExpertiseId" ColumnName="ExpertiseId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -126,6 +126,16 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MyPortfolioTblMetas">
+      <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblMeta">
+        <MappingFragment StoreEntitySet="MyPortfolioTblMetas">
+          <ScalarProperty Name="PageOgImage" ColumnName="PageOgImage" />
+          <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+          <ScalarProperty Name="PageTitle" ColumnName="PageTitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

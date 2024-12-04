@@ -1,20 +1,30 @@
+# .NET build folders and binaries
+bin/
+obj/
 
-*.dll
-/BasicCRUDOperations/BasicCRUDoperations/BasicCRUDoperations/bin
-*.vsidx
-*.vsidx
-MyPortfolio/MyPortfolio/Web.config
-MyPortfolio/MyPortfolio/Views/Web.config
+# Generated files for web.config transformations
 MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/transformed/Web.config
 MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/original/Web.config
 MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/assist/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Views/Web.config
+
+# Ignore web.config files in multiple locations
 MyPortfolio/MyPortfolio/Web.config
 MyPortfolio/MyPortfolio/Views/Web.config
-MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/transformed/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Web.config
 MyPortfolio/MyPortfolio/obj/Release/Package/PackageTmp/Views/Web.config
-MyPortfolio/MyPortfolio/Web.config
+
+# Ignore DLL files
+*.dll
+
+# Ignore Visual Studio index files
+*.vsidx
+
+# Ignore configuration files
 *.config
+
+# Ignore specific folders in the project
 /MyPortfolio/MyPortfolio/bin
+MyPortfolio/MyPortfolio/obj/Release/TransformWebConfig/transformed/Web.config
+MyPortfolio/MyPortfolio/Views/Web.config

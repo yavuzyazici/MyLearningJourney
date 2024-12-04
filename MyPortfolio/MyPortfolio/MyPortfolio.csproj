@@ -292,7 +292,7 @@
     <Content Include="wwwroot\assets\img\project\meta.png" />
     <Content Include="wwwroot\assets\img\project\profile.png" />
     <Content Include="wwwroot\assets\img\project\projects.png" />
-    <Content Include="wwwroot\assets\img\project\socialmedia.png.png" />
+    <Content Include="wwwroot\assets\img\project\socialmedia.png" />
     <Content Include="wwwroot\assets\img\project\testimonial.png" />
     <Content Include="wwwroot\assets\js\config.js" />
     <Content Include="wwwroot\assets\js\dashboards-analytics.js" />

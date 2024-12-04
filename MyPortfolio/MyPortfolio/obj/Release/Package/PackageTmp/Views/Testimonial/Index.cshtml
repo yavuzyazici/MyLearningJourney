@@ -22,7 +22,7 @@
                     <h5 class="modal-title" id="addTestimonialTitle">Add Testimonial</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                @using (Html.BeginForm("Add", "Testimonial", FormMethod.Post))
+                @using (Html.BeginForm("Add", "Testimonial", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     <div class="modal-body">
@@ -41,6 +41,12 @@
                                     <label for="addImageUrl" class="form-label">Image Url</label>
                                     <input class="form-control" name="ImageUrl" id="addImageUrl" placeholder="Type your image url to here.">
                                     <small>nullable</small>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="button-wrapper">
+                                        <label for="TestimonialImage" class="form-label">Upload Testimonial Image</label>
+                                        <input type="file" class="form-control" name="TestimonialImage" id="TestimonialImage">
+                                    </div>
                                 </div>
                                 <div class="mb-4">
                                     <label for="addDescription" class="form-label">Comment</label>
@@ -65,7 +71,7 @@
                     <h5 class="modal-title">Update Testimonial</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                @using (Html.BeginForm("Update", "Testimonial", FormMethod.Post))
+                @using (Html.BeginForm("Update", "Testimonial", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
 
@@ -85,6 +91,12 @@
                                     <label for="updateImageUrl" class="form-label">Image Url</label>
                                     <input class="form-control" name="ImageUrl" id="updateImageUrl" placeholder="Type your image url to here.">
                                     <small>nullable</small>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="button-wrapper">
+                                        <label for="TestimonialImage" class="form-label">Upload Testimonial Image</label>
+                                        <input type="file" class="form-control" name="TestimonialImage" id="TestimonialImage">
+                                    </div>
                                 </div>
                                 <div class="mb-4">
                                     <label for="updateComment" class="form-label">Comment</label>

@@ -248,7 +248,9 @@
     const ssLightbox = function() {
 
         const folioLinks = document.querySelectorAll('.folio-list__item-link');
+        const messageLinks = document.querySelectorAll('.folio-list__item-link-message');
         const modals = [];
+        const modal = [];
 
         folioLinks.forEach(function(link) {
             let modalbox = link.getAttribute('href');
@@ -273,6 +275,32 @@
             link.addEventListener("click", function(event) {
                 event.preventDefault();
                 modals[index].show();
+            });
+        });
+
+        messageLinks.forEach(function (link) {
+            let modalboxMessage = link.getAttribute('href');
+            let instanceMessage = basicLightbox.create(
+                document.querySelector(modalboxMessage),
+                {
+                    onShow: function (instanceMessage) {
+                        //detect Escape key press
+                        document.addEventListener("keydown", function (event) {
+                            event = event || window.event;
+                            if (event.keyCode === 27) {
+                                instance.close();
+                            }
+                        });
+                    }
+                }
+            )
+            modal.push(instanceMessage);
+        });
+
+        messageLinks.forEach(function (link, index) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal[index].show();
             });
         });
 

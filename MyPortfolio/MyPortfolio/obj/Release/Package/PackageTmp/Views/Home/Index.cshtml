@@ -1,31 +1,6 @@
 ﻿<!DOCTYPE html>
 <html class="no-js ss-preload" lang="en">
-<head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Luther</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="~/wwwroot/css/vendor.css">
-    <link rel="stylesheet" href="~/wwwroot/css/styles.css">
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="~/wwwroot/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="~/wwwroot/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="~/wwwroot/favicon-16x16.png">
-    <link rel="manifest" href="~/wwwroot/site.webmanifest">
-
-</head>
+@Html.Action("HomeHead", "Home")
 
 <body id="top">
 
@@ -53,8 +28,8 @@
 
         <!-- ## site header
         ================================================== -->
-        @Html.Action("HomeHeader", "Home") 
-    <!-- end s-header -->
+        @Html.Action("HomeHeader", "Home")
+        <!-- end s-header -->
         <!-- ## main content
         ==================================================- -->
         <main class="s-content">
@@ -75,11 +50,11 @@
 
                 <div class="row about-timelines" data-animate-block>
 
-                    @Html.Action("HomeExperience", "Home") 
-    <!-- end column -->
+                    @Html.Action("HomeExperience", "Home")
+                    <!-- end column -->
 
-                    @Html.Action("HomeEducation", "Home") 
-    <!-- end column -->
+                    @Html.Action("HomeEducation", "Home")
+                    <!-- end column -->
 
 
                 </div> <!-- end about-timelines -->
@@ -89,12 +64,12 @@
             ================================================== -->
             <section id="works" class="s-works target-section">
 
-                @Html.Action("HomeProjects","Home") 
+                @Html.Action("HomeProjects", "Home")
 
-    <!-- end works-portfolio -->
+                <!-- end works-portfolio -->
 
-                @Html.Action("HomeTestimonials", "Home") 
-    <!-- end row testimonials -->
+                @Html.Action("HomeTestimonials", "Home")
+                <!-- end row testimonials -->
 
             </section> <!-- end s-works -->
             <!-- ### contact
@@ -102,28 +77,36 @@
             <section id="contact" class="s-contact target-section">
 
                 @Html.Action("HomeContact", "Home")
-            
-    <!-- end contact-bottom -->
+
+                <!-- end contact-bottom -->
 
             </section> <!-- end contact -->
 
         </main> <!-- end s-content -->
         <!-- ## footer
         ================================================== -->
-        
-    @Html.Action("HomeFooter", "Home")
 
-    <!-- end s-footer -->
+        @Html.Action("HomeFooter", "Home")
+
+        <!-- end s-footer -->
 
     </div> <!-- end -s-pagewrap -->
     <!-- Java Script
     ================================================== -->
     <script src="~/wwwroot/js/plugins.js"></script>
     <script src="~/wwwroot/js/main.js"></script>
-    @if (!string.IsNullOrEmpty(ViewBag.Error))
+
+    @if (TempData["ContactErrors"] != null)
     {
         <script>
-        alert('@ViewBag.Error');
+        var errorMessage = '';
+
+        @foreach (var error in TempData["ContactErrors"] as List<string>)
+        {
+            @:errorMessage += '- @error\n';
+        }
+            alert(errorMessage);
+            console.log(errorMessage)
         </script>
     }
 </body>
