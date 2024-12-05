@@ -22,6 +22,7 @@
           <Property Name="BannerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="25" />
           <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsShown" Type="bit" />
         </EntityType>
         <EntityType Name="MyPortfolioTblCategories">
           <Key>
@@ -182,6 +183,7 @@
           <Property Name="BannerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsShown" Type="Boolean" />
         </EntityType>
         <EntityType Name="MyPortfolioTblCategory">
           <Key>
@@ -343,6 +345,7 @@
           <EntitySetMapping Name="MyPortfolioTblBanners">
             <EntityTypeMapping TypeName="DbAIOModel.MyPortfolioTblBanner">
               <MappingFragment StoreEntitySet="MyPortfolioTblBanners">
+                <ScalarProperty Name="IsShown" ColumnName="IsShown" />
                 <ScalarProperty Name="BannerId" ColumnName="BannerId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

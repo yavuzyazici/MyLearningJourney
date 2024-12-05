@@ -37,10 +37,10 @@ namespace MyPortfolio.Controllers
             return View(data);
         }
         [HttpPost]
-        public ActionResult Read(int MessageId, bool IsRead)
+        public ActionResult Read(MyPortfolioTblMessage Message)
         {
-            var myMessage = db.MyPortfolioTblMessages.FirstOrDefault(x => x.MessageId == MessageId);
-            myMessage.IsRead = IsRead;
+            var myMessage = db.MyPortfolioTblMessages.Find(Message.MessageId);
+            myMessage.IsRead = Message.IsRead;
             db.SaveChanges();
             return RedirectToAction("Messages", "Contact");
         }

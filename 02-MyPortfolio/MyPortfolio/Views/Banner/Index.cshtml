@@ -1,4 +1,4 @@
-﻿@model MyPortfolio.Models.MyPortfolioTblBanner
+﻿@model List<MyPortfolio.Models.MyPortfolioTblBanner>
 
 @{
     ViewBag.Title = "Index";
@@ -11,6 +11,10 @@
         <h5 class="card-header mb-0">
             Banner
         </h5>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBanner">
+            <span class="tf-icons bx bxs-file-plus bx-18px me-2"></span>Add Banner
+        </button>
     </div>
 
     <!-- UpdateBannerModal -->
@@ -27,19 +31,19 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col mb-6">
-                                <input class="form-control" type="hidden" name="BannerId" id="updateBannerId" placeholder="Id" readonly="">
+                                <input class="form-control" type="hidden" name="BannerId" id="updateBannerId" readonly="">
+                                <input class="form-control" type="hidden" name="IsShown" id="updateBannerIsShown" readonly="">
                                 <div class="mb-4">
                                     <label for="Title" class="form-label">Banner Title</label>
                                     <input type="text" class="form-control" name="Title" id="updateBannerTitle" placeholder="Hello World, MyPortfolio...">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="updateBannerDesc" class="form-label">Banner Description</label>
+                                    <label for="Description" class="form-label">Banner Description</label>
                                     <textarea class="form-control" name="Description" id="updateBannerDesc" placeholder="Write your description text to here."></textarea>
                                 </div>
-
-
                             </div>
                             <div class="modal-footer">
+                                <button type="button" onclick="$('#updateBannerIsShown').val('True')" style="margin-right: 5px" class="btn btn-warning">Set Main Banner</button>
                                 <button type="submit" class="btn btn-warning">Update</button>
                             </div>
                         </div>
@@ -48,41 +52,115 @@
             </div>
         </div>
     </div>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Banner Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0">
-                    <tr>
-                        <td><i class="bx bx-flag bx-md text-primary me-4"></i> <span>@Model.BannerId</span></td>
-                        <td>@Model.Title</td>
-                        <td>@Model.Description.Substring(0, 15)...</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-primary" onclick="showUpdateModal(@Model.BannerId,'@Model.Title', '@Html.Raw(HttpUtility.JavaScriptStringEncode(@Model.Description))')">
-                                <span class="tf-icons bx bx-edit-alt bx-18px me-2"></span>Update
-                            </button>
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
-        <br />
+    <!-- AddBannerModal -->
+    <div class="modal fade" id="addBanner" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Banner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Add", "Banner", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-6">
+                                <input class="form-control" type="hidden" name="BannerId" id="addBannerId" readonly="">
+                                <input class="form-control" type="hidden" name="IsShown" id="addBannerIsShown" readonly="">
+                                <div class="mb-4">
+                                    <label for="Title" class="form-label">Banner Title</label>
+                                    <input type="text" class="form-control" name="Title" id="addBannerTitle" placeholder="Hello World, MyPortfolio...">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Description" class="form-label">Banner Description</label>
+                                    <textarea class="form-control" name="Description" id="addBannerDesc" placeholder="Write your description text to here."></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" onclick="$('#addBannerIsShown').val('True')" style="margin-right: 5px" class="btn btn-warning">Set Main Banner</button>
+                                <button type="submit" class="btn btn-warning">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
-</div>
-<script>
-    function showUpdateModal(bannerId, bannerTitle, bannerDesc) {
-        // Modal içindeki gizli input'a ID değerini aktarır
+    <!-- DeleteSocialMediaModal -->
+    <div class="modal fade" id="deleteBanner" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Banner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @using (Html.BeginForm("Delete", "Banner", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <p>There is no come back. Are you sure?</p>
+                        <input type="hidden" name="BannerId" id="modalItemId" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 
-        $('#updateBannerId').val(bannerId);
-        $('#updateBannerTitle').val(bannerTitle)
-        $('#updateBannerDesc').val(bannerDesc)
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Banner Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var banner in Model)
+                    {
+                        <tr>
+                            <td><i class="bx @(banner.IsShown == true ? "bx-star" : "bx-flag") bx-md text-primary me-4"></i> <span>@banner.BannerId</span></td>
+                            <td>@banner.Title</td>
+                            <td>@banner.Description.Substring(0, 15)...</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow show" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
 
-        // Modalı gösterir
-        $('#updateBanner').modal('show');
-    }
-</script>
+                                    <div class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1205px, 194px);" data-popper-placement="bottom-start">
+                                        <a class="dropdown-item" onclick="showUpdateModal(@banner.BannerId,'@banner.Title', '@Html.Raw(HttpUtility.JavaScriptStringEncode(banner.Description))', '@banner.IsShown.ToString()')"><i class="bx bx-edit-alt me-1"></i> Update</a>
+                                        <a class="dropdown-item" onclick="showDeleteModal(@banner.BannerId)"><i class="bx bx-trash-alt me-2"></i>Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+    <script>
+        function showUpdateModal(bannerId, bannerTitle, bannerDesc, bannerIsShown) {
+            // Modal içindeki gizli input'a ID değerini aktarır
+
+            $('#updateBannerId').val(bannerId)
+            $('#updateBannerTitle').val(bannerTitle)
+            $('#updateBannerDesc').val(bannerDesc)
+            $('#updateBannerIsShown').val(bannerIsShown)
+
+            // Modalı gösterir
+            $('#updateBanner').modal('show');
+        }
+        function showDeleteModal(bannerId) {
+            $('#modalItemId').val(bannerId)
+
+            $('#deleteBanner').modal('show');
+        }
+    </script>

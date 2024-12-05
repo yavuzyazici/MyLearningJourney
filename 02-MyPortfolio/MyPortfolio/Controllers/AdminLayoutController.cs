@@ -23,6 +23,9 @@ namespace MyPortfolio.Controllers
         {
             int userId = Convert.ToInt32(Session["UserId"]);
             var user = db.TblUsers.FirstOrDefault(x => x.Id == userId);
+
+            var messages = db.MyPortfolioTblMessages.Where(x => x.IsRead == false).Take(3).ToList();
+            Session["Messages"] = messages;
             return PartialView(user);
         }
         public ActionResult AdminLayoutErrors()

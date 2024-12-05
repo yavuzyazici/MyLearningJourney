@@ -24,6 +24,59 @@
                    data-show-count="true"
                    aria-label="Star /MyPortfolio on GitHub">Star</a>
             </li>
+            <!-- Notifications -->
+            <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
+                <a class="nav-link dropdown-toggle hide-arrow show" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true" style="">
+                    <span class="position-relative">
+                        <i class="bx bx-envelope bx-md"></i>
+                        <span class="badge rounded-pill bg-danger badge-dot badge-notifications border"></span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end p-0" data-bs-popper="static">
+                    <li class="dropdown-menu-header border-bottom">
+                        <div class="dropdown-header d-flex align-items-center py-3">
+                            <h6 class="mb-0 me-auto">Messages</h6>
+                            <div class="d-flex align-items-center h6 mb-0">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-notifications-list scrollable-container ps ps--active-y">
+                        <ul class="list-group list-group-flush">
+                            @if (Session["Messages"] != null)
+                            {
+                                foreach (var message in Session["Messages"] as List<MyPortfolio.Models.MyPortfolioTblMessage>)
+                                {
+                                    <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar">
+                                                    <span class="avatar-initial rounded-circle bg-label-danger">@message.Name.Substring(0,2)</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="small mb-0">@message.Name</h6>
+                                                <small class="mb-1 d-block text-body">@message.Email</small>
+                                                <small class="text-muted">@message.MessageDate</small>
+                                            </div>
+                                            <div class="flex-shrink-0 dropdown-notifications-actions">
+                                                <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 480px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 248px;"></div></div>
+                    </li>
+                    <li class="border-top">
+                        <div class="d-grid p-4">
+                            <a class="btn btn-primary btn-sm d-flex" href="/Contact/Messages" style="">
+                                <small class="align-middle">View all messages</small>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow p-0"

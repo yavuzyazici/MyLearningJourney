@@ -23,6 +23,9 @@ namespace MyPortfolio.Models
 
         [Required(ErrorMessage = "Description address is required.")]
         [StringLength(150,ErrorMessage = "Description cannot exceed 150 characters.")]
+        [MinLength(15, ErrorMessage = "Title cannot become less than 15 characters.")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "IsShown is required.")]
+        public bool IsShown { get; set; }
     }
 }

@@ -11,12 +11,12 @@
             Messages
         </h5>
     </div>
-    <!-- IsReadMessageModal -->
-    <div class="modal fade" id="isReadMessage" tabindex="-1" style="display: none;" aria-hidden="true">
+    <!-- ViewMessageModal -->
+    <div class="modal fade" id="viewMessage" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Message Read Status</h5>
+                    <h5 class="modal-title">Message</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 @using (Html.BeginForm("Read", "Contact", FormMethod.Post))
@@ -25,18 +25,28 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col mb-6">
-                                <input class="form-control" type="hidden" name="MessageId" id="isReadMessageId" placeholder="Id" readonly="">
+                                <input class="form-control" type="hidden" name="MessageId" id="checkMessageId" readonly>
+                                <input class="form-control" type="hidden" name="IsRead" id="checkMessageIsRead" readonly>
                                 <div class="mb-4">
-                                    <label for="isReadMessageRead" class="form-label">IsRead:</label>
-                                    <select id="isReadMessageRead" name="IsRead" class="form-select">
-                                        <option value="">Select an option</option>
-                                        <option value="True">Readed</option>
-                                        <option value="False">Not Readed</option>
-                                    </select>
+                                    <label for="Name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="Name" id="checkMessageName" readonly placeholder="Name">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="Email" id="checkMessageEmail" readonly placeholder="Name">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="Date" class="form-label">Date</label>
+                                    <input type="text" class="form-control" name="Date" id="checkMessageDate" readonly placeholder="Name">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="MessageContent" class="form-label">Message</label>
+                                    <textarea style="height: 150px;" class="form-control" name="MessageContent" id="checkMessageContent" placeholder="Message" readonly></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-warning">Update</button>
+                                <button onclick="$('#checkMessageIsRead').val('True')" type="submit" style="margin-right:5px" class="btn btn-warning">Mark Readed</button>
+                                <button onclick="$('#checkMessageIsRead').val('False')" type="submit" class="btn btn-warning">Mark as Unread</button>
                             </div>
                         </div>
                     </div>
@@ -102,7 +112,7 @@
                                         </button>
 
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" onclick="showReadModal(@message.MessageId, '@message.IsRead.ToString()')"><i class="bx bx-edit-alt me-1"></i>Change Read Status</a>
+                                            <a class="dropdown-item" onclick="showMessageModal(@message.MessageId, '@message.Name', '@message.Email', '@message.MessageContent', '@message.MessageDate.ToString()', '@message.IsRead.ToString()')"><i class="bx bx-edit-alt me-1"></i>Check Message</a>
                                             <a class="dropdown-item" onclick="showDeleteModal('@message.MessageId')"><i class="bx bx-trash me-1"></i>Delete</a>
                                         </div>
                                     </div>
@@ -116,19 +126,16 @@
     </div>
 </div>
 <script>
-    function showReadModal(messageId, messageRead) {
+    function showMessageModal(messageId, messageName, messageEmail, messageContent, messageDate, messageIsRead) {
         // Modal içindeki gizli input'a ID değerini aktarır
-        $('#isReadMessageId').val(messageId);
-        if (messageRead == true) {
-            messageRead = 1
-        }
-        else {
-            messageId = 0
-        }
-        $('#isReadMessageRead').val(messageRead);
-
+        $('#checkMessageId').val(messageId);
+        $('#checkMessageIsRead').val(messageIsRead);
+        $('#checkMessageName').val(messageName);
+        $('#checkMessageEmail').val(messageEmail);
+        $('#checkMessageDate').val(messageDate);
+        $('#checkMessageContent').val(messageContent);
         // Modalı gösterir
-        $('#isReadMessage').modal('show');
+        $('#viewMessage').modal('show');
     }
     function showDeleteModal(messageId) {
         // Modal içindeki gizli input'a ID değerini aktarır

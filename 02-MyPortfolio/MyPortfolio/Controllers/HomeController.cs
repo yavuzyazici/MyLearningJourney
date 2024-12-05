@@ -49,7 +49,7 @@ namespace MyPortfolio.Controllers
         }
         public PartialViewResult HomeBanner()
         {
-            var banner = db.MyPortfolioTblBanners.FirstOrDefault();
+            var banner = db.MyPortfolioTblBanners.Where(b => b.IsShown == true).FirstOrDefault();
             return PartialView(banner);
         }
         public PartialViewResult HomeAbout()
