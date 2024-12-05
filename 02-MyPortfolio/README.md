@@ -81,3 +81,7 @@ Below are screenshots of various sections of the admin panel:
 | Profile |
 |---------|
 | ![Profile](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/profile.png) |
+
+| Messages |
+|---------|
+| ![Profile](https://raw.githubusercontent.com/yavuzyazici/MyLearningJourney/refs/heads/main/02-MyPortfolio/MyPortfolio/wwwroot/assets/img/project/messages.png) |
