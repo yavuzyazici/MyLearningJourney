@@ -1,0 +1,52 @@
+﻿@model List<RestaurantProject.Models.RestaurantChef>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-server me-1_5"></i> Chefs</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Chef/AddChef" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add Chef</span>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            @foreach (var chef in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@chef.ImageUrl" class="card-img-top" alt="Event Image">
+                        <div class="card-body">
+                            <div class="tooltip-btn position-absolute" style="top: 10px; right: 10px;">
+                                <a href="/Chef/Delete/@chef.RestaurantChefId" class="btn btn-danger">
+                                    <i class="bx bx-trash"></i>
+                                </a>
+                                <span class="tooltip-text">Delete</span>
+                            </div>
+
+                            <div class="tooltip-btn position-absolute" style="top: 60px; right: 10px;">
+                                <a href="/Chef/Update/@chef.RestaurantChefId" class="btn btn-primary">
+                                    <i class='bx bx-pen'></i>
+                                </a>
+                                <span class="tooltip-text">Update</span>
+                            </div>
+                            <h5 class="card-title">@chef.NameSurname</h5>
+                            <h6 class="card-title">@chef.Title</h6>
+                            <p class="card-text">@chef.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

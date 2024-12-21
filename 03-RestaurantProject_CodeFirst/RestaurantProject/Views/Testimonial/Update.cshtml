@@ -1,0 +1,53 @@
+﻿@model RestaurantProject.Models.RestaurantTestimonial
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Testimonial</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Testimonial/Update" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <input type="hidden" name="RestaurantTestimonialId" value="@Model.RestaurantTestimonialId" />
+                    <label for="NameSurname" class="form-label">Name Surname</label>
+                    <input class="form-control" type="text" name="NameSurname" value="@Model.NameSurname" id="NameSurname" placeholder="NameSurname">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Title" class="form-label">Title</label>
+                    <input class="form-control" type="text" id="Title" value="@Model.Title" name="Title" placeholder="Title">
+                </div>
+                <div class="col-md-6">
+                    <label for="Comment" class="form-label">Comment</label>
+                    <textarea class="form-control" rows="3" type="text" id="Comment" name="Comment" placeholder="Comment">@Model.Comment</textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="Review" class="form-label">Review</label>
+                    <input class="form-control" type="number" min="1" max="5" step="1" value="@Model.Review" id="Review" name="Review" placeholder="Review">
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">Image Url</label>
+                    <input class="form-control" type="text" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" placeholder="Og Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="ImageFile" class="form-label">Upload Testimonial Image</label>
+                        <input type="file" class="form-control" name="ImageFile" id="ImageFile">
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="btn btn-primary me-3">Update Testimonial</button>
+                    <button type="reset" class="btn btn-label-secondary">Cancel</button>
+                </div>
+                <input type="hidden">
+            </div>
+        </div>
+    </form>
+</div>
+

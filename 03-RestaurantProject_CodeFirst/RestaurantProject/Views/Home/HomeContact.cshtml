@@ -1,0 +1,93 @@
+﻿@model RestaurantProject.Models.RestaurantContactInfo
+
+<section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="mb-5">
+            <iframe style="width: 100%; height: 400px;" src="@Model.MapUrl" frameborder="0" allowfullscreen=""></iframe>
+        </div><!-- End Google Maps -->
+
+        <div class="row gy-4">
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>@Model.Address</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="icon bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>@Model.PhoneNumber</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+                    <i class="icon bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>@Model.Email</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+                    <i class="icon bi bi-clock flex-shrink-0"></i>
+                    <div>
+                        <h3>Opening Hours<br></h3>
+                        <p>@Model.OpenHours</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+        </div>
+
+        <form action="/Home/HomeContact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+            <div class="row gy-4">
+
+                <div class="col-md-6">
+                    <input type="text" name="Name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="Email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <input type="text" class="form-control" name="Subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <textarea class="form-control" name="MessageContent" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message"></div>
+
+                    <button type="submit">Send Message</button>
+                </div>
+
+            </div>
+        </form><!-- End Contact Form -->
+
+    </div>
+
+</section>

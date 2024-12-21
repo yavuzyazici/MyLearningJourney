@@ -1,0 +1,81 @@
+﻿@model RestaurantProject.Models.RestaurantAdmin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> My Profile</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <form action="/Profile/Index" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <!-- Account -->
+        <div class="card-body">
+            <div class="d-flex align-items-start align-items-sm-center gap-6 pb-4 border-bottom">
+                <img src="@Model.ImageUrl" alt="user-avatar" class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar">
+                <div class="button-wrapper">
+                    <div class="input-group">
+                        <label class="input-group-text" for="ImageFile">Upload</label>
+                        <input type="file" class="form-control" name="ImageFile" id="ImageFile">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body pt-4">
+
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <input type="hidden" name="AdminId" id="AdminId" value="@Model.AdminId">
+                    <label for="Name" class="form-label">Name</label>
+                    <input class="form-control" type="text" name="Name" id="Name" value="@Model.Name">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input class="form-control" type="text" id="EMail" name="EMail" value="@Model.Email" placeholder="yavuz.yazici@example.com">
+                </div>
+                <div class="col-md-6">
+                    <label for="UserName" class="form-label">UserName</label>
+                    <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.UserName">
+                </div>
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <label for="ImageUrl" class="form-label">Image Url</label>
+                    <input class="form-control" type="text" name="ImageUrl" id="ImageUrl" value="@Model.ImageUrl">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="mt-6">
+
+                <br>
+                <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+        </div>
+        <!-- /Account -->
+    </form>
+</div>
+<div class="card mb-6">
+    <form action="/Profile/RenewPassword" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <!-- Account -->
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6">
+                    <input type="hidden" name="AdminId" value="@Model.AdminId" />
+                    <label for="Password" class="form-label">Current Password</label>
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Type your current password">
+                </div>
+                <div class="col-md-6">
+                    <label for="newPassword" class="form-label">New Password</label>
+                    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Type your new password">
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+        </div>
+        <!-- /Account -->
+    </form>
+</div>

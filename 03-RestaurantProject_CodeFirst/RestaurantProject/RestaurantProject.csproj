@@ -128,16 +128,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\RestaurantContext.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HeroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MetaController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202412132045001_initial.cs" />
-    <Compile Include="Migrations\202412132045001_initial.Designer.cs">
-      <DependentUpon>202412132045001_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202412211052015_initial.cs" />
+    <Compile Include="Migrations\202412211052015_initial.Designer.cs">
+      <DependentUpon>202412211052015_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\RestaurantAdmin.cs" />
     <Compile Include="Models\RestaurantAbout.cs" />
     <Compile Include="Models\RestaurantBooking.cs" />
     <Compile Include="Models\RestaurantCategory.cs" />
@@ -308,6 +320,8 @@
     <Content Include="assets\adminTemplate\tasks\build.js" />
     <Content Include="assets\adminTemplate\tasks\prod.js" />
     <Content Include="assets\adminTemplate\webpack.config.js" />
+    <Content Include="assets\bicon\iconpicker.js" />
+    <Content Include="assets\images\testimonial\default.png" />
     <Content Include="assets\web\assets\css\main.css" />
     <Content Include="assets\web\assets\img\about-2.jpg" />
     <Content Include="assets\web\assets\img\about.jpg" />
@@ -566,6 +580,8 @@
     <Content Include="assets\adminTemplate\scss\_theme\_common.scss" />
     <Content Include="assets\adminTemplate\scss\_theme\_theme.scss" />
     <Content Include="assets\adminTemplate\yarn.lock" />
+    <Content Include="assets\bicon\iconsets\bootstrap5.json" />
+    <Content Include="assets\bicon\iconsets\fontawesome4.json" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -593,10 +609,57 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\HomeHeader.cshtml" />
+    <Content Include="Views\Home\HomeHero.cshtml" />
+    <Content Include="Views\Home\HomeAbout.cshtml" />
+    <Content Include="Views\Home\HomeService.cshtml" />
+    <Content Include="Views\Home\HomeMenu.cshtml" />
+    <Content Include="Views\Home\HomeTestimonial.cshtml" />
+    <Content Include="Views\Home\HomeEvents.cshtml" />
+    <Content Include="Views\Home\HomeChefs.cshtml" />
+    <Content Include="Views\Home\HomeChefSocial.cshtml" />
+    <Content Include="Views\Home\HomeBookTable.cshtml" />
+    <Content Include="Views\Home\HomeGallery.cshtml" />
+    <Content Include="Views\Home\HomeContact.cshtml" />
+    <Content Include="Views\Home\HomeFooter.cshtml" />
+    <Content Include="Views\Hero\Index.cshtml" />
+    <Content Include="Views\Hero\AddHero.cshtml" />
+    <Content Include="Views\Meta\AddMeta.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\AddAbout.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\AddService.cshtml" />
+    <Content Include="Views\Services\Update.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\Update.cshtml" />
+    <Content Include="Views\Menu\AddProduct.cshtml" />
+    <Content Include="Views\Testimonial\Index.cshtml" />
+    <Content Include="Views\Testimonial\AddTestimonial.cshtml" />
+    <Content Include="Views\Testimonial\Update.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\AddEvent.cshtml" />
+    <Content Include="Views\Event\Update.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Chef\Index.cshtml" />
+    <Content Include="Views\Chef\AddChef.cshtml" />
+    <Content Include="Views\Chef\Update.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\Update.cshtml" />
+    <Content Include="Views\Booking\AddBooking.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\AdminProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\images\abouts\main\" />
+    <Folder Include="assets\images\abouts\videos\" />
+    <Folder Include="assets\images\admins\" />
+    <Folder Include="assets\images\chef\" />
+    <Folder Include="assets\images\event\" />
+    <Folder Include="assets\images\heros\" />
     <Folder Include="assets\images\og\" />
+    <Folder Include="assets\images\photo\" />
+    <Folder Include="assets\images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -626,8 +689,8 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202412132045001_initial.resx">
-      <DependentUpon>202412132045001_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202412211052015_initial.resx">
+      <DependentUpon>202412211052015_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,67 @@
+﻿@model List<RestaurantProject.Models.RestaurantBooking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-food-menu me-1_5"></i> Booking</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Booking/AddBooking" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add New Value</span>
+        </div>
+    </div>
+    @if (Model.Count > 0)
+    {
+        <table class="table table-bordered">
+            <tr>
+                <th>Status</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Booking Date</th>
+                <th>Booking Hour</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td><i class="bx @(booking.IsApproved == true ? "bx-restaurant" : "bx-x-circle")"></i></td>
+                    <td>@booking.Name</td>
+                    <td>@booking.Email</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                    <td>@booking.BookingHour.ToString("hh\\.mm")</td>
+                    <td>
+                        <div class="tooltip-btn">
+                            <a href="/Booking/Delete/@booking.RestaurantBookingId" class="btn btn-danger">
+                                <i class="bx bx-trash"></i>
+                            </a>
+                            <span class="tooltip-text">Delete</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tooltip-btn">
+                            <a href="/Booking/Update/@booking.RestaurantBookingId" class="btn btn-primary">
+                                <i class='bx bx-pencil'></i>
+                            </a>
+                            <span class="tooltip-text">Update</span>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div class="card-body">
+            <div class="alert alert-primary" role="alert">No Booking Found</div>
+        </div>
+    }
+</div>

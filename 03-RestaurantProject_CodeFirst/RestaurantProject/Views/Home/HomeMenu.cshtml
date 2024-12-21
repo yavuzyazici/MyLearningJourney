@@ -1,0 +1,55 @@
+﻿@model List<RestaurantProject.Models.RestaurantCategory>
+
+<section id="menu" class="menu section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Menu</h2>
+        <p><span>Check Our</span> <span class="description-title">Yummy Menu</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            @foreach (var category in Model)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(category == Model.First() ? "active show" : "")" data-bs-toggle="tab" data-bs-target="#menu-@category.CategoryName">
+                        <h4>@category.CategoryName</h4>
+                    </a><!-- End tab nav item -->
+                </li>
+            }
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+            @foreach (var category in Model)
+            {
+                <div class="tab-pane fade @(category == Model.First() ? "active show" : "")" id="menu-@category.CategoryName">
+
+                    <div class="tab-header text-center">
+                        <p>Menu</p>
+                        <h3>@category.CategoryName</h3>
+                    </div>
+
+                    <div class="row gy-5">
+                        @foreach (var product in category.Products)
+                        {
+                            <div class="col-lg-4 menu-item">
+                                <a href="@product.ImageUrl" class="glightbox"><img src="@product.ImageUrl" class="menu-img img-fluid"></a>
+                                <h4>@product.Name</h4>
+                                <p class="ingredients">
+                                    @product.Description
+                                </p>
+                                <p class="price">
+                                    @product.Price$
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "AddMeta";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Meta</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Meta/AddMeta" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <label for="Title" class="form-label">Title</label>
+                    <input class="form-control" type="text" name="Title" id="Title" placeholder="Title">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Description" class="form-label">Description</label>
+                    <input class="form-control" type="text" id="Description" name="Description" placeholder="Description">
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">OgImage</label>
+                    <input class="form-control" type="text" id="ImageUrl" name="ImageUrl" placeholder="Og Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="ogImage" class="form-label">Upload Og Image</label>
+                        <input type="file" class="form-control" name="ogImage" id="ogImage">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Add Meta</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

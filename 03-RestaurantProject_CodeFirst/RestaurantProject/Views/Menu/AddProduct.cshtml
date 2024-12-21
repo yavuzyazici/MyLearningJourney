@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bxl-product-hunt me-1_5"></i> Product</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Menu/AddProduct" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <label for="Name" class="form-label">Name</label>
+                    <input class="form-control" type="text" name="Name" id="Name" placeholder="Name">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Description" class="form-label">Description</label>
+                    <input class="form-control" type="text" id="Description" name="Description" placeholder="Description">
+                </div>
+                <div class="col-md-6">
+                    <label for="Price" class="form-label">Price</label>
+                    <div class="input-group input-group-merge">
+                        <input class="form-control" type="number" step="0.1" id="Price" name="Price" placeholder="Price">
+                        <span class="input-group-text">$</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">Product Image Url</label>
+                    <input class="form-control" type="text" id="ImageUrl" name="ImageUrl" placeholder="Image Url">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="ProductImage" class="form-label">Upload Product Image</label>
+                        <input type="file" class="form-control" name="ProductImage" id="ProductImage">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="RestaurantCategoryId" class="form-label">Category</label>
+                    <select name="RestaurantCategoryId" class="form-control">
+                        @foreach (var item in ViewBag.Categories as List<RestaurantProject.Models.RestaurantCategory>)
+                        {
+                            <option value="@item.RestaurantCategoryId">@item.CategoryName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Add Product</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

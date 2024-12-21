@@ -1,0 +1,44 @@
+﻿@model List<RestaurantProject.Models.RestaurantPhotoGallery>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-server me-1_5"></i> Gallery</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header d-flex justify-content-end align-items-center">
+        <form action="/Gallery/AddPhoto" enctype="multipart/form-data" method="post" class="d-flex align-items-center">
+            <div class="me-2 d-flex flex-column">
+                <input type="file" class="form-control" name="ImageFile" id="ImageFile">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary d-flex align-items-center">
+                    <i class='bx bx-plus-circle me-1'></i> Add Photo
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            @foreach (var gallery in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@gallery.ImageUrl" class="card-img-top" alt="Event Image">
+                        <div class="tooltip-btn position-absolute" style="top: 10px; right: 10px;">
+                            <a href="/Gallery/Delete/@gallery.RestaurantPhotoGalleryId" class="btn btn-danger">
+                                <i class="bx bx-trash"></i>
+                            </a>
+                            <span class="tooltip-text">Delete</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -35,12 +35,15 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/assets/adminTemplate/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <!-- Page CSS -->
     <!-- Helpers -->
     <script src="/assets/adminTemplate/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/adminTemplate/assets/js/config.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +54,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="/Meta/Index" class="app-brand-link">
+                    <a href="/Dashboard/Index" class="app-brand-link">
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Yavuz Yazıcı</span>
                     </a>
 
@@ -66,13 +69,72 @@
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Container</span></li>
                     <!-- Cards -->
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Dashboard" ? "active" : "")">
+                        <a href="/Dashboard/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-dashboard"></i>
+                            <div class="text-truncate" data-i18n="Dashboard">Dashboard</div>
+                        </a>
+                    </li>
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Meta" ? "active" : "")">
                         <a href="/Meta/Index" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-info-circle"></i>
                             <div class="text-truncate" data-i18n="Meta">Meta</div>
                         </a>
                     </li>
-                    
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Hero" ? "active" : "")">
+                        <a href="/Hero/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-game"></i>
+                            <div class="text-truncate" data-i18n="Hero">Hero</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "About" ? "active" : "")">
+                        <a href="/About/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div class="text-truncate" data-i18n="About">About</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Services" ? "active" : "")">
+                        <a href="/Services/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-server"></i>
+                            <div class="text-truncate" data-i18n="Services">Services</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Menu" ? "active" : "")">
+                        <a href="/Menu/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-food-menu"></i>
+                            <div class="text-truncate" data-i18n="Menu">Menu</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Testimonial" ? "active" : "")">
+                        <a href="/Testimonial/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-message-square-dots"></i>
+                            <div class="text-truncate" data-i18n="Testimonial">Testimonial</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Event" ? "active" : "")">
+                        <a href="/Event/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                            <div class="text-truncate" data-i18n="Event">Event</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Chef" ? "active" : "")">
+                        <a href="/Chef/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-knife"></i>
+                            <div class="text-truncate" data-i18n="Chef">Chef</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Booking" ? "active" : "")">
+                        <a href="/Booking/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book"></i>
+                            <div class="text-truncate" data-i18n="Booking">Booking</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Gallery" ? "active" : "")">
+                        <a href="/Gallery/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-grid-alt"></i>
+                            <div class="text-truncate" data-i18n="Gallery">Gallery</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -104,128 +166,8 @@
                                    data-show-count="true"
                                    aria-label="Star /Restaurant Project on GitHub">Star</a>
                             </li>
-                            <!-- Notifications -->
-                            <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
-                                <a class="nav-link dropdown-toggle hide-arrow show" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="true" style="">
-                                    <span class="position-relative">
-                                        <i class="bx bx-envelope bx-md"></i>
-                                        <span class="badge rounded-pill bg-danger badge-dot badge-notifications border"></span>
-                                    </span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end p-0" data-bs-popper="static">
-                                    <li class="dropdown-menu-header border-bottom">
-                                        <div class="dropdown-header d-flex align-items-center py-3">
-                                            <h6 class="mb-0 me-auto">Messages</h6>
-                                            <div class="d-flex align-items-center h6 mb-0">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="dropdown-notifications-list scrollable-container ps ps--active-y">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar">
-                                                            <span class="avatar-initial rounded-circle bg-label-danger">Ya</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small mb-0">Yavuz Selim</h6>
-                                                        <small class="mb-1 d-block text-body">4yavuzyazici@gmail.com</small>
-                                                        <small class="text-muted">3.11.2024 00:00:00</small>
-                                                    </div>
-                                                    <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar">
-                                                            <span class="avatar-initial rounded-circle bg-label-danger">Ma</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small mb-0">MasonVon</h6>
-                                                        <small class="mb-1 d-block text-body">duqotayowud23@gmail.com</small>
-                                                        <small class="text-muted">7.11.2024 00:00:00</small>
-                                                    </div>
-                                                    <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                                                <div class="d-flex">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar">
-                                                            <span class="avatar-initial rounded-circle bg-label-danger">Te</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small mb-0">TedVon</h6>
-                                                        <small class="mb-1 d-block text-body">axobajigufo34@gmail.com</small>
-                                                        <small class="text-muted">8.11.2024 00:00:00</small>
-                                                    </div>
-                                                    <div class="flex-shrink-0 dropdown-notifications-actions">
-                                                        <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 480px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 248px;"></div></div>
-                                    </li>
-                                    <li class="border-top">
-                                        <div class="d-grid p-4">
-                                            <a class="btn btn-primary btn-sm d-flex" href="/Contact/Messages" style="">
-                                                <small class="align-middle">View all messages</small>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
                             <!-- User -->
-                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-                                    <div class="avatar avatar-online">
-                                        <img src="https://avatars.githubusercontent.com/u/95548778?v=4" alt="Profile Picture" class="w-px-40 h-auto rounded-circle">
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                        <img src="https://avatars.githubusercontent.com/u/95548778?v=4" alt="Profile Picture for settings detail" class="w-px-40 h-auto rounded-circle">
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mb-0">Yavuz Selim Yazici</h6>
-                                                    <small class="text-muted">Admin</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-divider my-1"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/Profile/Index">
-                                            <i class="bx bx-user bx-md me-3"></i><span>My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="dropdown-divider my-1"></div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/Login/LogOut">
-                                            <i class="bx bx-power-off bx-md me-3"></i><span>Log Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            @Html.Action("AdminProfile","Profile")
                             <!--/ User -->
                         </ul>
                     </div>
@@ -242,8 +184,7 @@
                         <div class="bs-toast toast fade show bg-danger position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
                                 <i class="bx bx-bell me-2"></i>
-                                <div class="me-auto fw-medium">Bootstrap</div>
-                                <small>11 mins ago</small>
+                                <div class="me-auto fw-medium">Errors</div>
                                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                             </div>
                             @foreach (var error in errors)
@@ -254,8 +195,35 @@
                             }
                         </div>
                     }
+                    @{
+                        var successes = TempData["Success"] as List<string>;
+                    }
+                    @if (successes != null)
+                    {
+                        <div class="bs-toast toast fade show bg-success position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="bx bx-bell me-2"></i>
+                                <div class="me-auto fw-medium">Success</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            @foreach (var success in successes)
+                            {
+                                <ol class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-action text-white">@success</li>
+                                </ol>
+                            }
+                        </div>
+                    }
                     <!-- Content -->
-                    @RenderBody()
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <div class="row fv-plugins-icon-container">
+                                <div class="col-md-12">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- / Content -->
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
@@ -286,7 +254,6 @@
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 

@@ -1,0 +1,8 @@
+﻿@model List<RestaurantProject.Models.RestaurantChefSocial>
+
+<div class="social">
+    @foreach (var chefSocial in Model)
+    {
+        <a href="@chefSocial.Url"><i class="bi @chefSocial.Icon"></i></a>
+    }
+</div>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AddHero";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Hero</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Hero/AddHero" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <label for="Title" class="form-label">Title</label>
+                    <input class="form-control" type="text" name="Title" id="Title" placeholder="Title">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Description" class="form-label">Description</label>
+                    <input class="form-control" type="text" id="Description" name="Description" placeholder="Description">
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">Hero Image URL</label>
+                    <input class="form-control" type="text" id="ImageUrl" name="ImageUrl" placeholder="Og Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="HeroImage" class="form-label">Upload Hero Image</label>
+                        <input type="file" class="form-control" name="HeroImage" id="HeroImage">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="VideoUrl" class="form-label">VideoUrl</label>
+                    <input class="form-control" type="text" id="VideoUrl" name="VideoUrl" placeholder="Video URL">
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Add Hero</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

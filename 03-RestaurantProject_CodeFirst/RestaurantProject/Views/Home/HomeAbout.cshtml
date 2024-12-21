@@ -1,0 +1,39 @@
+﻿@model RestaurantProject.Models.RestaurantAbout
+<section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>About Us<br></h2>
+        <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-4">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                <img src="@Model.ImageUrl" class="img-fluid mb-4" alt="">
+                <div class="book-a-table">
+                    <h3>Book a Table</h3>
+                    <p>@Model.Phone</p>
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+                <div class="content ps-0 ps-lg-5">
+                    <ul>
+                        <li><i class="bi bi-check-circle-fill"></i> <span>@Model.Item1</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span>@Model.Item2</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i> <span>@Model.Item3</span></li>
+                    </ul>
+                    <p>
+                        @Model.Description
+                    </p>
+
+                    <div class="position-relative mt-4">
+                        <img src="@Model.VideoImageUrl" class="img-fluid" alt="">
+                        <a href="@Model.VideoUrl" class="glightbox pulsating-play-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

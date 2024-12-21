@@ -24,5 +24,6 @@ namespace RestaurantProject.Context
         public DbSet<RestaurantService> RestaurantServices { get; set; }
         public DbSet<RestaurantTestimonial> RestaurantTestimonials { get; set; }
         public DbSet<RestaurantMeta> RestaurantMetas { get; set; }
+        public DbSet<RestaurantAdmin> RestaurantAdmins { get; set; }
     }
 }

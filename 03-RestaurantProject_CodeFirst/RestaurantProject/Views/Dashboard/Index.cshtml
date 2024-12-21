@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row g-6">
+    <!-- Card Border Shadow -->
+    <div class="col-lg-3 col-sm-6">
+        <div class="card card-border-shadow-primary h-60">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="avatar me-4">
+                        <span class="avatar-initial rounded bg-label-primary"><i class="bx bxl-product-hunt bx-lg"></i></span>
+                    </div>
+                    <h4 class="mb-0">@ViewBag.ProductCount</h4>
+                </div>
+                <p class="mb-2 fw-medium me-2 text-heading">Total Product</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card card-border-shadow-primary h-60">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="avatar me-4">
+                        <span class="avatar-initial rounded bg-label-warning"><i class="bx bx-cheese bx-lg"></i></span>
+                    </div>
+                    <h4 class="mb-0">@ViewBag.CheapestProduct$</h4>
+                </div>
+                <p class="mb-2 fw-medium me-2 text-heading">Cheapest Product</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card card-border-shadow-primary h-60">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="avatar me-4">
+                        <span class="avatar-initial rounded bg-label-danger"><i class="bx bx-git-repo-forked bx-lg"></i></span>
+                    </div>
+                    <h4 class="mb-0">@ViewBag.AveragePrice$</h4>
+                </div>
+                <p class="mb-2 fw-medium me-2 text-heading">Average Price of Products</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card card-border-shadow-primary h-60">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="avatar me-4">
+                        <span class="avatar-initial rounded bg-label-info"><i class="bx bx-time-five bx-lg"></i></span>
+                    </div>
+                    <h4 class="mb-0">@ViewBag.UnReadMessages</h4>
+                </div>
+                <p class="mb-2 fw-medium me-2 text-heading">Unread Message Count</p>
+            </div>
+        </div>
+    </div>
+    <!--/ Card Border Shadow -->
+    <!-- Messages overview -->
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">Unread Messages</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table card-table table-border-top-0">
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in ViewBag.Messages as List<RestaurantProject.Models.RestaurantMessage>)
+                            {
+                                <tr>
+                                    <td class="w-50 ps-0">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="me-2">
+                                                <i class="bx bx-message bx-lg text-heading"></i>
+                                            </div>
+                                            <h6 class="mb-0 fw-normal">@item.Subject</h6>
+                                        </div>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <h6 class="mb-0">@item.Name</h6>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <div class="tooltip-btn ">
+                                            <a href="/Messages/Update/@item.RestaurantMessageId" class="btn btn-primary">
+                                                See
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Messages overview -->
+    <!-- Booking overview -->
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">Non Applied Bookings</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table card-table table-border-top-0">
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in ViewBag.Booking as List<RestaurantProject.Models.RestaurantBooking>)
+                            {
+                                <tr>
+                                    <td class="w-50 ps-0">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="me-2">
+                                                <i class="bx bx-book bx-lg text-heading"></i>
+                                            </div>
+                                            <h6 class="mb-0 fw-normal">@item.Name</h6>
+                                        </div>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <h6 class="mb-0">@item.BookingDate.ToShortDateString() @item.BookingHour.ToString("hh\\.mm")</h6>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <div class="tooltip-btn ">
+                                            <a href="/Booking/Update/@item.RestaurantBookingId" class="btn btn-primary">
+                                                See
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Booking overview -->
+</div>

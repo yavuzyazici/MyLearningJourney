@@ -1,0 +1,59 @@
+﻿@model List<RestaurantProject.Models.RestaurantService>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-server me-1_5"></i> Services</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Services/AddService" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add New Value</span>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Icon</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Title</td>
+                <td>@service.Description</td>
+                <td><i class='@service.Icon'></i></td>
+                <td>
+                    <div class="tooltip-btn">
+                        <a href="/Services/Delete/@service.RestaurantServiceId" class="btn btn-danger">
+                            <i class="bx bx-trash"></i>
+                        </a>
+                        <span class="tooltip-text">Delete</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip-btn">
+                        <a href="/Services/Update/@service.RestaurantServiceId" class="btn btn-primary">
+                            <i class='bx bx-pencil'></i>
+                        </a>
+                        <span class="tooltip-text">Update</span>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+

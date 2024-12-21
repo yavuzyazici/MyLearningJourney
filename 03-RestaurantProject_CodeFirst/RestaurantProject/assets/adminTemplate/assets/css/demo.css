@@ -121,3 +121,33 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+/* Tooltip kapsayıcı */
+.tooltip-btn {
+  position: relative;
+  display: inline-block;
+}
+
+  /* Tooltip metni */
+  .tooltip-btn .tooltip-text {
+    visibility: hidden;
+    opacity: 0; /* İlk başta görünmez */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 110%; /* Sağa hizalama */
+    white-space: nowrap;
+    transform: translateY(-50%); /* Dikey ortalama */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Geçiş efekti */
+  }
+
+  /* Hover durumunda görünüm */
+  .tooltip-btn:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1; /* Yumuşakça görünür olur */
+  }

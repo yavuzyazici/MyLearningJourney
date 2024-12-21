@@ -1,0 +1,87 @@
+﻿@model RestaurantProject.Models.RestaurantAbout
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> About</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <div class="tooltip-btn position-absolute" style="top: 10px; right: 10px;">
+
+        <a href="/About/Delete/@Model.RestaurantAboutId" class="btn btn-danger">
+            <i class="bx bx-trash"></i>
+        </a>
+        <span class="tooltip-text">Delete</span>
+    </div>
+
+    <div class="tooltip-btn position-absolute" style="top: 60px; right: 10px;">
+        <a href="/About/AddAbout" class="btn btn-primary">
+            <i class='bx bx-plus-circle'></i>
+        </a>
+        <span class="tooltip-text">Add New Value</span>
+    </div>
+
+    <form action="/About/Index" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="d-flex justify-content-around pb-4 border-bottom">
+                <img src="@Model.ImageUrl" alt="Image Preview" class="img-fluid rounded" title="About Image" style="max-width: 300px;">
+                <img src="@Model.VideoImageUrl" alt="Video Image Preview" class="img-fluid rounded" title="Video Image" style="max-width: 300px;">
+            </div>
+            <div class="row g-6">
+                <div class="col-md-6">
+                    <label for="Description" class="form-label">Description</label>
+                    <input class="form-control" type="text" id="Description" name="Description" value="@Model.Description" placeholder="Description">
+                </div>
+                <div class="col-md-6">
+                    <label for="Phone" class="form-label">Phone</label>
+                    <input class="form-control" type="tel" id="Phone" name="Phone" value="@Model.Phone" placeholder="Phone">
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">About Image URL</label>
+                    <input class="form-control" type="text" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" placeholder="About Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="AboutImage" class="form-label">Upload About Image</label>
+                        <input type="file" class="form-control" name="AboutImage" id="AboutImage">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="VideoImageUrl" class="form-label">Video Image URL</label>
+                    <input class="form-control" type="text" id="VideoImageUrl" name="VideoImageUrl" value="@Model.VideoImageUrl" placeholder="Video Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="VideoImage" class="form-label">Upload Video Image</label>
+                        <input type="file" class="form-control" name="VideoImage" id="VideoImage">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="VideoUrl" class="form-label">VideoUrl</label>
+                    <input class="form-control" type="text" id="VideoUrl" name="VideoUrl" value="@Model.VideoUrl" placeholder="Video URL">
+                </div>
+                <div class="col-md-6">
+                    <label for="Item1" class="form-label">Item 1</label>
+                    <input class="form-control" type="tel" id="Item1" name="Item1" value="@Model.Item1" placeholder="Item1">
+                </div>
+                <div class="col-md-6">
+                    <label for="Item2" class="form-label">Item 2</label>
+                    <input class="form-control" type="tel" id="Item2" name="Item2" value="@Model.Item2" placeholder="Item2">
+                </div>
+                <div class="col-md-6">
+                    <label for="Item3" class="form-label">Item 3</label>
+                    <input class="form-control" type="tel" id="Item3" name="Item3" value="@Model.Item3" placeholder="Item3">
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

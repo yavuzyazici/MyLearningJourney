@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "AddBooking";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Booking</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Booking/AddBooking" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6">
+                    <label for="Name" class="form-label">Name</label>
+                    <input class="form-control" type="text" id="Name" name="Name" placeholder="Name">
+                </div>
+                <div class="col-md-6">
+                    <label for="Email" class="form-label">Email</label>
+                    <input class="form-control" type="text" id="Email" name="Email" placeholder="Email">
+                </div>
+                <div class="col-md-6">
+                    <label for="Phone" class="form-label">Phone</label>
+                    <input class="form-control" type="text" id="Phone" name="Phone" placeholder="Phone">
+                </div>
+                <div class="col-md-6">
+                    <label for="BookingDate" class="form-label">Booking Date</label>
+                    <input class="form-control" type="date" id="BookingDate" name="BookingDate">
+                </div>
+                <div class="col-md-6">
+                    <label for="BookingHour" class="form-label">Booking Hour</label>
+                    <input class="form-control" type="time" id="BookingHour" name="BookingHour" placeholder="Booking Hour">
+                </div>
+                <div class="col-md-6">
+                    <label for="PersonCount" class="form-label">Person Count</label>
+                    <input class="form-control" type="number" step="1" id="PersonCount" name="PersonCount" placeholder="Person Count">
+                </div>
+                <div class="col-md-6">
+                    <label for="IsApproved" class="form-label">Approve</label>
+                    <select class="form-control" id="IsApproved" name="IsApproved" placeholder="Is Approved?">
+                        <option value="true">Approve</option>
+                        <option value="false">Decline</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Update</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

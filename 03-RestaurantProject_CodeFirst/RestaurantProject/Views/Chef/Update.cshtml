@@ -1,0 +1,47 @@
+﻿@model RestaurantProject.Models.RestaurantChef
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Chef</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Chef/Update" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6">
+                    <input type="hidden" name="RestaurantChefId" value="@Model.RestaurantChefId" />
+                    <label for="NameSurname" class="form-label">Name Surname</label>
+                    <input class="form-control" type="text" id="NameSurname" value="@Model.NameSurname" name="NameSurname" placeholder="Name Surname">
+                </div>
+                <div class="col-md-6">
+                    <label for="Title" class="form-label">Title</label>
+                    <input class="form-control" type="text" id="Title" value="@Model.Title" name="Title" placeholder="Title">
+                </div>
+                <div class="col-md-6">
+                    <label for="Description" class="form-label">Description</label>
+                    <textarea class="form-control" type="text" rows="2" id="Description" name="Description" placeholder="Description">@Model.Description</textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="ImageUrl" class="form-label">Image URL</label>
+                    <input class="form-control" type="text" id="ImageUrl" value="@Model.ImageUrl" name="ImageUrl" placeholder="Event Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="button-wrapper">
+                        <label for="ImageFile" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" name="ImageFile" id="ImageFile">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Update Chef</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

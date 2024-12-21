@@ -1,0 +1,52 @@
+﻿@model List<RestaurantProject.Models.RestaurantEvent>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-server me-1_5"></i> Events</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Event/AddEvent" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add Event</span>
+        </div>
+    </div>
+    
+        <div class="container mt-5">
+            <div class="row">
+                @foreach (var theEvent in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="@theEvent.ImageUrl" class="card-img-top" alt="Event Image">
+                            <div class="card-body">
+                                <div class="tooltip-btn position-absolute" style="top: 10px; right: 10px;">
+                                    <a href="/Event/Delete/@theEvent.RestaurantEventId" class="btn btn-danger">
+                                        <i class="bx bx-trash"></i>
+                                    </a>
+                                    <span class="tooltip-text">Delete</span>
+                                </div>
+
+                                <div class="tooltip-btn position-absolute" style="top: 60px; right: 10px;">
+                                    <a href="/Event/Update/@theEvent.RestaurantEventId" class="btn btn-primary">
+                                        <i class='bx bx-pen'></i>
+                                    </a>
+                                    <span class="tooltip-text">Update</span>
+                                </div>
+                                <h5 class="card-title">@theEvent.Title</h5>
+                                <p class="card-text">$@theEvent.Price</p>
+                                <p class="card-text">@theEvent.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+</div>

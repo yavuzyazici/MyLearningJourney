@@ -1,0 +1,77 @@
+﻿@model List<RestaurantProject.Models.RestaurantTestimonial>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-message-square-dots me-1_5"></i> Testimonials</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Testimonial/AddTestimonial" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add New Value</span>
+        </div>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div class="carousel-item @(item == Model.First() ? "active" : "")">
+                    <div class="card testimonial-card" style="background-color: #e7e7ff; position: relative;">
+                        <div class="card-body">
+                            <div class="row gy-4 justify-content-center">
+                                <div class="col-lg-6">
+                                    <div class="testimonial-content">
+                                        <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                            <i class="bi bi-quote quote-icon-left"></i>
+                                            <span>@item.Comment</span>
+                                            <i class="bi bi-quote quote-icon-right"></i>
+                                        </p>
+                                        <h3 style="color: black;">@item.NameSurname</h3>
+                                        <h4 style="color: black;">@item.Title</h4>
+                                        <div class="stars">
+                                            @for (int i = 0; i < item.Review; i++)
+                                            {
+                                                <i class="bi bi-star-fill"></i>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 text-center position-relative">
+                                    <img src="@(item.ImageUrl == null ? "/assets/images/testimonial/default.png" : item.ImageUrl)" class="img-fluid testimonial-img">
+                                    <div class="tooltip-btn position-absolute" style="top: 150px; right: 270px; ">
+                                        <a href="/Testimonial/Delete/@item.RestaurantTestimonialId" class="btn btn-danger btn-sm">
+                                            <i class="bx bx-trash"></i>
+                                        </a>
+                                        <span class="tooltip-text">Delete</span>
+                                    </div>
+                                    <div class="tooltip-btn position-absolute" style="top: 150px; right: 220px;">
+                                        <a href="/Testimonial/Update/@item.RestaurantTestimonialId" class="btn btn-primary btn-sm">
+                                            <i class="bx bx-pencil"></i>
+                                        </a>
+                                        <span class="tooltip-text">Update</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
