@@ -110,7 +110,7 @@ namespace RestaurantProject.Controllers
             {
                 return "An error accured";
             }
-            db.RestaurantMessage.Add(message);
+            db.RestaurantMessages.Add(message);
             db.SaveChanges();
             return "Your message has been sent successfully. Thank you!";
         }

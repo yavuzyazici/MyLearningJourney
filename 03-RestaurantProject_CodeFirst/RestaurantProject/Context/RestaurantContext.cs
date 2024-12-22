@@ -18,7 +18,7 @@ namespace RestaurantProject.Context
         public DbSet<RestaurantContactInfo> RestaurantContactInfo { get; set; }
         public DbSet<RestaurantEvent> RestaurantEvents { get; set; }
         public DbSet<RestaurantHero> RestaurantHeros { get; set; }
-        public DbSet<RestaurantMessage> RestaurantMessage { get; set; }
+        public DbSet<RestaurantMessage> RestaurantMessages { get; set; }
         public DbSet<RestaurantPhotoGallery> RestaurantPhotoGalleries { get; set; }
         public DbSet<RestaurantProduct> RestaurantProducts { get; set; }
         public DbSet<RestaurantService> RestaurantServices { get; set; }

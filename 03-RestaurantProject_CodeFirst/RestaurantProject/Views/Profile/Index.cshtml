@@ -57,15 +57,16 @@
     </form>
 </div>
 <div class="card mb-6">
-    <form action="/Profile/RenewPassword" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+    <form action="/Profile/RenewPassword" method="post" class="fv-plugins-bootstrap5 fv-plugins-framework">
         <!-- Account -->
         <div class="card-body pt-4">
             <div class="row g-6">
-                <div class="col-md-6">
+                <div class="col-md-6 form-password-toggle">
                     <input type="hidden" name="AdminId" value="@Model.AdminId" />
                     <label for="Password" class="form-label">Current Password</label>
                     <input type="password" class="form-control" id="password" name="Password" placeholder="Type your current password">
                 </div>
+                    
                 <div class="col-md-6">
                     <label for="newPassword" class="form-label">New Password</label>
                     <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Type your new password">

@@ -131,11 +131,13 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MetaController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -143,10 +145,6 @@
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202412211052015_initial.cs" />
-    <Compile Include="Migrations\202412211052015_initial.Designer.cs">
-      <DependentUpon>202412211052015_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RestaurantAdmin.cs" />
@@ -648,6 +646,11 @@
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\AdminProfile.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Messages.cshtml" />
+    <Content Include="Views\Contact\AddContact.cshtml" />
+    <Content Include="Views\Contact\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -687,11 +690,6 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202412211052015_initial.resx">
-      <DependentUpon>202412211052015_initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

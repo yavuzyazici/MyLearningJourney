@@ -16,9 +16,9 @@ namespace RestaurantProject.Controllers
             ViewBag.ProductCount = db.RestaurantProducts.Count();
             ViewBag.CheapestProduct = db.RestaurantProducts.OrderBy(x => x.Price).FirstOrDefault().Price;
             ViewBag.AveragePrice = db.RestaurantProducts.Average(x => x.Price).ToString("00.00");
-            ViewBag.UnReadMessages = db.RestaurantMessage.Where(x => x.IsRead == false).Count();
+            ViewBag.UnReadMessages = db.RestaurantMessages.Where(x => x.IsRead == false).Count();
 
-            ViewBag.Messages = db.RestaurantMessage.Where(x => x.IsRead == false).ToList();
+            ViewBag.Messages = db.RestaurantMessages.Where(x => x.IsRead == false).ToList();
             ViewBag.Booking = db.RestaurantBookings.Where(x => x.IsApproved == false).Take(50).ToList();
             return View();
         }

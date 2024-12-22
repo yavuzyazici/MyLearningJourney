@@ -135,6 +135,25 @@
                             <div class="text-truncate" data-i18n="Gallery">Gallery</div>
                         </a>
                     </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Contact" ? "open" : "")">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-comment"></i>
+                            <div class="text-truncate" data-i18n="Contact">Contact</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item @(ViewContext.RouteData.Values["action"].ToString() == "Index" && ViewContext.RouteData.Values["controller"].ToString() == "Contact"  ? "active" : "")">
+                                <a href="/Contact/Index" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Contact">Contact</div>
+                                </a>
+                            </li>
+                            <li class="menu-item @(ViewContext.RouteData.Values["action"].ToString() == "Messages"  && ViewContext.RouteData.Values["controller"].ToString() == "Contact" ? "active" : "")">
+                                <a href="/Contact/Messages" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Contact">Messages</div>
+                                    <span class="badge rounded-pill bg-info ms-auto">@Session["NonReadedMessagesCount"]</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->

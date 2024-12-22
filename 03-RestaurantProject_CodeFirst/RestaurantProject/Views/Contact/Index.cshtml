@@ -1,0 +1,51 @@
+﻿@model RestaurantProject.Models.RestaurantContactInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-info-circle me-1_5"></i> Contact</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Contact/AddContact" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add New Value</span>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Contact Id</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                <tr>
+                    <td><i class="bx bx-flag bx-md text-primary me-4"></i> <span>@Model.RestaurantContactInfoId</span></td>
+                    <td>@Model.PhoneNumber</td>
+                    <td>@Model.Email</td>
+                    <td>@Model.OpenHours</td>
+                    <td>@Model.Address</td>
+                    <td>
+                        <a href="/Contact/Update/@Model.RestaurantContactInfoId"
+                           class="btn btn-outline-primary">
+                            <span class="tf-icons bx bx-edit-alt bx-18px me-2"></span>Update
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>

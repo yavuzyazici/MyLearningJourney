@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AddContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Contact</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Contact/AddContact" method="post" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <label for="Phone" class="form-label">Phone</label>
+                    <input class="form-control" type="text" name="Phone" id="Phone" placeholder="Phone">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Email" class="form-label">Email</label>
+                    <input class="form-control" type="email" id="Email" name="Email" placeholder="Email">
+                </div>
+                <div class="col-md-6">
+                    <label for="Address" class="form-label">Address</label>
+                    <textarea class="form-control" rows="2" type="text" id="Address" name="Address" placeholder="Address"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="OpenHours" class="form-label">Open Hours</label>
+                    <input class="form-control" type="text" id="OpenHours" name="OpenHours" placeholder="Open Hours">
+                </div>
+                <div class="col-md-12">
+                    <label for="MapUrl" class="form-label">MapUrl</label>
+                    <input class="form-control" type="text" id="MapUrl" name="MapUrl" placeholder="Map Url">
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="btn btn-primary me-3">Add Contact</button>
+                    <button type="reset" class="btn btn-label-secondary">Cancel</button>
+                </div>
+                <input type="hidden">
+            </div>
+        </div>
+    </form>
+</div>

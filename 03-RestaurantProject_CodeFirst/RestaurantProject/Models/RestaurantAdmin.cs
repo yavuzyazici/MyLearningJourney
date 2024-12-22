@@ -25,12 +25,10 @@ namespace RestaurantProject.Models
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [StringLength(250, ErrorMessage = "Image URL cannot be longer than 250 characters.")]
-        [Url(ErrorMessage = "Invalid URL format.")]
         public string ImageUrl { get; set; }
 
         [NotMapped]
