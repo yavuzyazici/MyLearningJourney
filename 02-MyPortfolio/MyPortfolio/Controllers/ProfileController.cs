@@ -23,7 +23,9 @@ namespace MyPortfolio.Controllers
         public ActionResult Index(TblUser userData)
         {
             var user = db.TblUsers.Find(Session["UserId"]);
-            
+
+            ModelState.Remove("Password");
+
             if (!ModelState.IsValid)
             {
                 TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
