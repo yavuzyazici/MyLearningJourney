@@ -72,6 +72,10 @@ Below are screenshots of various sections of the admin panel:
 |-------|
 | ![Chefs](RestaurantProject/assets/images/project/chef.png) |
 
+| Update Chefs Social |
+|-------|
+| ![Chefs](RestaurantProject/assets/images/project/chef_social.png) |
+
 | Social Media |
 |--------------|
 | ![Social Media](RestaurantProject/assets/images/project/social_medias.png) |
