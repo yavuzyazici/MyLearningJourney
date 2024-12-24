@@ -46,84 +46,76 @@ Below are screenshots of various sections of the admin panel:
 
 | Homepage |
 |----------|
-| ![Homepage](/RestaurantProject/assets/images/project\homepage.png) |
+| ![Homepage](RestaurantProject/assets/images/project/homepage.png) |
 
 | Login |
 |-------|
-| ![Login](/RestaurantProject/assets/images/project\login.png) |
+| ![Login](RestaurantProject/assets/images/project/login.png) |
 
 | Dashboard |
 |-----------|
-| ![Dashboard](/RestaurantProject/assets/images/project\dashboard.png) |
+| ![Dashboard](RestaurantProject/assets/images/project/dashboard.png) |
 
 | Meta |
 |------|
-| ![Meta](/RestaurantProject/assets/images/project\meta.png) |
+| ![Meta](RestaurantProject/assets/images/project/meta.png) |
 
 | Hero Section |
 |--------------|
-| ![Hero](/RestaurantProject/assets/images/project\hero.png) |
+| ![Hero](RestaurantProject/assets/images/project/hero.png) |
 
 | About |
 |-------|
-| ![About](/RestaurantProject/assets/images/project\about.png) |
+| ![About](RestaurantProject/assets/images/project/about.png) |
 
 | Chefs |
 |-------|
-| ![Chefs](/RestaurantProject/assets/images/project\chef.png) |
+| ![Chefs](RestaurantProject/assets/images/project/chef.png) |
 
 | Social Media |
 |--------------|
-| ![Social Media](/RestaurantProject/assets/images/project\social_medias.png) |
+| ![Social Media](RestaurantProject/assets/images/project/social_medias.png) |
 
 | Events |
 |--------|
-| ![Events](/RestaurantProject/assets/images/project\events.png) |
+| ![Events](RestaurantProject/assets/images/project/events.png) |
 
 | Gallery |
 |---------|
-| ![Gallery](/RestaurantProject/assets/images/project\gallery.png) |
+| ![Gallery](RestaurantProject/assets/images/project/gallery.png) |
 
 | Categories |
 |------------|
-| ![Categories](/RestaurantProject/assets/images/project\categories.png) |
+| ![Categories](RestaurantProject/assets/images/project/categories.png) |
 
 | Menu |
 |------|
-| ![Menu](/RestaurantProject/assets/images/project\menu.png) |
+| ![Menu](RestaurantProject/assets/images/project/menu.png) |
 
 | Services |
 |----------|
-| ![Services](/RestaurantProject/assets/images/project\services.png) |
+| ![Services](RestaurantProject/assets/images/project/services.png) |
 
 | Update Services |
 |------------------|
-| ![Update Services](/RestaurantProject/assets/images/project\update_services.png) |
+| ![Update Services](RestaurantProject/assets/images/project/update_services.png) |
 
 | Testimonials |
 |--------------|
-| ![Testimonials](/RestaurantProject/assets/images/project\testimonial.png) |
+| ![Testimonials](RestaurantProject/assets/images/project/testimonial.png) |
 
 | Messages |
 |----------|
-| ![Messages](/RestaurantProject/assets/images/project\messages.png) |
+| ![Messages](RestaurantProject/assets/images/project/messages.png) |
 
 | Bookings |
 |----------|
-| ![Bookings](/RestaurantProject/assets/images/project\booking.png) |
+| ![Bookings](RestaurantProject/assets/images/project/booking.png) |
 
 | Profile |
 |---------|
-| ![Profile](/RestaurantProject/assets/images/project\profile.png) |
+| ![Profile](RestaurantProject/assets/images/project/profile.png) |
 
 | Contact Messages |
 |------------------|
-| ![Contact Messages](/RestaurantProject/assets/images/project\contact.png) |
-
----
-
-## Conclusion
-
-This project offers a streamlined experience for both restaurant customers and administrators. It leverages modern web development technologies to create a scalable and efficient solution for managing a restaurant's online presence.
-
-Feel free to explore and modify the project as needed!
+| ![Contact Messages](RestaurantProject/assets/images/project/contact.png) |
