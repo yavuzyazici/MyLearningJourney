@@ -46,79 +46,79 @@ Below are screenshots of various sections of the admin panel:
 
 | Homepage |
 |----------|
-| ![Homepage](\assets\images\project\homepage.png) |
+| ![Homepage](/RestaurantProject/assets/images/project\homepage.png) |
 
 | Login |
 |-------|
-| ![Login](\assets\images\project\login.png) |
+| ![Login](/RestaurantProject/assets/images/project\login.png) |
 
 | Dashboard |
 |-----------|
-| ![Dashboard](\assets\images\project\dashboard.png) |
+| ![Dashboard](/RestaurantProject/assets/images/project\dashboard.png) |
 
 | Meta |
 |------|
-| ![Meta](\assets\images\project\meta.png) |
+| ![Meta](/RestaurantProject/assets/images/project\meta.png) |
 
 | Hero Section |
 |--------------|
-| ![Hero](\assets\images\project\hero.png) |
+| ![Hero](/RestaurantProject/assets/images/project\hero.png) |
 
 | About |
 |-------|
-| ![About](\assets\images\project\about.png) |
+| ![About](/RestaurantProject/assets/images/project\about.png) |
 
 | Chefs |
 |-------|
-| ![Chefs](\assets\images\project\chef.png) |
+| ![Chefs](/RestaurantProject/assets/images/project\chef.png) |
 
 | Social Media |
 |--------------|
-| ![Social Media](\assets\images\project\social_medias.png) |
+| ![Social Media](/RestaurantProject/assets/images/project\social_medias.png) |
 
 | Events |
 |--------|
-| ![Events](\assets\images\project\events.png) |
+| ![Events](/RestaurantProject/assets/images/project\events.png) |
 
 | Gallery |
 |---------|
-| ![Gallery](\assets\images\project\gallery.png) |
+| ![Gallery](/RestaurantProject/assets/images/project\gallery.png) |
 
 | Categories |
 |------------|
-| ![Categories](\assets\images\project\categories.png) |
+| ![Categories](/RestaurantProject/assets/images/project\categories.png) |
 
 | Menu |
 |------|
-| ![Menu](\assets\images\project\menu.png) |
+| ![Menu](/RestaurantProject/assets/images/project\menu.png) |
 
 | Services |
 |----------|
-| ![Services](\assets\images\project\services.png) |
+| ![Services](/RestaurantProject/assets/images/project\services.png) |
 
 | Update Services |
 |------------------|
-| ![Update Services](\assets\images\project\update_services.png) |
+| ![Update Services](/RestaurantProject/assets/images/project\update_services.png) |
 
 | Testimonials |
 |--------------|
-| ![Testimonials](\assets\images\project\testimonial.png) |
+| ![Testimonials](/RestaurantProject/assets/images/project\testimonial.png) |
 
 | Messages |
 |----------|
-| ![Messages](\assets\images\project\messages.png) |
+| ![Messages](/RestaurantProject/assets/images/project\messages.png) |
 
 | Bookings |
 |----------|
-| ![Bookings](\assets\images\project\booking.png) |
+| ![Bookings](/RestaurantProject/assets/images/project\booking.png) |
 
 | Profile |
 |---------|
-| ![Profile](\assets\images\project\profile.png) |
+| ![Profile](/RestaurantProject/assets/images/project\profile.png) |
 
 | Contact Messages |
 |------------------|
-| ![Contact Messages](\assets\images\project\contact.png) |
+| ![Contact Messages](/RestaurantProject/assets/images/project\contact.png) |
 
 ---
 

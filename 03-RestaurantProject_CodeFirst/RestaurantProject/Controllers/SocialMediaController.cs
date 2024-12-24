@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace RestaurantProject.Controllers
 {
-    [AllowAnonymous]
     public class SocialMediaController : Controller
     {
         RestaurantContext db = new RestaurantContext();
