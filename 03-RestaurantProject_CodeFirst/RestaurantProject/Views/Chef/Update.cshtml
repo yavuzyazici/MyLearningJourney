@@ -10,7 +10,7 @@
     </ul>
 </div>
 <div class="card mb-6 position-relative">
-    <form action="/Chef/Update" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+    <form action="/Chef/Update" method="post" class="fv-plugins-bootstrap5 fv-plugins-framework">
         <div class="card-body pt-4">
             <div class="row g-6">
                 <div class="col-md-6">
@@ -37,6 +37,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="mt-6">
                 <button type="submit" class="btn btn-primary me-3">Update Chef</button>
                 <button type="reset" class="btn btn-label-secondary">Cancel</button>
@@ -44,4 +45,47 @@
             <input type="hidden">
         </div>
     </form>
+</div>
+<div class="card mb-6 ">
+    <div class="card-header text-end">
+        <div class="tooltip-btn d-inline-block">
+            <a href="/Chef/AddChefSocial/@Model.RestaurantChefId" class="btn btn-primary">
+                <i class='bx bx-plus-circle'></i>
+            </a>
+            <span class="tooltip-text">Add New Social</span>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th>Icon</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var chefSocial in Model.RestaurantChefSocials.ToList())
+        {
+            <tr>
+                <td>@chefSocial.Name</td>
+                <td>@chefSocial.Url</td>
+                <td>@chefSocial.Icon</td>
+                <td>
+                    <div class="tooltip-btn">
+                        <a href="/Chef/DeleteSocial/@chefSocial.RestaurantChefSocialId" class="btn btn-danger">
+                            <i class="bx bx-trash"></i>
+                        </a>
+                        <span class="tooltip-text">Delete</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="tooltip-btn">
+                        <a href="/Chef/UpdateSocial/@chefSocial.RestaurantChefSocialId" class="btn btn-primary">
+                            <i class='bx bx-pencil'></i>
+                        </a>
+                        <span class="tooltip-text">Update</span>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
 </div>

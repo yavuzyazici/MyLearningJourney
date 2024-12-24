@@ -1,90 +1,129 @@
 
 # Restaurant Project
 
-This project, built using MVC, has a single page for users, and the admin panel allows real-time editing. In admin panel you can edit texts, add products, check messages, check reservations, add gallery image and more.
+This project, built using MVC architecture, features a user-friendly single-page interface for customers and a comprehensive admin panel that allows real-time editing. The admin panel provides robust functionality to manage the restaurant's digital presence efficiently.
 
+## Technologies Used
 
-## Technologies
+The project utilizes the following technologies:
 
-In this project the following technologies are used:
+- **MVC5**
+- **Entity Framework**
+- **MySQL**
+- **Code First Approach**
+- **Data Annotations**
+- **Authorization**
+- **Bootstrap**
 
-- MVC5
-- Entity Framework
-- mySQL
-- Code First
-- Data Annotations
-- Authorise
-- Bootstrap
+## User Side Features
 
-## User Side
+The user-facing section of the application includes:
+- **Messaging**: Send messages through a contact form.
+- **Table Reservations**: Book tables seamlessly via an intuitive form.
+- **Dynamic Content**: View the gallery, events, menu prices, and information about the restaurant.
 
-In user panel:
-- You can send message via form
-- You can book a table via form
-- You can view gallery, events, prices and texts about us...
-There is not much thing at user side to be honest
+### Note:
+The user side is purposefully simple and designed for easy navigation.
 
-## Admin Side
+## Admin Side Features
 
-In admin panel:
-- You can update meta, hero, about, chefs, contact texts...
-- You can add, update, or delete social media profiles, gallery images, events, products, testimonials, and categories.
-- You can check your messages
-- You can check your customers booking reservations
-- You can edit your admin user profile
+The admin panel offers a variety of tools for managing the website, including:
+- **Content Management**: Update meta tags, hero banners, about sections, chefs' information, and contact details.
+- **Social Media Management**: Add, update, or delete social media links.
+- **Gallery Management**: Upload and manage images in the gallery.
+- **Event Management**: Add, update, or remove events.
+- **Product Management**: Manage menu items and categories.
+- **Testimonials**: Add and edit customer testimonials.
+- **Messages**: View and manage messages received via the contact form.
+- **Reservations**: Monitor and manage table booking reservations.
+- **Admin Profile**: Edit your admin profile details for secure access.
 
 ## Gallery
 
 Below are screenshots of various sections of the admin panel:
 
+## Screenshots
+
 | Homepage |
 |----------|
-| ![Homepage](RestaurantProject/wwwroot/assets/img/project/homepage.png) |
+| ![Homepage](\assets\images\project\homepage.png) |
 
 | Login |
 |-------|
-| ![Login](RestaurantProject/wwwroot/assets/img/project/login.png) |
+| ![Login](\assets\images\project\login.png) |
+
+| Dashboard |
+|-----------|
+| ![Dashboard](\assets\images\project\dashboard.png) |
 
 | Meta |
 |------|
-| ![Meta](RestaurantProject/wwwroot/assets/img/project/meta.png) |
+| ![Meta](\assets\images\project\meta.png) |
 
-| Banner |
-|--------|
-| ![Banner](RestaurantProject/wwwroot/assets/img/project/banner.png) |
-
-| Social Media |
+| Hero Section |
 |--------------|
-| ![Social Media](RestaurantProject/wwwroot/assets/img/project/socialmedia.png) |
+| ![Hero](\assets\images\project\hero.png) |
 
 | About |
 |-------|
-| ![About](RestaurantProject/wwwroot/assets/img/project/about.png) |
+| ![About](\assets\images\project\about.png) |
 
-| Experience |
+| Chefs |
+|-------|
+| ![Chefs](\assets\images\project\chef.png) |
+
+| Social Media |
+|--------------|
+| ![Social Media](\assets\images\project\social_medias.png) |
+
+| Events |
+|--------|
+| ![Events](\assets\images\project\events.png) |
+
+| Gallery |
+|---------|
+| ![Gallery](\assets\images\project\gallery.png) |
+
+| Categories |
 |------------|
-| ![Experience](RestaurantProject/wwwroot/assets/img/project/experience.png) |
+| ![Categories](\assets\images\project\categories.png) |
 
-| Projects |
+| Menu |
+|------|
+| ![Menu](\assets\images\project\menu.png) |
+
+| Services |
 |----------|
-| ![Projects](RestaurantProject/wwwroot/assets/img/project/projects.png) |
+| ![Services](\assets\images\project\services.png) |
 
-| Testimonial |
-|-------------|
-| ![Testimonial](RestaurantProject/wwwroot/assets/img/project/testimonial.png) |
-
-| Contact Messages |
+| Update Services |
 |------------------|
-| ![Contact Messages](RestaurantProject/wwwroot/assets/img/project/contact-messages.png) |
+| ![Update Services](\assets\images\project\update_services.png) |
 
-| Category |
+| Testimonials |
+|--------------|
+| ![Testimonials](\assets\images\project\testimonial.png) |
+
+| Messages |
 |----------|
-| ![Category](RestaurantProject/wwwroot/assets/img/project/category.png) |
+| ![Messages](\assets\images\project\messages.png) |
+
+| Bookings |
+|----------|
+| ![Bookings](\assets\images\project\booking.png) |
 
 | Profile |
 |---------|
-| ![Profile](RestaurantProject/wwwroot/assets/img/project/profile.png) |
+| ![Profile](\assets\images\project\profile.png) |
 
-| Messages |
-|---------|
-| ![Profile](RestaurantProject/wwwroot/assets/img/project/messages.png) |
+| Contact Messages |
+|------------------|
+| ![Contact Messages](\assets\images\project\contact.png) |
+
+---
+
+## Conclusion
+
+This project offers a streamlined experience for both restaurant customers and administrators. It leverages modern web development technologies to create a scalable and efficient solution for managing a restaurant's online presence.
+
+Feel free to explore and modify the project as needed!

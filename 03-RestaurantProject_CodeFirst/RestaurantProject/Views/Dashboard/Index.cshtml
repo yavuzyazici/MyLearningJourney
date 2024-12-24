@@ -143,4 +143,43 @@
         </div>
     </div>
     <!--/ Booking overview -->
+    <div class="col-xxl-12">
+        <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">Last Added Products</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table card-table table-border-top-0">
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in ViewBag.Last10Product as List<RestaurantProject.Models.RestaurantProduct>)
+                            {
+                                <tr>
+                                    <td class="w-50 ps-0">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="me-2">
+                                                <i class="bx bx-food-menu bx-lg text-heading"></i>
+                                            </div>
+                                            <h6 class="mb-0 fw-normal">@item.Name</h6>
+                                        </div>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <h6 class="mb-0">@item.Description</h6>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <b>@item.Price$</b>
+                                    </td>
+                                    <td class="text-end pe-0 text-nowrap">
+                                        <a href="/Menu/Update/@item.RestaurantProductId">Check Product</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

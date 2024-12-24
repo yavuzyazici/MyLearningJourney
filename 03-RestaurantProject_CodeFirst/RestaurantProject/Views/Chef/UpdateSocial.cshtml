@@ -1,0 +1,66 @@
+﻿@model RestaurantProject.Models.RestaurantChefSocial
+@{
+    ViewBag.Title = "UpdateSocial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bx-user me-1_5"></i> Social Media</a></li>
+    </ul>
+</div>
+<div class="card mb-6">
+    <form action="/Chef/UpdateSocial" method="post" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6">
+                    <input type="hidden" name="RestaurantChefSocialId" value="@Model.RestaurantChefSocialId" />
+                    <label for="Url" class="form-label">Url</label>
+                    <input class="form-control" type="text" id="Url" name="Url" value="@Model.Url" placeholder="Url">
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <label for="Icon" class="form-label">Icon</label>
+                        <input type="text" id="Icon" name="Icon" value="@Model.Icon" class="form-control iconpicker">
+                    </div>
+                    <div class="input-group-prepend me-2">
+                        <span class="input-group-text h-100 selected-icon"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="Name" class="form-label">Name</label>
+                    <input class="form-control" type="text" id="Name" name="Name" value="@Model.Name" placeholder="Name">
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Save changes</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>
+
+<script src="/assets/bicon/iconpicker.js"></script>
+
+<script>
+    (async () => {
+        const result = ["bi-linkedin", "bi-instagram", "bi-facebook", "bi-twitter-x", "bi-twitter"]
+
+
+        const iconpicker = new Iconpicker(document.querySelector(".iconpicker"), {
+            icons: result,
+            showSelectedIn: document.querySelector(".selected-icon"),
+            searchable: true,
+            selectedClass: "selected",
+            containerClass: "my-picker",
+            hideOnSelect: true,
+            fade: true,
+            defaultValue: '@Model.Icon',
+            valueFormat: val => `bi ${val}`
+        });
+
+        iconpicker.set() // Set as empty
+        iconpicker.set('@Model.Icon') // Reset with a value
+    })()
+</script>

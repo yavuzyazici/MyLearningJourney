@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace RestaurantProject.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         RestaurantContext db = new RestaurantContext();
@@ -39,6 +40,14 @@ namespace RestaurantProject.Controllers
         {
             var services = db.RestaurantServices.ToList();
             return PartialView(services);
+        }
+        public PartialViewResult HomeStats()
+        {
+            ViewBag.ProductCount = db.RestaurantProducts.Count();
+            ViewBag.CategoryCount = db.RestaurantCategories.Count();
+            ViewBag.EventCount = db.RestaurantEvents.Count();
+            ViewBag.ChefCount = db.RestaurantChefs.Count();
+            return PartialView();
         }
         public PartialViewResult HomeMenu()
         {
@@ -118,6 +127,11 @@ namespace RestaurantProject.Controllers
         {
             var contactInfo = db.RestaurantContactInfo.FirstOrDefault();
             return PartialView(contactInfo);
+        }
+        public PartialViewResult HomeSocialMedia()
+        {
+            var socialMedias = db.RestaurantSocialMedias.ToList();
+            return PartialView(socialMedias);
         }
     }
 }

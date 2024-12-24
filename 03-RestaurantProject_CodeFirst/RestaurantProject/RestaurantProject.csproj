@@ -130,6 +130,7 @@
     <Compile Include="Context\RestaurantContext.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Controllers\MetaController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SocialMediaController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +163,7 @@
     <Compile Include="Models\RestaurantPhotoGallery.cs" />
     <Compile Include="Models\RestaurantProduct.cs" />
     <Compile Include="Models\RestaurantService.cs" />
+    <Compile Include="Models\RestaurantSocialMedia.cs" />
     <Compile Include="Models\RestaurantTestimonial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -651,6 +654,16 @@
     <Content Include="Views\Contact\Messages.cshtml" />
     <Content Include="Views\Contact\AddContact.cshtml" />
     <Content Include="Views\Contact\Update.cshtml" />
+    <Content Include="Views\Home\HomeSocialMedia.cshtml" />
+    <Content Include="Views\SocialMedia\Index.cshtml" />
+    <Content Include="Views\SocialMedia\Update.cshtml" />
+    <Content Include="Views\SocialMedia\Add.cshtml" />
+    <Content Include="Views\Chef\UpdateSocial.cshtml" />
+    <Content Include="Views\Chef\AddChefSocial.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Update.cshtml" />
+    <Content Include="Views\Category\AddCategory.cshtml" />
+    <Content Include="Views\Home\HomeStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

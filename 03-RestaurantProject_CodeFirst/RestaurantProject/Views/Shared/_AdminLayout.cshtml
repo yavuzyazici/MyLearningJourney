@@ -154,118 +154,130 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "SocialMedia" ? "active" : "")">
+                        <a href="/SocialMedia/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxl-instagram"></i>
+                            <div class="text-truncate" data-i18n="Social Media">Social Media</div>
+                        </a>
+                    </li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"].ToString() == "Category" ? "active" : "")">
+                        <a href="/Category/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-category"></i>
+                            <div class="text-truncate" data-i18n="Category">Category</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
             <!-- Layout container -->
-            <div class="layout-page">
-                <!-- Navbar -->
+    <div class="layout-page">
+        <!-- Navbar -->
 
-                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
-                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
-                            <i class="bx bx-menu bx-md"></i>
-                        </a>
-                    </div>
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <span>Restaurant Project</span>
-                            </div>
-                        </div>
-                        <!-- /Search -->
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-4">
-                                <a class="github-button"
-                                   href="https://github.com/yavuzyazici/MyLearningJourney/tree/main/03-RestaurantProject_CodeFirst"
-                                   data-icon="octicon-star"
-                                   data-size="large"
-                                   data-show-count="true"
-                                   aria-label="Star /Restaurant Project on GitHub">Star</a>
-                            </li>
-                            <!-- User -->
-                            @Html.Action("AdminProfile","Profile")
-                            <!--/ User -->
-                        </ul>
-                    </div>
-                </nav>
-
-                <!-- / Navbar -->
-                <!-- Content wrapper -->
-                <div class="content-wrapper">
-                    @{
-                        var errors = TempData["Errors"] as List<string>;
-                    }
-                    @if (errors != null)
-                    {
-                        <div class="bs-toast toast fade show bg-danger position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <i class="bx bx-bell me-2"></i>
-                                <div class="me-auto fw-medium">Errors</div>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            @foreach (var error in errors)
-                            {
-                                <ol class="list-group list-group-flush">
-                                    <li class="list-group-item list-group-item-action text-white">@error</li>
-                                </ol>
-                            }
-                        </div>
-                    }
-                    @{
-                        var successes = TempData["Success"] as List<string>;
-                    }
-                    @if (successes != null)
-                    {
-                        <div class="bs-toast toast fade show bg-success position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <i class="bx bx-bell me-2"></i>
-                                <div class="me-auto fw-medium">Success</div>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            @foreach (var success in successes)
-                            {
-                                <ol class="list-group list-group-flush">
-                                    <li class="list-group-item list-group-item-action text-white">@success</li>
-                                </ol>
-                            }
-                        </div>
-                    }
-                    <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="container-xxl flex-grow-1 container-p-y">
-                            <div class="row fv-plugins-icon-container">
-                                <div class="col-md-12">
-                                    @RenderBody()
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / Content -->
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div class="container-xxl">
-                            <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
-                                <div class="text-body">
-                                    ©2024, made with ❤️ by
-                                    <a href="https://yavuzyazici.com" target="_blank" class="footer-link">Yavuz Yazici</a>
-                                </div>
-                                <div class="d-none d-lg-inline-block">
-                                    <a href="/" target="_blank" class="footer-link me-4">WebSite</a>
-                                    <a href="https://github.com/yavuzyazici/MyLearningJourney/tree/main/03-RestaurantProject_CodeFirst" target="_blank" class="footer-link me-4">Github</a>
-                                    <a href="/Login/LogOut" class="btn btn-sm btn-outline-danger"><i class="bx bx-log-out-circle me-1"></i>Logout</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
-
-                    <div class="content-backdrop fade"></div>
+            <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+                    <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                        <i class="bx bx-menu bx-md"></i>
+                    </a>
                 </div>
-                <!-- Content wrapper -->
+                <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                    <!-- Search -->
+                    <div class="navbar-nav align-items-center">
+                        <div class="nav-item d-flex align-items-center">
+                            <span>Restaurant Project</span>
+                        </div>
+                    </div>
+                    <!-- /Search -->
+                    <ul class="navbar-nav flex-row align-items-center ms-auto">
+                        <!-- Place this tag where you want the button to render. -->
+                        <li class="nav-item lh-1 me-4">
+                            <a class="github-button"
+                               href="https://github.com/yavuzyazici/MyLearningJourney/tree/main/03-RestaurantProject_CodeFirst"
+                               data-icon="octicon-star"
+                               data-size="large"
+                               data-show-count="true"
+                               aria-label="Star /Restaurant Project on GitHub">Star</a>
+                        </li>
+                        <!-- User -->
+                        @Html.Action("AdminProfile", "Profile")
+                        <!--/ User -->
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- / Navbar -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                @{
+                    var errors = TempData["Errors"] as List<string>;
+                }
+                @if (errors != null)
+                {
+                    <div class="bs-toast toast fade show bg-danger position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="bx bx-bell me-2"></i>
+                            <div class="me-auto fw-medium">Errors</div>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        @foreach (var error in errors)
+                        {
+                            <ol class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-action text-white">@error</li>
+                            </ol>
+                        }
+                    </div>
+                }
+                @{
+                    var successes = TempData["Success"] as List<string>;
+                }
+                @if (successes != null)
+                {
+                    <div class="bs-toast toast fade show bg-success position-fixed top-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="bx bx-bell me-2"></i>
+                            <div class="me-auto fw-medium">Success</div>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        @foreach (var success in successes)
+                        {
+                            <ol class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-action text-white">@success</li>
+                            </ol>
+                        }
+                    </div>
+                }
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row fv-plugins-icon-container">
+                            <div class="col-md-12">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Content -->
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl">
+                        <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                            <div class="text-body">
+                                ©2024, made with ❤️ by
+                                <a href="https://yavuzyazici.com" target="_blank" class="footer-link">Yavuz Yazici</a>
+                            </div>
+                            <div class="d-none d-lg-inline-block">
+                                <a href="/" target="_blank" class="footer-link me-4">WebSite</a>
+                                <a href="https://github.com/yavuzyazici/MyLearningJourney/tree/main/03-RestaurantProject_CodeFirst" target="_blank" class="footer-link me-4">Github</a>
+                                <a href="/Login/LogOut" class="btn btn-sm btn-outline-danger"><i class="bx bx-log-out-circle me-1"></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
             </div>
+            <!-- Content wrapper -->
+        </div>
             <!-- / Layout page -->
         </div>
 

@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace RestaurantProject.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         RestaurantContext db = new RestaurantContext();
@@ -17,9 +18,9 @@ namespace RestaurantProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string email_username, string Password)
+        public ActionResult Index(string email_username, string Password, string returnUrl)
         {
-            var myUser = db.RestaurantAdmins.FirstOrDefault(x => (x.Email == email_username || x.UserName == email_username) & x.Password == Password);
+            var myUser = db.RestaurantAdmins.FirstOrDefault(x => (x.Email == email_username || x.UserName == email_username) && x.Password == Password);
             if (myUser == null)
             {
                 ModelState.AddModelError("", "Email or password is incorrect");
@@ -31,6 +32,10 @@ namespace RestaurantProject.Controllers
                 Session["UserId"] = myUser.AdminId;
                 Session["NonReadedMessagesCount"] = db.RestaurantMessages.Count(x => x.IsRead == false);
 
+                if (returnUrl != null)
+                {
+                    return Redirect(returnUrl);
+                }
                 return RedirectToAction("Index", "Dashboard");
             }
         }

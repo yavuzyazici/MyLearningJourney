@@ -18,6 +18,18 @@ namespace RestaurantProject.Controllers
             return View(bookings);
         }
         [HttpGet]
+        public ActionResult Approved()
+        {
+            var bookings = db.RestaurantBookings.Where(x => x.IsApproved == true).ToList();
+            return View("Index", bookings);
+        }
+        [HttpGet]
+        public ActionResult NonApproved()
+        {
+            var bookings = db.RestaurantBookings.Where(x => x.IsApproved == false).ToList();
+            return View("Index", bookings);
+        }
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             var booking = db.RestaurantBookings.Find(id);
@@ -78,6 +90,17 @@ namespace RestaurantProject.Controllers
             db.SaveChanges();
 
             TempData["Success"] = new List<string>() { "Booking process completed successfully" };
+
+            return RedirectToAction("Index", "Booking");
+        }
+        [HttpGet]
+        public ActionResult Approve(int id)
+        {
+            var myBooking = db.RestaurantBookings.Find(id);
+            myBooking.IsApproved = true;
+            db.SaveChanges();
+
+            TempData["Success"] = new List<string>() { "Approving process completed successfully" };
 
             return RedirectToAction("Index", "Booking");
         }

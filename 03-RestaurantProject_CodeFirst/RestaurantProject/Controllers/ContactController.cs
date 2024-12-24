@@ -83,6 +83,18 @@ namespace RestaurantProject.Controllers
             return View(messages);
         }
         [HttpGet]
+        public ActionResult ReadedMessages()
+        {
+            var messages = db.RestaurantMessages.Where(x => x.IsRead == true).ToList();
+            return View("Messages", messages);
+        }
+        [HttpGet]
+        public ActionResult NonReadedMessages()
+        {
+            var messages = db.RestaurantMessages.Where(x => x.IsRead == false).ToList();
+            return View("Messages", messages);
+        }
+        [HttpGet]
         public ActionResult ChangeStatus(int id)
         {
             var message = db.RestaurantMessages.Find(id);

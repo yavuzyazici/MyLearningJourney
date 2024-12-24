@@ -1,0 +1,30 @@
+﻿@model RestaurantProject.Models.RestaurantCategory
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="nav-align-top">
+    <ul class="nav nav-pills flex-column flex-md-row mb-6">
+        <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-sm bxl-product-hunt me-1_5"></i> Category</a></li>
+    </ul>
+</div>
+<div class="card mb-6 position-relative">
+    <form action="/Category/Update" method="post" enctype="multipart/form-data" class="fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="card-body pt-4">
+            <div class="row g-6">
+                <div class="col-md-6 fv-plugins-icon-container">
+                    <input type="hidden" name="RestaurantCategoryId" value="@Model.RestaurantCategoryId" />
+                    <label for="CategoryName" class="form-label">Category Name</label>
+                    <input class="form-control" type="text" value="@Model.CategoryName" name="CategoryName" id="CategoryName" placeholder="Category Name">
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <button type="submit" class="btn btn-primary me-3">Update Category</button>
+                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+            </div>
+            <input type="hidden">
+        </div>
+    </form>
+</div>

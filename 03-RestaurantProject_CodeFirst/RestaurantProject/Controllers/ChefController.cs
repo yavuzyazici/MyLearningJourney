@@ -89,7 +89,6 @@ namespace RestaurantProject.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult AddChef(RestaurantChef chef)
         {
@@ -108,6 +107,75 @@ namespace RestaurantProject.Controllers
             db.RestaurantChefs.Add(chef);
             SaveImage(chef);
 
+            db.SaveChanges();
+
+            TempData["Success"] = new List<string>() { "Adding process completed successfully" };
+
+            return RedirectToAction("Index", "Chef");
+        }
+        [HttpGet]
+        public ActionResult DeleteSocial(int id)
+        {
+            var socialMedia = db.RestaurantChefSocials.Find(id);
+            db.RestaurantChefSocials.Remove(socialMedia);
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Chef");
+            }
+
+            db.SaveChanges();
+
+            TempData["Success"] = new List<string>() { "Delete process completed successfully" };
+
+            return RedirectToAction("Index", "Chef");
+        }
+        [HttpGet]
+        public ActionResult UpdateSocial(int id)
+        {
+            var socialMedia = db.RestaurantChefSocials.Find(id);
+            return View(socialMedia);
+        }
+        [HttpPost]
+        public ActionResult UpdateSocial(RestaurantChefSocial chefSocial)
+        {
+            var mySocial = db.RestaurantChefSocials.Find(chefSocial.RestaurantChefSocialId);
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Chef");
+            }
+
+            mySocial.Name = chefSocial.Name;
+            mySocial.Url = chefSocial.Url;
+            mySocial.Icon = chefSocial.Icon;
+            db.SaveChanges();
+
+            TempData["Success"] = new List<string>() { "Update process completed successfully" };
+
+            return RedirectToAction("Index", "Chef");
+        }
+        [HttpGet]
+        public ActionResult AddChefSocial(int id)
+        {
+            ViewBag.ChefId = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddChefSocial(RestaurantChefSocial chefSocial)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Errors"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+
+                return RedirectToAction("Index", "Chef");
+            }
+
+            db.RestaurantChefSocials.Add(chefSocial);
             db.SaveChanges();
 
             TempData["Success"] = new List<string>() { "Adding process completed successfully" };

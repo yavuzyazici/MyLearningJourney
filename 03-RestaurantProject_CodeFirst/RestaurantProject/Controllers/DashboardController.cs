@@ -20,6 +20,8 @@ namespace RestaurantProject.Controllers
 
             ViewBag.Messages = db.RestaurantMessages.Where(x => x.IsRead == false).ToList();
             ViewBag.Booking = db.RestaurantBookings.Where(x => x.IsApproved == false).Take(50).ToList();
+
+            ViewBag.Last10Product = db.RestaurantProducts.OrderByDescending(x => x.RestaurantProductId).Take(10).ToList();
             return View();
         }
     }
