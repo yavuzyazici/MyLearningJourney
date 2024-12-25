@@ -1,6 +1,6 @@
 # MyLearningJourney
 
-This repository contains the tutorials and projects I have developed on .NET Core and MVC.
+This repository contains the projects I have developed on .NET Core and MVC while i was trying to learn how to code at Web.
 
 ## Projects
 
