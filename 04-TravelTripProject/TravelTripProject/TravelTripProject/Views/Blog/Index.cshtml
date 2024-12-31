@@ -1,0 +1,51 @@
+﻿@model TravelTripProject.Models.Classes.BlogComment
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="single-main">
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="single-grid">
+                        <img src="@blog.ImageUrl" alt="" />
+                        <br />
+                        <br />
+                        <a href="/Blog/BlogDetail/@blog.Id">@blog.Title</a>
+                        <p>
+                            @blog.Content
+                        </p>
+                    </div>
+                    <br />
+                    <br />
+                }
+            </div>
+
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>Recent Blogs</h3>
+                    <ul>
+                        @foreach (var lastblogs in Model.Last3Blog)
+                        {
+                            <li><a href="/Blog/BlogDetail/@lastblogs.Id">@lastblogs.Title</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>Recent Comments</h3>
+                    <ul>
+                        @foreach (var lastComment in Model.Last3Comment)
+                        {
+                            <li><a href="/Blog/BlogDetail/@lastComment.BlogId">@lastComment.UserName</a> @lastComment.Content</li>
+                        }
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

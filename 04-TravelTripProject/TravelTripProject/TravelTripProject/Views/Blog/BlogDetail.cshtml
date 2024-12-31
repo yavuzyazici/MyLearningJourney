@@ -1,0 +1,46 @@
+﻿@model TravelTripProject.Models.Classes.BlogComment
+@{
+    ViewBag.Title = "BlogDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="single">
+    <div class="container">
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="col-md-12 single-main">
+                <div class="single-grid">
+                    <img src="@blog.ImageUrl" alt="" />
+                    <h2>@blog.Title</h2>
+                    <p>
+                        @blog.Content
+                    </p>
+                </div>
+                @foreach (var comment in Model.Comments)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="/webblog/images/avatar.png" class="img-responsive" alt="">
+                            <div class="desc">
+                                <p>@comment.UserName</p><br />
+                                <p>@comment.Content</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
+                <div class="content-form">
+                    <h3>Leave a comment</h3>
+                    <form action="/Blog/BlogDetail" method="post">
+                        <input type="hidden" name="BlogId" value="@blog.Id" />
+                        <input type="text" name="UserName" placeholder="Name" required />
+                        <input type="text" name="Mail" placeholder="Email" required />
+                        <textarea name="Content" placeholder="Message"></textarea>
+                        <input type="submit" value="Send" />
+                    </form>
+                </div>
+            </div>
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrap">
+    <div class="about">
+        <h3>About</h3>
+        <img src="@Model.ImageUrl" alt="" />
+        <p>@Model.Description</p>
+    </div>
+</div>
