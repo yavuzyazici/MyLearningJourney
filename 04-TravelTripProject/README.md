@@ -33,21 +33,41 @@ Travel Trip is a comprehensive web application designed to provide users with a 
 
 ### User Side
 
-| Page          | Screenshot |
-|---------------|------------|
-| Homepage      | ![Homepage](RestaurantProject/assets/images/project/homepage.png) |
-| About Page    | ![About Page](RestaurantProject/assets/images/project/about.png) |
-| Blog Listing  | ![Blog Listing](RestaurantProject/assets/images/project/blog_listing.png) |
-| Blog Details  | ![Blog Details](RestaurantProject/assets/images/project/blog_details.png) |
-| Contact Page  | ![Contact Page](RestaurantProject/assets/images/project/contact.png) |
+| Homepage      |
+|---------------|
+| ![Homepage](/TravelTripProject/images/homepage.png) |
 
-### Admin Panel
+| About Page    |
+|---------------|
+| ![About Page](/TravelTripProject/images/about.png) |
 
-| Feature           | Screenshot |
-|-------------------|------------|
-| Blog Management   | ![Blog Management](RestaurantProject/assets/images/project/blog_management.png) |
-| Blog Details      | ![Blog Details](RestaurantProject/assets/images/project/blog_details_admin.png) |
-| About Section     | ![About Section](RestaurantProject/assets/images/project/about_section.png) |
-| Comment Management| ![Comment Management](RestaurantProject/assets/images/project/comment_management.png) |
+| Blog Listing  |
+|---------------|
+| ![Blog Listing](/TravelTripProject/images/blog_listing.png) |
 
+| Blog Details  |
+|---------------|
+| ![Blog Details](/TravelTripProject/images/blog_details.png) |
+
+| Contact Page  |
+|---------------|
+| ![Contact Page](/TravelTripProject/images/contact.png) |
+
+---
+
+| Blog Management   |
+|-------------------|
+| ![Blog Management](/TravelTripProject/images/blog_management.png) |
+
+| Blog Details      |
+|-------------------|
+| ![Blog Details](/TravelTripProject/images/blog_details_admin.png) |
+
+| About Section     |
+|-------------------|
+| ![About Section](/TravelTripProject/images/about_section.png) |
+
+| Comment Management|
+|-------------------|
+| ![Comment Management](/TravelTripProject/images/comment_management.png) |
 ---
