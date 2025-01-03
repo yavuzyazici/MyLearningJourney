@@ -35,39 +35,39 @@ Travel Trip is a comprehensive web application designed to provide users with a 
 
 | Homepage      |
 |---------------|
-| ![Homepage](/TravelTripProject/images/homepage.png) |
+| ![Homepage](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/homepage.png) |
 
 | About Page    |
 |---------------|
-| ![About Page](/TravelTripProject/images/about.png) |
+| ![About Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/about.png) |
 
 | Blog Listing  |
 |---------------|
-| ![Blog Listing](/TravelTripProject/images/blog_listing.png) |
+| ![Blog Listing](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/blog_listing.png) |
 
 | Blog Details  |
 |---------------|
-| ![Blog Details](/TravelTripProject/images/blog_details.png) |
+| ![Blog Details](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/blog_details.png) |
 
 | Contact Page  |
 |---------------|
-| ![Contact Page](/TravelTripProject/images/contact.png) |
+| ![Contact Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/contact.png) |
 
 ---
 
 | Blog Management   |
 |-------------------|
-| ![Blog Management](/TravelTripProject/images/blog_management.png) |
+| ![Blog Management](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/blog_management.png) |
 
 | Blog Details      |
 |-------------------|
-| ![Blog Details](/TravelTripProject/images/blog_details_admin.png) |
+| ![Blog Details](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/blog_details_admin.png) |
 
 | About Section     |
 |-------------------|
-| ![About Section](/TravelTripProject/images/about_section.png) |
+| ![About Section](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/about_section.png) |
 
 | Comment Management|
 |-------------------|
-| ![Comment Management](/TravelTripProject/images/comment_management.png) |
+| ![Comment Management](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/comment_management.png) |
 ---
