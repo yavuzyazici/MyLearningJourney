@@ -1,0 +1,30 @@
+﻿@model List<TravelTripProject.Models.Classes.Blog>
+
+<div class="padding1">
+    <h4>Best Places That I Went</h4>
+    <div class="box-left">
+        @foreach (var blog in Model.Take(3).ToList())
+        {
+            <div class="bot-img">
+                <img src="@blog.ImageUrl" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@blog.Title <br />@blog.Content.Substring(0, 25)...</p>
+            </div>
+            <div class="clear"></div>
+            Model.Remove(blog);
+        }
+    </div>
+    <div class="box1-left">
+        @foreach (var blog in Model)
+        {
+            <div class="bot-img">
+                <img style="width:120px; height:67px" src="@blog.ImageUrl" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@blog.Title    @blog.Content.Substring(0,25)...</p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+</div>

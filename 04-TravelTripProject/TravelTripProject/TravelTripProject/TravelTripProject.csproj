@@ -128,8 +128,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
     <Content Include="webblog\js\move-top.js" />
     <Content Include="webblog\single.html" />
     <Content Include="webblog\w3layouts-License.txt" />
+    <Content Include="webLogin\css\style.css" />
+    <Content Include="webLogin\images\b4.jpg" />
+    <Content Include="webLogin\index.html" />
+    <Content Include="webLogin\w3layouts-License.txt" />
     <Content Include="web\about.html" />
     <Content Include="web\contact.html" />
     <Content Include="web\css\slider.css" />
@@ -257,6 +264,23 @@
     <Content Include="Views\Blog\BlogDetail.cshtml" />
     <Content Include="Views\Home\Partial1.cshtml" />
     <Content Include="Views\Home\Partial2.cshtml" />
+    <Content Include="Views\Home\Partial3.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Blog.cshtml" />
+    <Content Include="Views\Admin\AddBlog.cshtml" />
+    <Content Include="Views\Admin\UpdateBlog.cshtml" />
+    <Content Include="Views\Admin\BlogDetail.cshtml" />
+    <Content Include="Views\Admin\Comment.cshtml" />
+    <Content Include="Views\Admin\UpdateComment.cshtml" />
+    <Content Include="Views\Admin\CommentDetail.cshtml" />
+    <Content Include="webLogin\fonts\Asap-Regular.ttf" />
+    <Content Include="webLogin\fonts\Audiowide-Regular.ttf" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Admin\Contact.cshtml" />
+    <Content Include="Views\Admin\ContactDetail.cshtml" />
+    <Content Include="Views\Admin\About.cshtml" />
+    <Content Include="Views\Admin\UpdateAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

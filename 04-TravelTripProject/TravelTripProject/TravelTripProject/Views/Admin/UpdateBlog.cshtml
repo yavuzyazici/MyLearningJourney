@@ -1,0 +1,27 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Blog</h2>
+<br />
+
+<form class="form-group" action="/Admin/UpdateBlog" method="post">
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @type = "hidden", @value = Model.Id })
+
+    @Html.LabelFor(x => x.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @value = Model.Title })
+    <br />
+    @Html.LabelFor(x => x.CreationDate)
+    @Html.TextBoxFor(x => x.CreationDate, new { @class = "form-control", @value = Model.CreationDate.ToString("yyyy-MM-dd") })
+    <br />
+    @Html.LabelFor(x => x.ImageUrl)
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", @value = Model.ImageUrl })
+    <br />
+    @Html.LabelFor(x => x.Content)
+    @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @rows = "6", @value = Model.Content })
+    <br />
+    <button class="btn btn-info" type="submit">Update Blog</button>
+</form>

@@ -29,5 +29,10 @@ namespace TravelTripProject.Controllers
             var blogs = c.Blogs.Take(10).ToList();
             return PartialView(blogs);
         }
+        public PartialViewResult Partial3()
+        {
+            var blogs = c.Blogs.Take(6).ToList();
+            return PartialView(blogs);
+        }
     }
 }

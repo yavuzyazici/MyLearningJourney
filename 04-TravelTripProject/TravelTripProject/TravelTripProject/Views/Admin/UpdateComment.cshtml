@@ -1,0 +1,24 @@
+﻿@model TravelTripProject.Models.Classes.Comment
+@{
+    ViewBag.Title = "UpdateComment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Comment</h2>
+<br />
+
+<form class="form-group" action="/Admin/UpdateComment" method="post">
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @type = "hidden", @value = Model.Id })
+
+    @Html.LabelFor(x => x.UserName)
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @value = Model.UserName })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @value = Model.Mail})
+    <br />
+    @Html.LabelFor(x => x.Content)
+    @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @rows = "4" , @value = Model.Content })
+    <br />
+    <button class="btn btn-info" type="submit">Update Comment</button>
+</form>

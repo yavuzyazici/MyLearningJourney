@@ -1,0 +1,30 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <!-- Başlık -->
+    <div class="text-center mb-4">
+        <h2 class="text-primary">About</h2>
+        <hr class="w-25 mx-auto" />
+    </div>
+
+    <!-- Görsel -->
+    <div class="text-center">
+        <img src="@Model.ImageUrl" class="img-fluid rounded shadow-lg mb-4" alt="About Image" style="max-width: 600px;" />
+    </div>
+
+    <!-- Düzenleme Butonu -->
+    <div class="text-center mb-3">
+        <button class="btn btn-warning btn-lg px-4 shadow-sm">
+            <i class="bi bi-pencil-square"></i> <a href="/Admin/UpdateAbout">Update</a>
+        </button>
+    </div>
+
+    <!-- Açıklama -->
+    <div class="text-justify mx-auto" style="max-width: 800px;">
+        <p class="lead">@Model.Description</p>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<TravelTripProject.Models.Classes.Blog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Blog List</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var blog in Model)
+    {
+        <tr>
+            <td>@blog.Id</td>
+            <td>@blog.Title</td>
+            <td><a href="/Admin/DeleteBlog/@blog.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/UpdateBlog/@blog.Id" class="btn btn-warning">Update</a></td>
+            <td><a href="/Admin/BlogDetail/@blog.Id" class="btn btn-outline-info">Details</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/AddBlog/" class="btn btn-info">Add New Blog</a>

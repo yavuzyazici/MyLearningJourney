@@ -1,0 +1,36 @@
+﻿@model List<TravelTripProject.Models.Classes.Comment>
+
+@{
+    ViewBag.Title = "Comment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Comment List</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>User Name</th>
+        <th>Mail</th>
+        <th>Comment</th>
+        <th>Blog</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var comment in Model)
+    {
+        <tr>
+            <td>@comment.Id</td>
+            <td>@comment.UserName</td>
+            <td>@comment.Mail</td>
+            <td>@comment.Content</td>
+            <td>@comment.Blog.Title</td>
+            <td><a href="/Admin/DeleteComment/@comment.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/UpdateComment/@comment.Id" class="btn btn-warning">Update</a></td>
+            <td><a href="/Admin/CommentDetail/@comment.Id" class="btn btn-outline-info">Details</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,23 @@
+﻿@model TravelTripProject.Models.Classes.Contact
+@{
+    ViewBag.Title = "UpdateComment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Contact Detail</h2>
+<br />
+
+<form class="form-group">
+    @Html.LabelFor(x => x.NameSurname)
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control", @value = Model.NameSurname })
+    <br />
+    @Html.LabelFor(x => x.EMail)
+    @Html.TextBoxFor(x => x.EMail, new { @class = "form-control", @value = Model.EMail })
+    <br />
+    @Html.LabelFor(x => x.Subject)
+    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @value = Model.Subject })
+    <br />
+    @Html.LabelFor(x => x.Message)
+    @Html.TextAreaFor(x => x.Message, new { @class = "form-control", @rows = "4", @value = Model.Message })
+</form>

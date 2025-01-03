@@ -1,0 +1,33 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Update About</h2>
+    <hr class="w-50 mx-auto mb-4" />
+
+    <!-- Form -->
+    <form action="/Admin/UpdateAbout" method="post" class="w-50 mx-auto">
+        <!-- Id (Hidden) -->
+        <input type="hidden" name="Id" />
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label name="Description" class="form-label">Description</label>
+            <textarea name="Description" class="form-control" rows="3">@Model.Description</textarea>
+            <span name="Description" class="text-danger"></span>
+        </div>
+
+        <!-- Image URL -->
+        <div class="mb-3">
+            <label name="ImageUrl" class="form-label">Image URL</label>
+            <input name="ImageUrl" class="form-control" value="@Model.ImageUrl" />
+            <span name="ImageUrl" class="text-danger"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success w-100">Update</button>
+    </form>
+</div>

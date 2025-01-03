@@ -1,0 +1,31 @@
+﻿@model TravelTripProject.Models.Classes.Contact
+<div class="contact">
+    <div class="wrap">
+        <div class="contact-top">
+            <h3>Contact Information</h3>
+            <p> insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nu</p>
+        </div>
+        <form class="cmxform" id="contactForm" method="post">
+            <div class="form">
+                <div>
+                    <input type="text" class="textbox" name="Subject" value="Subject:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                </div>
+                <div>
+                    <input type="text" class="textbox" name="NameSurname" value="Name:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                </div>
+                <div>
+                    <input type="text" class="textbox" name="EMail" value="Email:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                </div>
+                <div>
+                    <p><button class="read" type="submit">Submit</button></p>
+                </div>
+            </div>
+            <div class="form1">
+                <div>
+                    <textarea value="Message:" name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+                </div>
+            </div>
+        </form>
+        <div class="clear"></div>
+    </div>
+</div>
