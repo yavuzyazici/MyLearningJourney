@@ -39,7 +39,7 @@ Travel Trip is a comprehensive web application designed to provide users with a 
 
 | About Page    |
 |---------------|
-| ![About Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/about.png) |
+| ![About Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/About.png) |
 
 | Blog Listing  |
 |---------------|
@@ -51,7 +51,7 @@ Travel Trip is a comprehensive web application designed to provide users with a 
 
 | Contact Page  |
 |---------------|
-| ![Contact Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/contact.png) |
+| ![Contact Page](/04-TravelTripProject/TravelTripProject/TravelTripProject/images/Contact.png) |
 
 ---
 
