@@ -8,5 +8,3 @@ This repository contains the projects I have developed on .NET Core and MVC whil
 2. [MVC Model First MyPortfolio](./02-MyPortfolio)
 3. [MVC Code First Restaurant Project](./03-RestaurantProject_CodeFirst)
 4. [Travel Trip Code First Project](./04-TravelTripProject)
-
-5. https://github.com/yavuzyazici/MyLearningJourney/tree/main/04-TravelTripProject
