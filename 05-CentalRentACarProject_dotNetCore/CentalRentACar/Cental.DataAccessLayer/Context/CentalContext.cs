@@ -14,14 +14,14 @@ namespace Cental.DataAccessLayer.Context
         {
             optionsBuilder.UseSqlServer("server=YAVUZ\\SQLEXPRESS; database=CentalRentACar; integrated security = true; trustServerCertificate = true");
         }
-        DbSet<About> Abouts { get; set; }
-        DbSet<Banner> Banners { get; set; }
-        DbSet<Brand> Brands { get; set; }
-        DbSet<Car> Cars { get; set; }
-        DbSet<Feature> Features { get; set; }
-        DbSet<Process> Processes { get; set; }
-        DbSet<Review> Reviews { get; set; }
-        DbSet<Service> Services { get; set; }
-        DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Banner> Banners { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Process> Processes { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
     }
 }
