@@ -31,6 +31,10 @@ namespace Cental.BusinessLayer.Concrete
         {
            return _genericDal.GetAll();
         }
+        public T TGetFirst()
+        {
+            return _genericDal.GetFirst();
+        }
 
         public T TGetById(int id)
         {

@@ -1,50 +1,70 @@
-﻿@model UpdateAboutDto
+﻿@using Cental.DtoLayer.AboutDtos
+@model UpdateAboutDto
 
-<h3>Update About</h3>
+@{
+    Layout = "/Views/AdminLayout/Layout.cshtml";
+}
 
-<form method="post">
-    <input type="hidden" asp-for="AboutId" class="form-control" />
-    <label>Vision</label>
-    <input type="text" asp-for="Vision" class="form-control" />
-    <br />
-    <label>Mission</label>
-    <input type="text" asp-for="Mission" class="form-control" />
-    <br />
-    <label>Description at Top</label>
-    <input type="text" asp-for="Description1" class="form-control" />
-    <br />
-    <label>Description at Down</label>
-    <input type="text" asp-for="Description2" class="form-control" />
-    <br />
-    <label>Start Year</label>
-    <input type="number" asp-for="StartYear" class="form-control" />
-    <br />
-    <label>Small ImageURL </label>
-    <input type="text" asp-for="ImageUrlSmall" class="form-control" />
-    <br />
-    <label>Big ImageURL</label>
-    <input type="text" asp-for="ImageUrlBig" class="form-control" />
-    <br />
-    <label>Item 1</label>
-    <input type="text" asp-for="Item1" class="form-control" />
-    <br />
-    <label>Item 2</label>
-    <input type="text" asp-for="Item2" class="form-control" />
-    <br />
-    <label>Item 3</label>
-    <input type="text" asp-for="Item3" class="form-control" />
-    <br />
-    <label>Item 4</label>
-    <input type="text" asp-for="Item4" class="form-control" />
-    <br />
-    <label>Name Surname</label>
-    <input type="text" asp-for="NameSurname" class="form-control" />
-    <br />
-    <label>Job Title</label>
-    <input type="text" asp-for="JobTitle" class="form-control" />
-    <br />
-    <label>Profile Picture URL</label>
-    <input type="text" asp-for="ProfilePictureUrl" class="form-control" />
-    <br />
-    <button class="btn btn-outline-primary">Update</button>
-</form>
+<div class="card-header">
+    <h5>Update About</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <input type="hidden" asp-for="AboutId" class="form-control" />
+        <label>Vision</label>
+        <input type="text" asp-for="Vision" class="form-control" />
+        <br />
+        <label>Mission</label>
+        <input type="text" asp-for="Mission" class="form-control" />
+        <br />
+        <label>Description at Top</label>
+        <input type="text" asp-for="Description1" class="form-control" />
+        <br />
+        <label>Description at Down</label>
+        <input type="text" asp-for="Description2" class="form-control" />
+        <br />
+        <label>Start Year</label>
+        <input type="number" asp-for="StartYear" class="form-control" />
+        <br />
+        <label>Small ImageURL </label>
+        <input type="text" asp-for="ImageUrlSmall" class="form-control" />
+        <br />
+        <label>Big ImageURL</label>
+        <input type="text" asp-for="ImageUrlBig" class="form-control" />
+        <br />
+        <label>Item 1</label>
+        <input type="text" asp-for="Item1" class="form-control" />
+        <br />
+        <label>Item 2</label>
+        <input type="text" asp-for="Item2" class="form-control" />
+        <br />
+        <label>Item 3</label>
+        <input type="text" asp-for="Item3" class="form-control" />
+        <br />
+        <label>Item 4</label>
+        <input type="text" asp-for="Item4" class="form-control" />
+        <br />
+        <label>Name Surname</label>
+        <input type="text" asp-for="NameSurname" class="form-control" />
+        <br />
+        <label>Job Title</label>
+        <input type="text" asp-for="JobTitle" class="form-control" />
+        <br />
+        <label>Profile Picture URL</label>
+        <input type="text" asp-for="ProfilePictureUrl" class="form-control" />
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+</div>
+

@@ -10,6 +10,7 @@ namespace Cental.BusinessLayer.Abstract
     {
         List<T> TGetAll();
         T TGetById(int id);
+        T TGetFirst();
         void TDelete(int id);
         void TCreate(T entity);
         void TUpdate(T entity);

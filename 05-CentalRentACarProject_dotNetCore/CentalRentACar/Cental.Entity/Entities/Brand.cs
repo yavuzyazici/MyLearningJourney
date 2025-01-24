@@ -11,9 +11,6 @@ namespace Cental.EntityLayer.Entities
     {
         [Key]
         public int BrandId { get; set; }
-
-        [Required(ErrorMessage = "The Brand Name is required.")]
-        [StringLength(100, ErrorMessage = "The Brand Name must be at most 100 characters long.")]
         public required string BrandName { get; set; }
         public List<Car>? Cars { get; set; }
     }

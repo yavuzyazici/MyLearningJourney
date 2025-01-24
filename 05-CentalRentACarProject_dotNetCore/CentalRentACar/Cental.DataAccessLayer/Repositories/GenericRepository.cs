@@ -10,7 +10,7 @@ namespace Cental.DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        private readonly CentalContext _context;
+        protected readonly CentalContext _context;
         public GenericRepository(CentalContext context)
         {
             _context = context;
@@ -37,6 +37,11 @@ namespace Cental.DataAccessLayer.Repositories
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
+        }
+
+        public T GetFirst()
+        {
+            return _context.Set<T>().FirstOrDefault();
         }
 
         public void Update(T entity)

@@ -1,29 +1,32 @@
 using Cental.BusinessLayer.Abstract;
 using Cental.BusinessLayer.Concrete;
+using Cental.BusinessLayer.Extensions;
+using Cental.BusinessLayer.Validators;
+using Cental.BusinessLayer.Validators.BrandValidator;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concrete;
 using Cental.DataAccessLayer.Context;
 using Cental.DataAccessLayer.Repositories;
+using Cental.DtoLayer.BrandDtos;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //When you see AboutService. Take a property example from AboutManager and do the processes with it.
 builder.Services.AddDbContext<CentalContext>();
-
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddScoped<IAboutService, AboutManager>();
-builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+// Servislerin kaydý
+builder.Services.AddServiceRegistrations();
 
-builder.Services.AddScoped<IBannerService, BannerManager>();
-builder.Services.AddScoped<IBannerDal, EfBannerDal>();
+// FluentValidation ve Authorization eklenmesi
+builder.Services.AddFluentValidationAutoValidation()
+    .AddFluentValidationClientsideAdapters()
+    .AddValidatorsFromAssemblyContaining<CreateBrandValidator>();
 
-builder.Services.AddScoped<IBrandService, BrandManager>();
-builder.Services.AddScoped<IBrandDal, EfBrandDal>();
-
-builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews();
 
@@ -44,6 +47,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();

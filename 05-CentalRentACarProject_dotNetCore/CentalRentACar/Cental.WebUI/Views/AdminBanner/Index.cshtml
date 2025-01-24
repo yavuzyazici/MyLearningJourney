@@ -1,32 +1,49 @@
-﻿@model List<ResultBannerDto>
+﻿@using Cental.DtoLayer.BannerDtos
+@model List<ResultBannerDto>
 @{
     ViewData["Title"] = "Banner";
+    Layout = "/Views/AdminLayout/Layout.cshtml";
     var count = 1;
 }
 
-<h3>Banner</h3>
+<div class="card-header">
+    <h5>Banner</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>ImageURL</th>
-        <th>Delete</th>
-        <th>Update</th>
-    </tr>
-    @foreach (var banner in Model)
-    {
+    <table class="table table-bordered">
         <tr>
-            <td>@count</td>
-            <td>@banner.Title</td>
-            <td>@banner.Description</td>
-            <td><img src="@banner.ImageUrl" style="width:75px; height:75px" /></td>
-            <td><a asp-action="DeleteBanner" asp-route-id="@banner.BannerId" class="btn btn-danger">Delete</a></td>
-            <td><a asp-action="UpdateBanner" asp-route-id="@banner.BannerId" class="btn btn-info">Update</a></td>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>ImageURL</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
-        count++;
-    }
-</table>
+        @foreach (var banner in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@banner.Title</td>
+                <td>@banner.Description</td>
+                <td><img src="@banner.ImageUrl" style="width:75px; height:75px" /></td>
+                <td><a asp-action="DeleteBanner" asp-route-id="@banner.BannerId" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateBanner" asp-route-id="@banner.BannerId" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
 
-<a asp-action="CreateBanner" asp-controller="AdminBanner" class="btn btn-primary">Add New Banner</a>
+    <a asp-action="CreateBanner" asp-controller="AdminBanner" class="btn btn-primary">Add New Banner</a>
+</div>
