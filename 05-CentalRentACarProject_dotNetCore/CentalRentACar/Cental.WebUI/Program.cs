@@ -8,6 +8,7 @@ using Cental.DataAccessLayer.Concrete;
 using Cental.DataAccessLayer.Context;
 using Cental.DataAccessLayer.Repositories;
 using Cental.DtoLayer.BrandDtos;
+using Cental.EntityLayer.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using System.Reflection;
@@ -18,13 +19,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CentalContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-// Servislerin kaydý
+// Registrations of Services
 builder.Services.AddServiceRegistrations();
 
-// FluentValidation ve Authorization eklenmesi
+//Adding FluentValidation and Authorization
 builder.Services.AddFluentValidationAutoValidation()
     .AddFluentValidationClientsideAdapters()
     .AddValidatorsFromAssemblyContaining<CreateBrandValidator>();
+
+//Adding Identity
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<CentalContext>();
 
 builder.Services.AddAuthorization();
 
