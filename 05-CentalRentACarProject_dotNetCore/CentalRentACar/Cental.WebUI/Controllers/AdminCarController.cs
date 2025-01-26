@@ -17,7 +17,7 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var values = _carservice.TGetCarsWithBrands();
+            var values = _carservice.TGetAll();
             var cars = _mapper.Map<List<ResultCarDto>>(values);
             return View(cars);
         }

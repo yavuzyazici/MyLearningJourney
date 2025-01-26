@@ -30,12 +30,6 @@ namespace Cental.BusinessLayer.Concrete
         {
             return _carDal.GetById(id);
         }
-
-        public List<Car> TGetCarsWithBrands()
-        {
-            return _carDal.GetCarWithBrands();
-        }
-
         public Car TGetFirst()
         {
             return _carDal.GetFirst();

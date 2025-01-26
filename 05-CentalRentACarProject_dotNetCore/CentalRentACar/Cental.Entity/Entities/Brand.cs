@@ -12,6 +12,6 @@ namespace Cental.EntityLayer.Entities
         [Key]
         public int BrandId { get; set; }
         public required string BrandName { get; set; }
-        public List<Car>? Cars { get; set; }
+        public virtual List<Car>? Cars { get; set; }
     }
 }

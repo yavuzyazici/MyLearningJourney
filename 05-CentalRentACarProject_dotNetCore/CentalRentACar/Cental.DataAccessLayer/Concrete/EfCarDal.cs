@@ -16,11 +16,5 @@ namespace Cental.DataAccessLayer.Concrete
         public EfCarDal(CentalContext context) : base(context)
         {
         }
-
-        public List<Car> GetCarWithBrands()
-        {
-            //Eager Loading
-            return _context.Cars.Include(x => x.Brand).ToList();
-        }
     }
 }

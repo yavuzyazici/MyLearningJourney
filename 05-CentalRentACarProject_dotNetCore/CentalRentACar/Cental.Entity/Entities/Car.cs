@@ -50,7 +50,7 @@ namespace Cental.EntityLayer.Entities
 
         [Required(ErrorMessage = "The Brand ID is required.")]
         public int BrandId { get; set; }
-        public required Brand Brand { get; set; }
-        public List<Review>? Reviews { get; set; }
+        public virtual required Brand Brand { get; set; }
+        public virtual List<Review>? Reviews { get; set; }
     }
 }

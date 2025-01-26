@@ -13,6 +13,7 @@ namespace Cental.DataAccessLayer.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=YAVUZ\\SQLEXPRESS; database=CentalRentACar; integrated security = true; trustServerCertificate = true");
+            optionsBuilder.UseLazyLoadingProxies();
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
