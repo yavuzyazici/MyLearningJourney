@@ -5,17 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.ViewComponents.Default
 {
-    public class _DefaultAboutComponent : ViewComponent
+    public class _DefaultAboutComponent(IAboutService _aboutService, IMapper _mapper) : ViewComponent
     {
-        private readonly IAboutService _aboutService;
-        private readonly IMapper _mapper;
-
-        public _DefaultAboutComponent(IAboutService aboutService, IMapper mapper)
-        {
-            _aboutService = aboutService;
-            _mapper = mapper;
-        }
-
         public IViewComponentResult Invoke()
         {
             var values = _aboutService.TGetFirst();

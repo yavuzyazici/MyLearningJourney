@@ -20,7 +20,7 @@ namespace Cental.DtoLayer.CarDtos
         public required string FuelType { get; set; }
         public int Year { get; set; }
         public required string Transmission { get; set; }
-        public int Kilometer { get; set; }
+        public required string Kilometer { get; set; }
         public required Brand Brand { get; set; }
         public List<Review>? Reviews { get; set; }
     }

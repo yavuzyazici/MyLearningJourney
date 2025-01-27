@@ -8,10 +8,25 @@
 <html lang="en">
 
 <head>
-    @@include('./layouts/head.html')
-    @@include('./layouts/head-bottom-link.html')
-</head>
 
+    <title>Flat Able - Premium Admin Template by Phoenixcoded</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="/admin-theme/dist/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="/admin-theme/dist/assets/css/style.css">
+
+
+
+
+</head>
 <body>
     <!-- [ auth-signup ] start -->
     <div class="auth-wrapper">
@@ -22,32 +37,35 @@
                     <div class="col-md-12">
                         <form method="post">
                             <div class="card-body">
-                                <h4 class="f-w-400">Sign up</h4>
+                                <h4 class="f-w-400">Sign Up Form</h4>
                                 <hr>
                                 <div class="form-group mb-3">
-                                    <input type="text" asp-for="FirstName" class="form-control" id="FirstName" required placeholder="FirstName">
+                                    <input type="text" class="form-control" asp-for="FirstName" placeholder="FirstName" required>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" asp-for="LastName" class="form-control" id="LastName" required placeholder="LastName">
+                                    <input type="text" class="form-control" asp-for="LastName" placeholder="LastName" required>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" asp-for="UserName" class="form-control" id="Username" required placeholder="Username">
+                                    <input type="text" class="form-control" asp-for="UserName" placeholder="UserName" required>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="email" asp-for="Email" class=" form-control" id="Email" required placeholder="Email address">
+                                    <input type="email" class="form-control" asp-for="Email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <input type="password" asp-for="Password" class=" form-control" id="Password" required placeholder="Password">
+                                    <input type="password" class="form-control" asp-for="Password" placeholder="Password" required>
                                 </div>
                                 <div class="form-group mb-4">
-                                    <input type="password" asp-for="PasswordAgain" class=" form-control" id="PasswordAgain" required placeholder="Password Again">
+                                    <input type="password" class="form-control" asp-for="PasswordAgain" required placeholder="Password Again">
                                 </div>
+
                                 <p style="color:red">
                                     @Html.ValidationSummary()
                                 </p>
-                                <button class="btn btn-primary btn-block mb-4">Sign up</button>
+
+                                <button class="btn btn-primary btn-block mb-4" type="submit">SignUp</button>
                                 <hr>
-                                <p class="mb-2">Already have an account? <a href="/Login/Index" class="f-w-400">SignIn</a></p>
+                                <p class="mb-2">Do you have account? <a href="/Login/Index" class="f-w-400">Sign In</a></p>
+                                <p class="mb-2">Did you came to wrong page? <a href="/" class="f-w-400">Go home</a></p>
                             </div>
                         </form>
                     </div>
@@ -61,8 +79,6 @@
     <script src="/admin-theme/dist/assets/js/plugins/bootstrap.min.js"></script>
 
     <script src="/admin-theme/dist/assets/js/pcoded.min.js"></script>
-    @@include('./layouts/footer-bottom-link.html')
 
 </body>
-
 </html>
