@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.ProcessDtos
 {
-    public class Process
+    public class UIProcessDtos
     {
-        [Key]
-        public int ProcessId { get; set; }
         public required string Title { get; set; }
         public required string Description { get; set; }
     }

@@ -1,11 +1,13 @@
-﻿@using Cental.DtoLayer.AboutDtos
-@model List<ResultAboutDto>
+﻿@using Cental.DtoLayer.ProcessDtos
+@model List<ResultProcessDtos>
 @{
-    ViewData["Title"] = "Hakkımızda";
-    Layout = "/Views/AdminLayout/Layout.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    int count = 1;
 }
+
 <div class="card-header">
-    <h5>About</h5>
+    <h5>Processes</h5>
     <div class="card-header-right">
         <div class="btn-group card-option">
             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,31 +16,31 @@
             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                 <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
                 <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
-                </ul>
+            </ul>
         </div>
     </div>
 </div>
 <div class="card-body">
-
     <table class="table table-bordered">
         <tr>
             <th>#</th>
-            <th>Vision</th>
-            <th>Mission</th>
-            <th>Delete</th>
-            <th>Update</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Delete Process</th>
+            <th>Update Process</th>
         </tr>
-        @foreach (var about in Model)
+        @foreach (var process in Model)
         {
             <tr>
-                <td>@about.AboutId</td>
-                <td>@about.Vision</td>
-                <td>@about.Mission</td>
-                <td><a asp-action="DeleteAbout" asp-route-id="@about.AboutId" class="btn btn-danger">Delete</a></td>
-                <td><a asp-action="UpdateAbout" asp-route-id="@about.AboutId" class="btn btn-info">Update</a></td>
+                <td>@count</td>
+                <td>@process.Title</td>
+                <td>@process.Description</td>
+                <td><a asp-action="DeleteProcess" asp-route-id="@process.ProcessId" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateProcess" asp-route-id="@process.ProcessId" class="btn btn-info">Update</a></td>
             </tr>
+            count++;
         }
     </table>
 
-    <a asp-action="CreateAbout" asp-controller="AdminAbout" class="btn btn-primary">Add New About</a>
+    <a asp-action="CreateProcess" asp-controller="AdminProcess" class="btn btn-primary">Add New Process</a>
 </div>

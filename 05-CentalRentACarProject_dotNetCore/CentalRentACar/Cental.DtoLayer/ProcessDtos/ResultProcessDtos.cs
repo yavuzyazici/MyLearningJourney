@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.ProcessDtos
 {
-    public class Process
+    public class ResultProcessDtos
     {
         [Key]
         public int ProcessId { get; set; }

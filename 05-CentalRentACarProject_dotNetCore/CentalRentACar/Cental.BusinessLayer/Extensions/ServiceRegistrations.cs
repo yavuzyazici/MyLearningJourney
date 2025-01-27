@@ -25,6 +25,8 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<ICarService, CarManager>();
             services.AddScoped<IFeatureDal, EfFeatureDal>();
             services.AddScoped<IFeatureService, FeatureManager>();
+            services.AddScoped<IProcessDal, EfProcessDal>();
+            services.AddScoped<IProcessService, ProcessManager>();
         }
     }
 }
