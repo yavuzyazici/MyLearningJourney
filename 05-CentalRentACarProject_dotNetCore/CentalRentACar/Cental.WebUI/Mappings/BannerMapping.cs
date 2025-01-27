@@ -11,6 +11,7 @@ namespace Cental.WebUI.Mappings
             CreateMap<Banner, ResultBannerDto>().ReverseMap();
             CreateMap<Banner, CreateBannerDto>().ReverseMap();
             CreateMap<Banner, UpdateBannerDto>().ReverseMap();
+            CreateMap<Banner, UIBannerDto>().ReverseMap();
         }
     }
 }
