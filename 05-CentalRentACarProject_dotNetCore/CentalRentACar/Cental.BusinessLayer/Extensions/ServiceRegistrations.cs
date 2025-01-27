@@ -23,6 +23,8 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IBrandService, BrandManager>();
             services.AddScoped<ICarDal, EfCarDal>();
             services.AddScoped<ICarService, CarManager>();
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
+            services.AddScoped<IFeatureService, FeatureManager>();
         }
     }
 }

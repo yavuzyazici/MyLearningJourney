@@ -9,15 +9,8 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class FeatureManager : IFeatureService
+    public class FeatureManager(IFeatureDal _featureDal) : IFeatureService
     {
-        private readonly IFeatureDal _featureDal;
-
-        public FeatureManager(IFeatureDal featureDal)
-        {
-            _featureDal = featureDal;
-        }
-
         public void TCreate(Feature entity)
         {
             _featureDal.Create(entity);
