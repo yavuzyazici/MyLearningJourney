@@ -2,11 +2,13 @@
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.BrandDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize]
     public class AdminBrandController(IBrandService _brandService, IMapper _mapper) : Controller
     {
         [HttpGet]

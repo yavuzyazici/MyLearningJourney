@@ -2,10 +2,12 @@
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.ProcessDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize]
     public class AdminProcessController(IProcessService _processService, IMapper _mapper) : Controller
     {
         [HttpGet]

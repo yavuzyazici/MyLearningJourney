@@ -28,7 +28,7 @@ namespace Cental.WebUI.Controllers
             {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(error.Code, error.Description);
+                    ModelState.AddModelError("SignUpError", error.Description);
                 }
                 return View(model);
             }

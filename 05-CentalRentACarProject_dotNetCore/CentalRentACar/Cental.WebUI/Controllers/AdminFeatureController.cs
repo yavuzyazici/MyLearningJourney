@@ -2,11 +2,13 @@
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.FeatureDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.InteropServices;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize]
     public class AdminFeatureController(IFeatureService _featureService, IMapper _mapper) : Controller
     {
         [HttpGet]

@@ -5,6 +5,7 @@ using Cental.DtoLayer.CarDtos;
 using Cental.EntityLayer.Entities;
 using Cental.EntityLayer.Enums;
 using Cental.WebUI.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json.Linq;
@@ -12,6 +13,7 @@ using System.Transactions;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize]
     public class AdminCarController(ICarService _carservice, IBrandService _brandService, IMapper _mapper) : Controller
     {
         [HttpGet]

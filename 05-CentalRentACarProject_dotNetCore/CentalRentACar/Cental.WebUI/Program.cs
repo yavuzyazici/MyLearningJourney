@@ -28,11 +28,22 @@ builder.Services.AddFluentValidationAutoValidation()
     .AddValidatorsFromAssemblyContaining<CreateBrandValidator>();
 
 //Adding Identity
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<CentalContext>();
+builder.Services.AddIdentity<AppUser, AppRole>(cfg =>
+{
+    cfg.User.RequireUniqueEmail = true;
+})
+    .AddEntityFrameworkStores<CentalContext>()
+    .AddErrorDescriber<CustomErrorDescriber>();
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/Login/Index";
+    x.LogoutPath = "/Login/Logout";
+});
 
 var app = builder.Build();
 
@@ -47,6 +58,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
