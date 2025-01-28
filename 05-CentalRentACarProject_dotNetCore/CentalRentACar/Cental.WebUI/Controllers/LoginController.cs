@@ -23,7 +23,7 @@ namespace Cental.WebUI.Controllers
                 return View(model);
             }
 
-            if (result != null)
+            if (returnUrl != null)
             {
                 return Redirect(returnUrl);
             }
