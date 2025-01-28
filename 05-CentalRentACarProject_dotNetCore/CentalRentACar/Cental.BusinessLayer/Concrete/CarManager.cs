@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.EntityLayer.Entities;
 using System;
@@ -9,11 +10,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class CarManager(ICarDal _carDal) : ICarService
+    public class CarManager(ICarDal _carDal, IMapper _mapper) : ICarService
     {
         public void TCreate(Car entity)
         {
             _carDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Car>(dto);
+            _carDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -38,6 +45,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Car entity)
         {
             _carDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Car>(dto);
+            _carDal.Update(data);
         }
     }
 }

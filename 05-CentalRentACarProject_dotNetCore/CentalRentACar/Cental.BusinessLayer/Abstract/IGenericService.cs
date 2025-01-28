@@ -13,6 +13,8 @@ namespace Cental.BusinessLayer.Abstract
         T TGetFirst();
         void TDelete(int id);
         void TCreate(T entity);
+        void TCreate<TDto>(TDto dto);
         void TUpdate(T entity);
+        void TUpdate<TDto>(TDto dto);
     }
 }

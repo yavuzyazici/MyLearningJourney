@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using System;
 using System.Collections.Generic;
@@ -8,20 +9,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class GenericManager<T> : IGenericService<T> where T : class
+    public class GenericManager<T>(IGenericDal<T> _genericDal, IMapper _mapper) : IGenericService<T> where T : class
     {
-        private readonly IGenericDal<T> _genericDal;
-
-        public GenericManager(IGenericDal<T> genericDal)
-        {
-            _genericDal = genericDal;
-        }
-
         public void TCreate(T entity)
         {
             _genericDal.Create(entity);
         }
-
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<T>(dto);
+            _genericDal.Create(data);
+        }
         public void TDelete(int id)
         {
             _genericDal.Delete(id);
@@ -44,6 +42,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(T entity)
         {
             _genericDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<T>(dto);
+            _genericDal.Update(data);
         }
     }
 }

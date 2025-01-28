@@ -34,8 +34,7 @@ namespace Cental.WebUI.Controllers
                 ModelState.AddModelError("YouCantAddMore", "You cant add more than 3 process");
                 return RedirectToAction("Index");
             }
-            var process = _mapper.Map<Process>(data);
-            _processService.TCreate(process);
+            _processService.TCreate(data);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -47,8 +46,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateProcess(UpdateProcessDtos data)
         {
-            var process = _mapper.Map<Process>(data);
-            _processService.TUpdate(process);
+            _processService.TUpdate(data);
             return RedirectToAction("Index");
         }
     }

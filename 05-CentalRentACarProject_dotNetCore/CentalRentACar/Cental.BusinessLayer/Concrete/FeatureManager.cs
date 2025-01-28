@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.EntityLayer.Entities;
 using System;
@@ -9,11 +10,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class FeatureManager(IFeatureDal _featureDal) : IFeatureService
+    public class FeatureManager(IFeatureDal _featureDal, IMapper _mapper) : IFeatureService
     {
         public void TCreate(Feature entity)
         {
             _featureDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Feature>(dto);
+            _featureDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -39,6 +46,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Feature entity)
         {
             _featureDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Feature>(dto);
+            _featureDal.Update(data);
         }
     }
 }

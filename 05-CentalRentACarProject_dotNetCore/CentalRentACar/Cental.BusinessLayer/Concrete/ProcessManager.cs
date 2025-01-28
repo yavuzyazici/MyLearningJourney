@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.EntityLayer.Entities;
 using System;
@@ -9,18 +10,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class ProcessManager : IProcessService
+    public class ProcessManager(IProcessDal _processDal, IMapper _mapper) : IProcessService
     {
-        private readonly IProcessDal _processDal;
-
-        public ProcessManager(IProcessDal processDal)
-        {
-            _processDal = processDal;
-        }
-
         public void TCreate(Process entity)
         {
             _processDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Process>(dto);
+            _processDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -46,6 +46,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Process entity)
         {
             _processDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Process>(dto);
+            _processDal.Update(data);
         }
     }
 }

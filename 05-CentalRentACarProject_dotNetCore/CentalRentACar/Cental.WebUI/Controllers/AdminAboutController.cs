@@ -24,9 +24,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateAbout(CreateAboutDto model)
         {
-            var about = _mapper.Map<About>(model);
-
-            _aboutService.TCreate(about);
+            _aboutService.TCreate(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -51,8 +49,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateAbout(UpdateAboutDto model)
         {
-            var about = _mapper.Map<About>(model);
-            _aboutService.TUpdate(about);
+            _aboutService.TUpdate(model);
             return RedirectToAction("Index");
         }
     }

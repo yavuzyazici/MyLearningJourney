@@ -28,8 +28,7 @@ namespace Cental.WebUI.Controllers
             {
                 return View(model);
             }
-            var brand = _mapper.Map<Brand>(model);
-            _brandService.TCreate(brand);
+            _brandService.TCreate(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -54,8 +53,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateBrand(UpdateBrandDto model)
         {
-            var brand = _mapper.Map<Brand>(model);
-            _brandService.TUpdate(brand);
+            _brandService.TUpdate(model);
 
             return RedirectToAction("Index");
         }

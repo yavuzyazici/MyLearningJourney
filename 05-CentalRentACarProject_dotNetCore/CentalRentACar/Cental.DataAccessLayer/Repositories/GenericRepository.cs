@@ -1,5 +1,6 @@
 ﻿using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Context;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,8 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Repositories
 {
-    public class GenericRepository<T> : IGenericDal<T> where T : class
+    public class GenericRepository<T>(CentalContext _context) : IGenericDal<T> where T : class
     {
-        protected readonly CentalContext _context;
-        public GenericRepository(CentalContext context)
-        {
-            _context = context;
-        }
-
         public void Create(T entity)
         {
             _context.Add(entity);
@@ -48,6 +43,11 @@ namespace Cental.DataAccessLayer.Repositories
         {
             _context.Update(entity);
             _context.SaveChanges();
+        }
+
+        public void Update<TDto>(TDto entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

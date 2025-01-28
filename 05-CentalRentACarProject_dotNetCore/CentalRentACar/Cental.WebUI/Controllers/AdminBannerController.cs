@@ -24,8 +24,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateBanner(CreateBannerDto model)
         {
-            var banner = _mapper.Map<Banner>(model);
-            _bannerService.TCreate(banner);
+            _bannerService.TCreate(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -50,8 +49,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateBanner(UpdateBannerDto model)
         {
-            var banner = _mapper.Map<Banner>(model);
-            _bannerService.TUpdate(banner);
+            _bannerService.TUpdate(model);
             return RedirectToAction("Index");
         }
     }

@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.EntityLayer.Entities;
 using System;
@@ -9,18 +10,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class ServiceManager : IServiceService
+    public class ServiceManager(IServiceDal _serviceDal, IMapper _mapper) : IServiceService
     {
-        private readonly IServiceDal _serviceDal;
-
-        public ServiceManager(IServiceDal serviceDal)
-        {
-            _serviceDal = serviceDal;
-        }
-
         public void TCreate(Service entity)
         {
             _serviceDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Service>(dto);
+            _serviceDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -46,6 +46,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Service entity)
         {
             _serviceDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Service>(dto);
+            _serviceDal.Update(data);
         }
     }
 }

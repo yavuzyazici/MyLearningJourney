@@ -1,5 +1,7 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
+using Cental.DataAccessLayer.Concrete;
 using Cental.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,18 +11,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class TestimonialManager : ITestimonialService
+    public class TestimonialManager(ITestimonialDal _testimonialDal, IMapper _mapper) : ITestimonialService
     {
-        private readonly ITestimonialDal _testimonialDal;
-
-        public TestimonialManager(ITestimonialDal testimonialDal)
-        {
-            _testimonialDal = testimonialDal;
-        }
-
         public void TCreate(Testimonial entity)
         {
             _testimonialDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Testimonial>(dto);
+            _testimonialDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -46,6 +47,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Testimonial entity)
         {
             _testimonialDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Testimonial>(dto);
+            _testimonialDal.Update(data);
         }
     }
 }

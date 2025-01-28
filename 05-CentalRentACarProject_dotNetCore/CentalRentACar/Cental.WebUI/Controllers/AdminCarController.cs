@@ -47,8 +47,7 @@ namespace Cental.WebUI.Controllers
             {
                 return RedirectToAction("CreateCar",model);
             }
-            var newCar = _mapper.Map<Car>(model);
-            _carservice.TCreate(newCar);
+            _carservice.TCreate(model);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -87,8 +86,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateCar(UpdateCarDto model)
         {
-            var car = _mapper.Map<Car>(model);
-            _carservice.TUpdate(car);
+            _carservice.TUpdate(model);
             return RedirectToAction("Index");
         }
     }

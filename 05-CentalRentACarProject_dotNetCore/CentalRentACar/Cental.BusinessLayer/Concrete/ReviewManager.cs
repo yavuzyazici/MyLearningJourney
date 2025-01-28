@@ -1,4 +1,5 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.EntityLayer.Entities;
 using System;
@@ -9,18 +10,17 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class ReviewManager : IReviewService
+    public class ReviewManager(IReviewDal _reviewDal, IMapper _mapper) : IReviewService
     {
-        private readonly IReviewDal _reviewDal;
-
-        public ReviewManager(IReviewDal reviewDal)
-        {
-            _reviewDal = reviewDal;
-        }
-
         public void TCreate(Review entity)
         {
             _reviewDal.Create(entity);
+        }
+
+        public void TCreate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Review>(dto);
+            _reviewDal.Create(data);
         }
 
         public void TDelete(int id)
@@ -46,6 +46,12 @@ namespace Cental.BusinessLayer.Concrete
         public void TUpdate(Review entity)
         {
             _reviewDal.Update(entity);
+        }
+
+        public void TUpdate<TDto>(TDto dto)
+        {
+            var data = _mapper.Map<Review>(dto);
+            _reviewDal.Update(data);
         }
     }
 }

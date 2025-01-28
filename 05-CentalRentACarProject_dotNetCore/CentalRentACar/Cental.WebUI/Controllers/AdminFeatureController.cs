@@ -29,8 +29,7 @@ namespace Cental.WebUI.Controllers
                 ModelState.AddModelError("YouCantAddMore", "You cant add more than 4 feature");
                 return RedirectToAction("Index");
             }
-            var feature = _mapper.Map<Feature>(data);
-            _featureService.TCreate(feature);
+            _featureService.TCreate(data);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -54,8 +53,7 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult UpdateFeature(UpdateFeatureDto data)
         {
-            var feature = _mapper.Map<Feature>(data);
-            _featureService.TUpdate(feature);
+            _featureService.TUpdate(data);
             return RedirectToAction("Index");
         }
     }

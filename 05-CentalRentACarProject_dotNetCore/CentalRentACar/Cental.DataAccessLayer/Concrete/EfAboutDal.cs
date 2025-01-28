@@ -15,10 +15,5 @@ namespace Cental.DataAccessLayer.Concrete
         public EfAboutDal(CentalContext context) : base(context)
         {
         }
-
-        public List<About> GetActive()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
