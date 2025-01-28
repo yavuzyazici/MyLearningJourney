@@ -29,6 +29,11 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateProcess(CreateProcessDtos data)
         {
+            if (_processService.TGetAll().Count() == 3)
+            {
+                ModelState.AddModelError("YouCantAddMore", "You cant add more than 3 process");
+                return RedirectToAction("Index");
+            }
             var process = _mapper.Map<Process>(data);
             _processService.TCreate(process);
             return RedirectToAction("Index");

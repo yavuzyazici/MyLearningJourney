@@ -54,6 +54,11 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult DeleteCar(int id)
         {
+            if (_carservice.TGetAll().Count() == 1)
+            {
+                ModelState.AddModelError("YouCantDeleteAll", "You cant delete all cars");
+                return RedirectToAction("Index");
+            }
             _carservice.TDelete(id);
             return RedirectToAction("Index");
         }

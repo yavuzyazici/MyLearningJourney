@@ -24,6 +24,11 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateFeature(CreateFeatureDto data)
         {
+            if (_featureService.TGetAll().Count() == 4)
+            {
+                ModelState.AddModelError("YouCantAddMore", "You cant add more than 4 feature");
+                return RedirectToAction("Index");
+            }
             var feature = _mapper.Map<Feature>(data);
             _featureService.TCreate(feature);
             return RedirectToAction("Index");
@@ -31,6 +36,11 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult DeleteFeature(int id)
         {
+            if (_featureService.TGetAll().Count() == 1)
+            {
+                ModelState.AddModelError("YouCantDeleteAll", "You cant delete all features");
+                return RedirectToAction("Index");
+            }
             _featureService.TDelete(id);
             return RedirectToAction("Index");
         }

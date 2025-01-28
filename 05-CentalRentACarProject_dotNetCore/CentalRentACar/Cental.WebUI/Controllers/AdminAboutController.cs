@@ -32,6 +32,11 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult DeleteAbout(int id)
         {
+            if (_aboutService.TGetAll().Count() == 1)
+            {
+                ModelState.AddModelError("YouCantDeleteAll", "You cant delete all abouts");
+                return RedirectToAction("Index");
+            }
             _aboutService.TDelete(id);
             return RedirectToAction("Index");
         }

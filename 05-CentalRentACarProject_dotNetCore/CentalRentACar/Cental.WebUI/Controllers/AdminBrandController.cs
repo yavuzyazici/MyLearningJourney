@@ -35,6 +35,11 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult DeleteBrand(int id)
         {
+            if (_brandService.TGetAll().Count() == 1)
+            {
+                ModelState.AddModelError("YouCantDeleteAll", "You cant delete all brands");
+                return RedirectToAction("Index");
+            }
             _brandService.TDelete(id);
 
             return RedirectToAction("Index");

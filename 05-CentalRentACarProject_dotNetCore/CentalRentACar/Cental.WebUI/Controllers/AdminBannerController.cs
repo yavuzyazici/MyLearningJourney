@@ -31,6 +31,11 @@ namespace Cental.WebUI.Controllers
         [HttpGet]
         public IActionResult DeleteBanner(int id)
         {
+            if (_bannerService.TGetAll().Count() == 1)
+            {
+                ModelState.AddModelError("YouCantDeleteAll", "You cant delete all Banners");
+                return RedirectToAction("Index");
+            }
             _bannerService.TDelete(id);
             return RedirectToAction("Index");
         }
