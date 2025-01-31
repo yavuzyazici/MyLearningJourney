@@ -8,7 +8,7 @@ using Microsoft.Identity.Client;
 
 namespace Cental.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminBrandController(IBrandService _brandService, IMapper _mapper) : Controller
     {
         [HttpGet]

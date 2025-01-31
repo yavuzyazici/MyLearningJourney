@@ -43,6 +43,7 @@ builder.Services.ConfigureApplicationCookie(x =>
 {
     x.LoginPath = "/Login/Index";
     x.LogoutPath = "/Login/Logout";
+    x.AccessDeniedPath = "/ErrorPage/AccessDenied";
 });
 
 var app = builder.Build();
@@ -55,6 +56,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404");
 
 app.UseRouting();
 

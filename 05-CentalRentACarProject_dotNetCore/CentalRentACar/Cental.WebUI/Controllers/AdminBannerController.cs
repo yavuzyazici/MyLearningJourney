@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminBannerController(IBannerService _bannerService, IMapper _mapper) : Controller
     {
         [HttpGet]

@@ -13,7 +13,7 @@ using System.Transactions;
 
 namespace Cental.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminCarController(ICarService _carservice, IBrandService _brandService, IMapper _mapper) : Controller
     {
         [HttpGet]

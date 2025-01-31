@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace Cental.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminFeatureController(IFeatureService _featureService, IMapper _mapper) : Controller
     {
         [HttpGet]

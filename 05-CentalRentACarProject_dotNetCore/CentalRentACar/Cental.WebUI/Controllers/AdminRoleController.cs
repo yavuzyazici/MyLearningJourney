@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Cental.WebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminRoleController(RoleManager<AppRole> _roleManager) : Controller
     {
         [HttpGet]

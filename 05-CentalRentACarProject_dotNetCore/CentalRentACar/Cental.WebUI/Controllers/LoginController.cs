@@ -15,6 +15,8 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserLoginDto model, string? returnUrl)
         {
+            await _signInManager.SignOutAsync();
+
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
 
             if (!result.Succeeded)

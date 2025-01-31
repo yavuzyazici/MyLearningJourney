@@ -1,0 +1,39 @@
+﻿@using Cental.DtoLayer.UserDtos
+@model List<AssignRoleDto>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Assign Role to @ViewBag.FullName</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <input type="hidden" asp-for="@Model[i].UserId" />
+            <input type="hidden" asp-for="@Model[i].RoleId" />
+            <input type="hidden" asp-for="@Model[i].RoleName" />
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" asp-for="@Model[i].RoleExist" id="role-@i">
+                <label class="form-check-label" for="role-@i">
+                    @Model[i].RoleName
+                </label>
+            </div>
+        }
+        <button type="submit" class="btn btn-primary mt-3">Assign Roles</button>
+    </form>
+</div>
