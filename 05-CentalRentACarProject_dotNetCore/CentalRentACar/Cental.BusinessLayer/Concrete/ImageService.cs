@@ -1,10 +1,6 @@
 ﻿using Cental.BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cental.BusinessLayer.Concrete
 {
@@ -16,14 +12,21 @@ namespace Cental.BusinessLayer.Concrete
             var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
             if (extension != ".jpg" && extension != ".jpeg" && extension != ".png")
             {
-                throw new Exception("Image format is invalid");
+                throw new ValidationException("Image format is invalid");
             }
 
             var imageName = Guid.NewGuid() + extension;
-            var saveLocation = Path.Combine(currentDirectory, imageName);
+
+            var destination = Path.Combine(currentDirectory, "wwwroot/images");
+            if (!Directory.Exists(destination))
+            {
+                Directory.CreateDirectory(destination);
+            }
+            var saveLocation = Path.Combine(destination, imageName);
+
             var stream = new FileStream(saveLocation, FileMode.Create);
             await file.CopyToAsync(stream);
-            return "/admin-theme/dist/assets/images/user/" + imageName;
+            return "/images/" + imageName;
         }
     }
 }

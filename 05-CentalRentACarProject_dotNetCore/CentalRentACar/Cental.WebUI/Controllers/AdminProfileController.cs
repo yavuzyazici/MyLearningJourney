@@ -30,15 +30,27 @@ namespace Cental.WebUI.Controllers
             {
                 if (model.ImageFile != null)
                 {
-                    model.ImageUrl = await _imageService.SaveImageAsync(model.ImageFile);
+                    try
+                    {
+                        model.ImageUrl = await _imageService.SaveImageAsync(model.ImageFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError(string.Empty, ex.Message);
+                        return View(model);
+                    }
                 }
 
-                var data = model.Adapt<AppUser>();
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.ImageUrl = model.ImageUrl;
+                user.PhoneNumber = model.PhoneNumber;
+                user.Email = model.Email;
 
-                var result = await _userManager.UpdateAsync(data);
+                var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return View();
+                    return RedirectToAction("Index");
                 }
 
                 foreach (var error in result.Errors)
