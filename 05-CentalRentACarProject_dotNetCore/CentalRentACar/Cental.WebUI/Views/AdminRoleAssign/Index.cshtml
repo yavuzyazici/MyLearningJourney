@@ -37,7 +37,10 @@
                 <td>@user.FullName</td>
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
-                <td>@string.Join(", ",user.Roles)</td>
+                <td>@foreach (var role in user.Roles)
+                    {
+                        <span class="badge badge-info">@role</span>
+                    }</td>
                 <td><a asp-action="AssignRole" asp-route-id="@user.Id" class="btn btn-success">Give Role</a></td>
             </tr>
             count++;
