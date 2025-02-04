@@ -9,7 +9,7 @@ namespace Cental.WebUI.ViewComponents.Default
     {
         public IViewComponentResult Invoke()
         {
-            var data = _carService.TGetAll();
+            var data = _carService.TGetAll().Take(6);
             var cars = _mapper.Map<List<UICarDto>>(data);
             return View(cars);
         }
