@@ -1,0 +1,15 @@
+Booking Entity Eklenecek ve araba kiralama iþlemi ana sayfadan gerçekleþecek.
+
+User Paneli eklenecek ve araç kiralama durumlarýný review durumlarýný görecek.
+
+Loginde giriþ yapýldýðýnda kullanýcýnýn rolüne göre panele yönlendirme.
+
+SweetAlert ile mesaj gönderme yapýlmalý
+
+Arabalar için Sayfalama ve Filtreleme yapýlmalý.
+
+Ana sayfada Team bölümü sosyal medyalarý eklenmeli.
+
+Footer abone olma bölümü
+
+UI Layouta baðlý yeni sayfa (Ýletiþim sayfasý gibi)
