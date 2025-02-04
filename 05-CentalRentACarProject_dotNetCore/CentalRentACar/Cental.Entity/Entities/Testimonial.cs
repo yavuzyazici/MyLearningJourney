@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cental.EntityLayer.Entities
 {
-    public class Testimonial
+    public class Testimonial : BaseEntity
     {
         [Key]
         public int TestimonialId { get; set; }

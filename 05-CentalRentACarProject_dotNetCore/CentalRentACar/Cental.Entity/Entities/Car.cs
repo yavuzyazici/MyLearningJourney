@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cental.EntityLayer.Entities
 {
-    public class Car
+    public class Car : BaseEntity
     {
         [Key]
         public int CarId { get; set; }

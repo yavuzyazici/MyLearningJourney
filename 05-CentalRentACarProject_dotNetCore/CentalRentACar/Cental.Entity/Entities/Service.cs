@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cental.EntityLayer.Entities
 {
-    public class Service
+    public class Service : BaseEntity
     {
         [Key]
         public int ServiceId { get; set; }
