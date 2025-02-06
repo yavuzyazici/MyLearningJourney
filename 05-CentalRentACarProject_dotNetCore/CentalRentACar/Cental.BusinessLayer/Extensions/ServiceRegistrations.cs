@@ -17,16 +17,28 @@ namespace Cental.BusinessLayer.Extensions
         {
             services.AddScoped<IAboutDal, EfAboutDal>();
             services.AddScoped<IAboutService, AboutManager>();
+
             services.AddScoped<IBannerDal, EfBannerDal>();
             services.AddScoped<IBannerService, BannerManager>();
+
             services.AddScoped<IBrandDal, EfBrandDal>();
             services.AddScoped<IBrandService, BrandManager>();
+
             services.AddScoped<ICarDal, EfCarDal>();
             services.AddScoped<ICarService, CarManager>();
+
             services.AddScoped<IFeatureDal, EfFeatureDal>();
             services.AddScoped<IFeatureService, FeatureManager>();
+
             services.AddScoped<IProcessDal, EfProcessDal>();
             services.AddScoped<IProcessService, ProcessManager>();
+
+            services.AddScoped<IUserSocialDal, EfUserSocialDal>();
+            services.AddScoped<IUserSocialService, UserSocialManager>();
+
+            services.AddScoped<IMessageDal, EfMessageDal>();
+            services.AddScoped<IMessageService, MessageManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }

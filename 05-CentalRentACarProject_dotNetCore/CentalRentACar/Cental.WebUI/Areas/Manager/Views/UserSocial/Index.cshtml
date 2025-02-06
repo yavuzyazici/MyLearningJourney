@@ -1,0 +1,63 @@
+﻿@using Cental.DtoLayer.UserSocialDtos
+@model List<ResultUserSocialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Manager Socials</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Social Media</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var socialMedia in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td><a href="@socialMedia.Url" target="_blank"><i class="@socialMedia.Icon"></i>@socialMedia.Title</a></td>
+                <td><button onclick="deleteSocial(@socialMedia.UserSocialId)" class="btn btn-danger">Delete</button></td>
+                <td><button onclick="updateSocial(@socialMedia.UserSocialId)" class="btn btn-info">Update</button></td>
+            </tr>
+            count++;
+        }
+    </table>
+
+    <a asp-action="CreateSocial" asp-controller="UserSocial" asp-area="Manager" class="btn btn-primary">Add New Social Media</a>
+</div>
+
+<script>
+    function deleteSocial(id){
+        Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert your socials!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "I am sure!",
+      cancelButtonText: "No im not"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          window.location.href = "/Manager/UserSocial/DeleteSocial/" + id;
+      }
+    });
+    }
+</script>
