@@ -1,0 +1,57 @@
+﻿@using Cental.DtoLayer.ContactDtos
+@model CreateMessageDto
+@*
+    ContactSendMessageComponent
+*@
+
+<div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="bg-secondary p-5 rounded">
+        <h4 class="text-primary mb-4">Send Your Message</h4>
+        <form asp-action="SendMessage" asp-controller="Contact" id="formSend" method="post">
+            <div class="row g-4">
+                <div class="col-lg-12 col-xl-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" asp-for="Name" id="name" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xl-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" asp-for="Email" id=" email" placeholder="Your Email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" asp-for="Subject" id="subject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" asp-for="MessageContent" id="message" style="height: 160px" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-light w-100 py-3" onclick="sendMessage()">Send Message</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+        function sendMessage(){
+            Swal.fire({
+                title: "Message Sended Succesfully?",
+                text: "We will reply soon",
+                icon: "success"
+                })
+
+        var form = document.getElementById("formSend");
+    form.reset();
+
+        }
+</script>

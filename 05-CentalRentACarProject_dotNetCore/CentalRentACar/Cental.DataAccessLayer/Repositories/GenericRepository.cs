@@ -10,8 +10,15 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Repositories
 {
-    public class GenericRepository<T>(CentalContext _context) : IGenericDal<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericDal<T> where T : BaseEntity
     {
+        protected readonly CentalContext _context;
+
+        public GenericRepository(CentalContext context)
+        {
+            _context = context;
+        }
+
         public void Create(T entity)
         {
             _context.Add(entity);

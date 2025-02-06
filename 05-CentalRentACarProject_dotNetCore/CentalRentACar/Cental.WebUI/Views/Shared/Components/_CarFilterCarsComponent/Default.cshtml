@@ -1,0 +1,40 @@
+﻿
+@*
+    _CarFilterCarsComponent
+*@
+
+<form class="filter-form" asp-action="FilterCars" method="post" asp-controller="Car">
+    <div class="container mt-4">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" asp-items="ViewBag.Cars" name="Car">
+                        <option selected disabled>Select Car</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" asp-items="ViewBag.FuelTypes" name="FuelType">
+                        <option selected disabled>Select Fuel Type</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" asp-items="ViewBag.GearTypes" name="GearType">
+                        <option selected disabled>Select Gear Type</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" min="1900" class="form-control" placeholder="Minimum Year" name="MinYear">
+                </div>
+            </div>
+            <div class="col-md-1 d-flex align-items-center">
+                <button class="btn btn-danger w-100" type="submit">Filter</button>
+            </div>
+        </div>
+    </div>
+</form>
