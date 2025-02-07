@@ -26,10 +26,10 @@
                             <h4>@manager.FullName</h4>
                             <p>Manager</p>
                             <div class="team-icon d-flex justify-content-center">
-                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                @foreach (var social in manager.UserSocials)
+                                {
+                                    <a class="btn btn-square btn-light rounded-circle mx-1" href="@social.Url"><i class="@social.Icon"></i></a>
+                                }
                             </div>
                         </div>
                     </div>

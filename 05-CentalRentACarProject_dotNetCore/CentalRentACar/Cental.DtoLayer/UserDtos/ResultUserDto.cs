@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cental.DtoLayer.UserSocialDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace Cental.DtoLayer.UserDtos
         public string Email { get; set; }
         public string ImageUrl { get; set; }
         public IList<string> Roles { get; set; }
+        public List<ResultUserSocialDto> UserSocials { get; set; }
     }
 }
