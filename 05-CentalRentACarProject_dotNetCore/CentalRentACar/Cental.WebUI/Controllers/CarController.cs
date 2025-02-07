@@ -39,24 +39,31 @@ namespace Cental.WebUI.Controllers
             return View(cars);
         }
         [HttpPost]
-        public IActionResult FilterCars(string Car, string FuelType, string GearType, int MinYear)
+        public IActionResult FilterCars(string brand, string fuelType, string gearType, int minYear)
         {
-            if (!string.IsNullOrEmpty(Car) ||
-                !string.IsNullOrEmpty(FuelType) ||
-                !string.IsNullOrEmpty(GearType) ||
-                MinYear !< 1900)
-            {
-                var values = _context.Cars.Where(x => x.Brand.BrandName + " " + x.ModelName == Car
-                && x.GearType == GearType
-                && x.FuelType == FuelType
-                && x.Year >= MinYear).ToList();
+            IQueryable<Car> values = _context.Cars.AsQueryable();
 
-                TempData["FilterCars"] = JsonSerializer.Serialize(_mapper.Map<List<UICarDto>>(values), new JsonSerializerOptions
-                {
-                    ReferenceHandler = ReferenceHandler.IgnoreCycles
-                });
+            if (!string.IsNullOrEmpty(brand))
+            {
+                values = values.Where(x => x.Brand.BrandName == brand);
+            }
+            if (!string.IsNullOrEmpty(gearType))
+            {
+                values = values.Where(x => x.GearType == gearType);
+            }
+            if (!string.IsNullOrEmpty(fuelType))
+            {
+                values = values.Where(x => x.FuelType == fuelType);
+            }
+            if (minYear >= 1900)
+            {
+                values = values.Where(x => x.Year >= minYear);
             }
 
+            TempData["FilterCars"] = JsonSerializer.Serialize(_mapper.Map<List<UICarDto>>(values.ToList()), new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.IgnoreCycles
+            });
             return RedirectToAction("Index");
         }
     }

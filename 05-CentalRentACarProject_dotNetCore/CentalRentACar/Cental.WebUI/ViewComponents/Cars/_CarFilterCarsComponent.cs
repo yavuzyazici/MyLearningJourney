@@ -6,17 +6,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Cental.WebUI.ViewComponents.Cars
 {
-    public class _CarFilterCarsComponent(ICarService _carService) : ViewComponent
+    public class _CarFilterCarsComponent(IBrandService _brandService) : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-            var cars = _carService.TGetAll();
+            var brands = _brandService.TGetAll();
 
-            ViewBag.Cars = (from x in cars
+            ViewBag.Brands = (from x in brands
                             select new SelectListItem
                             {
-                                Text = x.Brand.BrandName + " " + x.ModelName,
-                                Value = x.Brand.BrandName + " " + x.ModelName
+                                Text = x.BrandName,
+                                Value = x.BrandName
                             });
 
             ViewBag.FuelTypes = GetEnumValues.GetEnums<FuelType>();
