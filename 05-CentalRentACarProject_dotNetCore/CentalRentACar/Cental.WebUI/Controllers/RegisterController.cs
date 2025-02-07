@@ -17,7 +17,7 @@ namespace Cental.WebUI.Controllers
         public async Task<IActionResult> SignUp(UserRegisterDto model)
         {
             var user = _mapper.Map<AppUser>(model);
-
+            
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -32,6 +32,8 @@ namespace Cental.WebUI.Controllers
                 }
                 return View(model);
             }
+
+            await _userManager.AddToRoleAsync(user, "User");
 
             return RedirectToAction("Index","Login");
         }
