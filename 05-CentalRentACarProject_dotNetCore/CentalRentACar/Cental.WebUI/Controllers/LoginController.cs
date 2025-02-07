@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
-    public class LoginController(SignInManager<AppUser> _signInManager) : Controller
+    public class LoginController(SignInManager<AppUser> _signInManager, UserManager<AppUser> _userManager) : Controller
     {
         [HttpGet]
         public IActionResult Index()
@@ -18,7 +18,6 @@ namespace Cental.WebUI.Controllers
             await _signInManager.SignOutAsync();
 
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
-
             if (!result.Succeeded)
             {
                 ModelState.AddModelError("SignInError", "Username or password is incorrect");
@@ -30,7 +29,22 @@ namespace Cental.WebUI.Controllers
                 return Redirect(returnUrl);
             }
 
-            return RedirectToAction("Index", "AdminAbout");
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var role = userRoles.FirstOrDefault();
+
+            if (role == "Admin")
+            {
+                return RedirectToAction("Index", "AdminAbout");
+            }
+            else if (role == "Manager")
+            {
+                return RedirectToAction("Index", "Profile", new { area = "Manager" });
+            }
+            else
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "User" });
+            }
         }
         public async Task<IActionResult> Logout()
         {
