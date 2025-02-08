@@ -1,0 +1,49 @@
+﻿@using Cental.DtoLayer.UserDtos
+@model List<ResultUserDto>
+@{
+    ViewData["Title"] = "Users";
+    Layout = "/Areas/Admin/Views/Layout/Layout.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Users</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Give Role</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@user.FullName</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@foreach (var role in user.Roles)
+                    {
+                        <span class="badge badge-info">@role</span>
+                    }</td>
+                <td><a asp-action="AssignRole" asp-area="Admin" asp-route-id="@user.Id" class="btn btn-success">Give Role</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+</div>

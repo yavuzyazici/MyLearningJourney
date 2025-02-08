@@ -1,0 +1,46 @@
+﻿@using Cental.DtoLayer.RoleDtos
+@model List<ResultRoleDto>
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "/Areas/Admin/Views/Layout/Layout.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Roles</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="alert alert-info">
+        <h5>The role names in terms of the site's operation should be as follows: <strong>Admin, Manager, User</strong>.</h5>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Role</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@role.Name</td>
+                <td><a asp-action="DeleteRole" asp-route-id="@role.Id" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateRole" asp-route-id="@role.Id" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+    <a asp-action="CreateRole" asp-controller="Role" asp-area="Admin" class="btn btn-primary">Add New Role</a>
+</div>

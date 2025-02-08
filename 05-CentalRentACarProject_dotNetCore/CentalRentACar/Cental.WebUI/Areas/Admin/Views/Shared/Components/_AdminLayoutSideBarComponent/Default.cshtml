@@ -1,0 +1,59 @@
+﻿@*
+    AdminLayoutSideBar
+*@
+
+<nav class="pcoded-navbar  ">
+    <div class="navbar-wrapper  ">
+        <div class="navbar-content scroll-div ">
+            <div class="">
+                <div class="main-menu-header">
+                    <img class="img-radius" style="width: 50px;height: 50px;" src="@(ViewBag.ImageUrl == null ? "/admin-theme/dist/assets/images/user/no-pic.png" : ViewBag.ImageUrl)" alt="User-Profile-Image">
+                    <div class="user-details">
+                        <span>@ViewBag.NameSurname</span>
+                        <div id="more-details">Admin<i class="fa fa-chevron-down m-l-5"></i></div>
+                    </div>
+                </div>
+                <div class="collapse" id="nav-user-link">
+                    <ul class="list-unstyled">
+                        <li class="list-group-item"><a href="/Admin/Profile/Index"><i class="feather icon-user m-r-5"></i>Profile</a></li>
+                        <li class="list-group-item"><a href="/"><i class="feather icon-settings m-r-5"></i>Go to home</a></li>
+                        <li class="list-group-item"><a href="/Admin/Login/Logout"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="nav pcoded-inner-navbar ">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navigation</label>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/About/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-info"></i></span><span class="pcoded-mtext">About</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Banner/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-image"></i></span><span class="pcoded-mtext">Banner</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Brand/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-tag"></i></span><span class="pcoded-mtext">Brand</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Car/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Car</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Feature/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-star"></i></span><span class="pcoded-mtext">Feature</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Process/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Process</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Role/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Role</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/RoleAssign/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Assign Role</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

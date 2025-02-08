@@ -1,0 +1,51 @@
+﻿@using Cental.DtoLayer.UserDtos
+@model UpdateUserDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "/Areas/Admin/Views/Layout/Layout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Update User</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post" enctype="multipart/form-data">
+        <div class="text-center">
+            <img src="@Model.ImageUrl" style="width:100px; height:100px;" alt="Profile Picture" />
+            <input type="file" asp-for="ImageFile"/>
+        </div>
+        <label>First Name</label>
+        <input type="text" asp-for="FirstName" class="form-control" required/>
+        <br />
+        <label>Last Name</label>
+        <input type="text" asp-for="LastName" class="form-control" required/>
+        <br />
+        <label>Email</label>
+        <input type="email" asp-for="Email" class="form-control" required/>
+        <br />
+        <label>Phone</label>
+        <input type="tel" asp-for="PhoneNumber" class="form-control" required/>
+        <br />
+        <label>Image URL</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <label>Current Password</label>
+        <input type="password" asp-for="CurrentPassword" class="form-control" required/>
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+    <p style="color:red">
+        @Html.ValidationSummary()
+    </p>
+</div>

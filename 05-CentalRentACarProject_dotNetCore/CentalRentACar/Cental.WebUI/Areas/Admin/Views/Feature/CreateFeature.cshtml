@@ -1,0 +1,38 @@
+﻿@using Cental.DtoLayer.FeatureDtos
+@model CreateFeatureDto
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "/Areas/Admin/Views/Layout/Layout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Create Feature</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <label>Title</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+        <br />
+        <label>Description</label>
+        <input type="text" asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+        <br />
+        <label>Icon</label>
+        <input type="text" asp-for="Icon" class=" form-control" />
+        <span asp-validation-for="Icon" class="text-danger"></span>
+        <br />
+        <button class="btn btn-outline-primary">Create</button>
+    </form>
+</div>

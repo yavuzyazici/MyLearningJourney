@@ -1,46 +1,46 @@
-Booking Entity Eklenecek ve araba kiralama işlemi ana sayfadan gerçekleşecek. (Sweetalert ile talep alındı yazmalı)
-booking string status => Pending Approval, Canceled, Approved durumları olarcak
+ï»¿Booking Entity Eklenecek ve araba kiralama iÅŸlemi ana sayfadan gerÃ§ekleÅŸecek. (Sweetalert ile talep alÄ±ndÄ± yazmalÄ±)
+booking string status => Pending Approval, Canceled, Approved durumlarÄ± olarcak
 
-Manager ve User panelinden kiralama durumları kontrol edilecek.
+Manager ve User panelinden kiralama durumlarÄ± kontrol edilecek.
 
-Default/Index tümü ViewComponent ile işlenilmeli.
+Default/Index tÃ¼mÃ¼ ViewComponent ile iÅŸlenilmeli.
 
-Manager ve User paneli için profil güncelleme olmalı.
+Manager ve User paneli iÃ§in profil gÃ¼ncelleme olmalÄ±.
 
-About, Contact, Services sayfaları oluşturulup tamamlanmalı.
+About, Contact, Services sayfalarÄ± oluÅŸturulup tamamlanmalÄ±.
 
-User Paneli eklenecek ve araç kiralama durumlarını review durumlarını görecek. (Area olarak)
+User Paneli eklenecek ve araÃ§ kiralama durumlarÄ±nÄ± review durumlarÄ±nÄ± gÃ¶recek. (Area olarak)
 
-Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirme.
+Loginde giriÅŸ yapÄ±ldÄ±ÄŸÄ±nda kullanÄ±cÄ±nÄ±n rolÃ¼ne gÃ¶re panele yÃ¶nlendirme.
 
-Admin, User ve Manager tarafında Dashboard bölümü olmalı.
+Admin, User ve Manager tarafÄ±nda Dashboard bÃ¶lÃ¼mÃ¼ olmalÄ±.
 
-Admin ve Manager üzerinde 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
+Admin ve Manager Ã¼zerinde 6 adet kiralanan araÃ§ 6 adet son eklenen araÃ§ bulunsun.
 
-SweetAlert ile mesaj gönderme yapılmalı
+SweetAlert ile mesaj gÃ¶nderme yapÄ±lmalÄ± âœ…
 
-Arabalar için Sayfalama ve Filtreleme yapılmalı.
+Arabalar iÃ§in Sayfalama ve Filtreleme yapÄ±lmalÄ±. (Sayfalama Admin Car iÃ§in filtreleme User Car viewi iÃ§in yapÄ±ldÄ±) âœ…
 
-Ana sayfada Team bölümü sosyal medyaları eklenmeli.
+Ana sayfada Team bÃ¶lÃ¼mÃ¼ sosyal medyalarÄ± eklenmeli. âœ…
 
-Footer dinamik olmalı
+Footer dinamik olmalÄ±
 
-Topbar dinamik olmalı
+Topbar dinamik olmalÄ±
 
-Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri
+Admin tarafÄ±nda tÃ¼m tablolarÄ±n listelenmesi ve CRUD iÅŸlemleri
 
-Manager tarafında booking tablosu, Sosyal medyalar, Profil
+Manager tarafÄ±nda booking tablosu, Sosyal medyalar, Profil
 
-Admin gelen mesajları okuyup okundu işaretleyebilsin.
+Admin gelen mesajlarÄ± okuyup okundu iÅŸaretleyebilsin.
 
-Footer abone olma bölümü yapılmalı
+Footer abone olma bÃ¶lÃ¼mÃ¼ yapÄ±lmalÄ±
 
-UI Layouta bağlı yeni sayfa (İletişim sayfası gibi)
+UI Layouta baÄŸlÄ± yeni sayfa (Ä°letiÅŸim sayfasÄ± gibi)
 
-UserSocial Update işlemi
+UserSocial Update iÅŸlemi
 
-Admin Area çekilecek
+Admin Area Ã§ekilecek 
 
-User Area oluşturulacak
+User Area oluÅŸturulacak
 
-User kiralayabildiği aracı eğer onaylandıysa yorum yazabilsin.
+User kiralayabildiÄŸi aracÄ± eÄŸer onaylandÄ±ysa yorum yazabilsin.

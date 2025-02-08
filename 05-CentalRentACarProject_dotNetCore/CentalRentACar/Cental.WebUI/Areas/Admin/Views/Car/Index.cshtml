@@ -1,0 +1,60 @@
+﻿@using Cental.DtoLayer.CarDtos
+@using PagedList.Core
+@model PagedList<ResultCarDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "/Areas/Admin/Views/Layout/Layout.cshtml";
+    var count = Model.PageSize * Model.PageNumber - (Model.PageSize - 1);
+
+}
+
+<div class="card-header">
+    <h5>Cars</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Brand Name</th>
+            <th>Model Name</th>
+            <th>Image URL</th>
+            <th>Price</th>
+            <th>Seat Count</th>
+            <th>Kilometer</th>
+            <th>Delete Car</th>
+            <th>Update Car</th>
+        </tr>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@car.Brand.BrandName</td>
+                <td>@car.ModelName</td>
+                <td><img src="@car.ImageUrl" width="75" /></td>
+                <td>@car.Price</td>
+                <td>@car.SeatCount</td>
+                <td>@car.Kilometer</td>
+                <td><a asp-action="DeleteCar" asp-route-id="@car.CarId" asp-area="Admin" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateCar" asp-route-id="@car.CarId" asp-area="Admin" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+
+    <div class="text-center">
+        <pager asp-action="Index" asp-controller="Car" asp-area="Admin" list="@Model"></pager>
+    </div>
+
+    <a asp-action="CreateCar" asp-controller="Car" asp-area="Admin" class="btn btn-primary">Add New Car</a>
+</div>
