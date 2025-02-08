@@ -1,0 +1,122 @@
+﻿@*
+    _DefaultBookingComponent
+*@
+
+<div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+    <div class="bg-secondary rounded p-5">
+        <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
+        <form method="post">
+            <div class="row g-3">
+                <div class="col-12">
+                    <select class="form-select" asp-items="@(ViewBag.Cars)" name="CarId" aria-label="Default select example">
+                        <option selected disabled>Select Your Car type</option>
+                    </select>
+
+                </div>
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                        </div>
+                        <input class="form-control" type="text" placeholder="Enter a City or Airport" name="PickUpPlace" aria-label ="Enter a City or Airport">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
+                    <div class="input-group">
+                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                        </div>
+                        <input class="form-control" type="text" placeholder="Enter a City or Airport" name="DropOffPlace" aria-label="Enter a City or Airport">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                        </div>
+                        <input class="form-control" type="date" name="PickUpDate">
+                        <select class="form-select ms-3" name="PickUpTime" aria-label="Default select example">
+                            <option value="12:00" selected>12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="8:00">8:00</option>
+                            <option value="7:00">7:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="input-group">
+                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                        </div>
+                        <input class="form-control" name="DropOffDate" type="date">
+                        <select class="form-select ms-3" name="DropOffTime" aria-label="Default select example">
+                            <option value="12:00" selected>12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="8:00">8:00</option>
+                            <option value="7:00">7:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-light w-100 py-2">Book Now</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    async function bookCar(event) {
+        event.preventDefault();
+
+        let formData = new FormData(document.querySelector("form"));
+
+        try {
+            let response = await fetch('/User/Booking/BookCar', {
+                method: 'POST',
+                body: formData
+            });
+
+            let result = await response.json();
+
+            if (!result.success) {
+                if (result.errors && result.errors.length > 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Form Errors',
+                        html: result.errors.map(err => `${err}  `).join("")
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Failed',
+                        text: result.message || "Something went wrong."
+                    });
+                }
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: result.message
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Something went wrong. Please try again later.'
+            });
+        }
+    }
+
+    document.querySelector("form").addEventListener("submit", bookCar);
+</script>

@@ -4,6 +4,7 @@ using Cental.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cental.DataAccessLayer.Migrations
 {
     [DbContext(typeof(CentalContext))]
-    partial class CentalContextModelSnapshot : ModelSnapshot
+    [Migration("20250208115241_mig_bookingAdded")]
+    partial class mig_bookingAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,9 +237,6 @@ namespace Cental.DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"));
-
-                    b.Property<int>("BookingStatus")
-                        .HasColumnType("int");
 
                     b.Property<int>("CarId")
                         .HasColumnType("int");

@@ -1,14 +1,13 @@
 ﻿@using Cental.DtoLayer.BookingDtos
-@model List<ManagerPanelBookingDto>
+@model List<UserPanelBookingDto>
 @{
-    ViewData["Title"] = "Bookings";
-    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
     int count = 1;
 }
 
-
 <div class="card-header">
-    <h5>Bookings</h5>
+    <h5>My Bookings</h5>
     <div class="card-header-right">
         <div class="btn-group card-option">
             <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +30,6 @@
             <th>Drop Off Place</th>
             <th>Drop Off Date</th>
             <th>Booking Status</th>
-            <th>Change Status</th>
         </tr>
         @foreach (var booking in Model)
         {
@@ -43,7 +41,6 @@
                 <td>@booking.DropOffPlace</td>
                 <td>@booking.DropOffDate</td>
                 <td><span class="badge badge-info">@booking.BookingStatus</span></td>
-                <td><a asp-action="ChangeStatus" asp-controller="Booking" asp-route-BookingId="@booking.BookingID" asp-area="Manager" class="btn btn-primary" style="color:aliceblue;">Change Status</a></td>
             </tr>
             count++;
         }

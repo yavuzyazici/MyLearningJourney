@@ -45,6 +45,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IDashboardDal, EfDashboardDal>();
             services.AddScoped<IDashboardService, DashboardManager>();
 
+            services.AddScoped<IBookingDal, EfBookingDal>();
+            services.AddScoped<IBookingService, BookingManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }
