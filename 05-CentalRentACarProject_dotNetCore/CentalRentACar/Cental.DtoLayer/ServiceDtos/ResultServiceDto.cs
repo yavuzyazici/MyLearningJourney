@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.ServiceDtos
 {
-    public class Service : BaseEntity
+    public class ResultServiceDto
     {
         [Key]
         public int ServiceId { get; set; }

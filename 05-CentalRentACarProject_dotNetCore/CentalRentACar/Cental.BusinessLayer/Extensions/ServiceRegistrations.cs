@@ -39,6 +39,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IMessageDal, EfMessageDal>();
             services.AddScoped<IMessageService, MessageManager>();
 
+            services.AddScoped<IServiceDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }

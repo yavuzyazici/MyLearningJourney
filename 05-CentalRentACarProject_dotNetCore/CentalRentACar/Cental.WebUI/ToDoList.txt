@@ -11,7 +11,7 @@ About, Contact, Services sayfaları oluşturulup tamamlanmalı.
 
 User Paneli eklenecek ve araç kiralama durumlarını review durumlarını görecek. (Area olarak)
 
-Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirme.
+Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirme. ✅
 
 Admin, User ve Manager tarafında Dashboard bölümü olmalı.
 
@@ -27,11 +27,11 @@ Footer dinamik olmalı
 
 Topbar dinamik olmalı
 
-Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri
+Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Review, Testimonials Manager panelinde olmalı.)
 
-Manager tarafında booking tablosu, Sosyal medyalar, Profil
+Manager panelinde Booking, Profil, Social Medias ,Message, Review, Testimonials tablolarının listelenmesi ve CRUD işlemleri.
 
-Admin gelen mesajları okuyup okundu işaretleyebilsin.
+Manager gelen mesajları okuyup okundu işaretleyebilsin.
 
 Footer abone olma bölümü yapılmalı
 
