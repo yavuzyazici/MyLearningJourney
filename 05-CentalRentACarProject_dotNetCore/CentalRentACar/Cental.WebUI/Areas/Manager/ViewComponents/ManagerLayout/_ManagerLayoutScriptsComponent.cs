@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Cental.WebUI.ViewComponents.AdminLayout
+namespace Cental.WebUI.Areas.Manager.ViewComponents.ManagerLayout
 {
     public class _ManagerLayoutScriptsComponent : ViewComponent
     {

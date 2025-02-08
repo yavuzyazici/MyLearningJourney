@@ -1,9 +1,9 @@
 ﻿Booking Entity Eklenecek ve araba kiralama işlemi ana sayfadan gerçekleşecek. (Sweetalert ile talep alındı yazmalı)
-booking string status => Pending Approval, Canceled, Approved durumları olarcak
+booking string status => Pending Approval, Canceled, Approved durumları olarcak ✅
 
-Manager ve User panelinden kiralama durumları kontrol edilecek.
+Manager ve User panelinden kiralama durumları kontrol edilecek. ✅
 
-Default/Index tümü ViewComponent ile işlenilmeli.
+Default/Index tümü ViewComponent ile işlenilmeli. (Testimonial kaldı birtek)
 
 Manager ve User paneli için profil güncelleme olmalı.
 
@@ -15,7 +15,7 @@ Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirm
 
 Admin, User ve Manager tarafında Dashboard bölümü olmalı.
 
-Admin ve Manager üzerinde 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
+Admin ve Manager üzerinde dashboard 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
 
 SweetAlert ile mesaj gönderme yapılmalı ✅
 
@@ -41,6 +41,6 @@ UserSocial Update işlemi ✅
 
 Admin Area çekilecek ✅
 
-User Area oluşturulacak
+User Area oluşturulacak ✅
 
 User kiralayabildiği aracı eğer onaylandıysa yorum yazabilsin.

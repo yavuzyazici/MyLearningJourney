@@ -2,13 +2,18 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cental.WebUI.ViewComponents.AdminLayout
+namespace Cental.WebUI.Areas.Manager.ViewComponents.ManagerLayout
 {
-    public class _ManagerLayoutSideBarComponent() : ViewComponent
+    public class _ManagerLayoutSideBarComponent(UserManager<AppUser> _userManager) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-           return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            ViewBag.NameSurname = string.Join(" ", user.FirstName, user.LastName);
+            ViewBag.ImageUrl = user.ImageUrl;
+
+            return View();
         }
     }
 }
