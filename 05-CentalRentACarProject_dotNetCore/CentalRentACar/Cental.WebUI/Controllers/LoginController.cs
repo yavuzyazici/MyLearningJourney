@@ -35,11 +35,11 @@ namespace Cental.WebUI.Controllers
 
             if (role == "Admin")
             {
-                return RedirectToAction("Index", "AdminAbout");
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
             else if (role == "Manager")
             {
-                return RedirectToAction("Index", "Profile", new { area = "Manager" });
+                return RedirectToAction("Index", "Dashboard", new { area = "Manager" });
             }
             else
             {

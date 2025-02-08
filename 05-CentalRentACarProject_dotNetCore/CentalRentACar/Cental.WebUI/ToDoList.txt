@@ -37,9 +37,9 @@ Footer abone olma bölümü yapılmalı
 
 UI Layouta bağlı yeni sayfa (İletişim sayfası gibi)
 
-UserSocial Update işlemi
+UserSocial Update işlemi ✅
 
-Admin Area çekilecek 
+Admin Area çekilecek ✅
 
 User Area oluşturulacak
 
