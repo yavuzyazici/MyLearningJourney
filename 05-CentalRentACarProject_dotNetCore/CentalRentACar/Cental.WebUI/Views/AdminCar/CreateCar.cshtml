@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="card-body">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <label>Model Name</label>
         <input type="text" asp-for="ModelName" class="form-control" />
         <span asp-validation-for="ModelName" class="text-danger"></span>
@@ -30,6 +30,11 @@
         <label>Image Url</label>
         <input type="text" asp-for="ImageUrl" class="form-control" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        <br />
+
+        <label>Upload Image</label>
+        <input type="file" asp-for="ImageFile" class="form-control-file"/>
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
         <br />
 
         <label>Price</label>

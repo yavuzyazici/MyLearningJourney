@@ -32,6 +32,11 @@
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
         <br />
 
+        <label>Upload Image</label>
+        <input type="file" asp-for="ImageFile" class="form-control-file" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+        <br />
+
         <label>Price</label>
         <input type="number" asp-for="Price" class="form-control" />
         <span asp-validation-for="Price" class="text-danger"></span>

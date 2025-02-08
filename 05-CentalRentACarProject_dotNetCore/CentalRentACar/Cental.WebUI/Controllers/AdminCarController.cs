@@ -9,19 +9,21 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json.Linq;
+using PagedList.Core;
 using System.Transactions;
 
 namespace Cental.WebUI.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class AdminCarController(ICarService _carservice, IBrandService _brandService, IMapper _mapper) : Controller
+    public class AdminCarController(ICarService _carservice, IBrandService _brandService, IMapper _mapper, IImageService _imageService) : Controller
     {
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var values = _carservice.TGetAll();
-            var cars = _mapper.Map<List<ResultCarDto>>(values);
-            return View(cars);
+            var cars = _carservice.TGetAll();
+            var dtoCars = _mapper.Map<List<ResultCarDto>>(cars).AsQueryable();
+            var values = new PagedList<ResultCarDto>(dtoCars, page, 3);
+            return View(values);
         }
         [HttpGet]
         public IActionResult CreateCar()
@@ -43,11 +45,23 @@ namespace Cental.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateCar(CreateCarDto model)
+        public async Task<IActionResult> CreateCar(CreateCarDto model)
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("CreateCar",model);
+                return View("CreateCar", model);
+            }
+            if (model.ImageFile != null)
+            {
+                try
+                {
+                    model.ImageUrl = await _imageService.SaveImageAsync(model.ImageFile);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(model);
+                }
             }
             _carservice.TCreate(model);
             return RedirectToAction("Index");
@@ -86,8 +100,20 @@ namespace Cental.WebUI.Controllers
             return View(car);
         }
         [HttpPost]
-        public IActionResult UpdateCar(UpdateCarDto model)
+        public async Task<IActionResult> UpdateCar(UpdateCarDto model)
         {
+            if (model.ImageFile != null)
+            {
+                try
+                {
+                    model.ImageUrl = await _imageService.SaveImageAsync(model.ImageFile);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(model);
+                }
+            }
             _carservice.TUpdate(model);
             return RedirectToAction("Index");
         }

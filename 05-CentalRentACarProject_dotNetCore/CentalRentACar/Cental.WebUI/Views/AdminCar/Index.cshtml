@@ -1,9 +1,11 @@
 ﻿@using Cental.DtoLayer.CarDtos
-@model List<ResultCarDto>
+@using PagedList.Core
+@model PagedList<ResultCarDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
-    var count = 1;
+    var count = Model.PageSize * Model.PageNumber - (Model.PageSize - 1);
+
 }
 
 <div class="card-header">
@@ -49,6 +51,10 @@
             count++;
         }
     </table>
+
+    <div class="text-center">
+        <pager asp-action="Index" asp-controller="AdminCar" list="@Model"></pager>
+    </div>
 
     <a asp-action="CreateCar" asp-controller="AdminCar" class="btn btn-primary">Add New Car</a>
 </div>
