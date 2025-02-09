@@ -3,7 +3,7 @@ booking string status => Pending Approval, Canceled, Approved durumları olarcak
 
 Manager ve User panelinden kiralama durumları kontrol edilecek. ✅
 
-Default/Index tümü ViewComponent ile işlenilmeli. (Testimonial kaldı birtek)
+Default/Index tümü ViewComponent ile işlenilmeli. (Testimonial kaldı birtek) ✅
 
 Manager ve User paneli için profil güncelleme olmalı. ✅
 
@@ -13,27 +13,27 @@ User Paneli eklenecek ve araç kiralama durumlarını review durumlarını göre
 
 Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirme. ✅
 
-Admin, User ve Manager tarafında Dashboard bölümü olmalı.
-
-Admin ve Manager üzerinde dashboard 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
-
 SweetAlert ile mesaj gönderme yapılmalı ✅
 
 Arabalar için Sayfalama ve Filtreleme yapılmalı. (Sayfalama Admin Car için filtreleme User Car viewi için yapıldı) ✅
 
 Ana sayfada Team bölümü sosyal medyaları eklenmeli. ✅
 
+Admin, User ve Manager tarafında Dashboard bölümü olmalı.
+
+Admin ve Manager üzerinde dashboard 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
+
 Footer dinamik olmalı
 
 Topbar dinamik olmalı
 
-Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Testimonials, Bookings, SocialMedias Manager panelinde olmalı.)
-
-Manager panelinde Booking, Profil, Social Medias ,Message, Review, Testimonials tablolarının listelenmesi ve CRUD işlemleri.
+Footer abone olma bölümü yapılmalı
 
 Manager gelen mesajları okuyup okundu işaretleyebilsin.
 
-Footer abone olma bölümü yapılmalı
+Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Testimonials, Bookings, SocialMedias Manager panelinde olmalı.) ✅ 
+
+Manager panelinde Booking, Profil, Social Medias ,Message, Review, Testimonials tablolarının listelenmesi ve CRUD işlemleri. ✅
 
 UI Layouta bağlı yeni sayfa (İletişim sayfası gibi) ✅
 

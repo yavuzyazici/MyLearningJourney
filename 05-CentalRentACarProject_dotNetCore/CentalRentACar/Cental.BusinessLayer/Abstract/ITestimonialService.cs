@@ -9,5 +9,6 @@ namespace Cental.BusinessLayer.Abstract
 {
     public interface ITestimonialService : IGenericService<Testimonial>
     {
+        Testimonial GetByUserName(string userName);
     }
 }

@@ -13,6 +13,11 @@ namespace Cental.BusinessLayer.Concrete
 {
     public class TestimonialManager(ITestimonialDal _testimonialDal, IMapper _mapper) : ITestimonialService
     {
+        public Testimonial GetByUserName(string userName)
+        {
+            return _testimonialDal.GetByUserName(userName);
+        }
+
         public void TCreate(Testimonial entity)
         {
             _testimonialDal.Create(entity);

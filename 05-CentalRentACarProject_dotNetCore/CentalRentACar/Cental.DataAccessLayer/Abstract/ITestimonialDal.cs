@@ -9,5 +9,6 @@ namespace Cental.DataAccessLayer.Abstract
 {
     public interface ITestimonialDal : IGenericDal<Testimonial>
     {
+        Testimonial GetByUserName(string userName);
     }
 }

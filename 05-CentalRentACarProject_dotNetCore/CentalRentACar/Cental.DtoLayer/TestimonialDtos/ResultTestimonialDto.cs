@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Cental.EntityLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.TestimonialDtos
 {
-    public class Testimonial : BaseEntity
+    public class ResultTestimonialDto
     {
         [Key]
         public int TestimonialId { get; set; }
@@ -28,8 +29,6 @@ namespace Cental.EntityLayer.Entities
         [Required(ErrorMessage = "The Comment field is required.")]
         [StringLength(500, ErrorMessage = "The Comment must be at most 500 characters long.")]
         public required string Comment { get; set; }
-        public bool IsAproved { get; set; }
         public int UserId { get; set; }
-        public virtual AppUser User { get; set; }
     }
 }

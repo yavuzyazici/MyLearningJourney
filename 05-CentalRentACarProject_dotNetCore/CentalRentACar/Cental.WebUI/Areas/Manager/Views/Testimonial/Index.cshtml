@@ -1,0 +1,45 @@
+﻿@using Cental.DtoLayer.TestimonialDtos
+@model List<ManagerResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+}
+
+<div class="card-header">
+    <h5>Testimonial</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Name Surname</th>
+            <th>Job Title</th>
+            <th>Comment</th>
+            <th>IsApproved</th>
+            <th>Approve</th>
+        </tr>
+        @foreach (var testimonial in Model)
+        {
+            <tr>
+                <td>@testimonial.TestimonialId</td>
+                <td>@testimonial.NameSurname</td>
+                <td>@testimonial.JobTitle</td>
+                <td>@testimonial.Comment</td>
+                <td>@testimonial.IsAproved</td>
+                <td><a asp-action="ApproveTestimonial" asp-route-id="@testimonial.TestimonialId" asp-area="Manager" class="btn btn-info">Change Visibility</a></td>
+            </tr>
+        }
+    </table>
+</div>

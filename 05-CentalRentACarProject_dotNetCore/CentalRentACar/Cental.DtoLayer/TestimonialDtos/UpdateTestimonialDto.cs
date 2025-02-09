@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Cental.EntityLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.TestimonialDtos
 {
-    public class Testimonial : BaseEntity
+    public class UpdateTestimonialDto
     {
         [Key]
         public int TestimonialId { get; set; }
@@ -30,6 +31,5 @@ namespace Cental.EntityLayer.Entities
         public required string Comment { get; set; }
         public bool IsAproved { get; set; }
         public int UserId { get; set; }
-        public virtual AppUser User { get; set; }
     }
 }

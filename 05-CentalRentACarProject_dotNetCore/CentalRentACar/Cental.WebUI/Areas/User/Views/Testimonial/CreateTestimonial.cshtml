@@ -1,0 +1,37 @@
+﻿@using Cental.DtoLayer.TestimonialDtos
+@model CreateTestimonialDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+}
+
+<div class="card-header">
+    <h5>Create Testimonial</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <label>JobTitle</label>
+        <input type="text" asp-for="JobTitle" class="form-control" />
+        <span asp-validation-for="JobTitle" class="text-danger"></span>
+        <br />
+        <label>Review</label>
+        <input type="number" min="1" max="5" asp-for="Review" class="form-control" />
+        <span asp-validation-for="Review" class="text-danger"></span>
+        <br />
+        <textarea asp-for="Comment" rows="3" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+        <br />
+        <button class="btn btn-outline-primary">Create</button>
+    </form>
+</div>

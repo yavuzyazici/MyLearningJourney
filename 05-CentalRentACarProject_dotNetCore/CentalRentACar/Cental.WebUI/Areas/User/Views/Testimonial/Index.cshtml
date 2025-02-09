@@ -1,0 +1,50 @@
+﻿@using Cental.DtoLayer.TestimonialDtos
+@model ResultTestimonialDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+}
+
+<div class="card-header">
+    <h5>Testimonial</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Name Surname</th>
+            <th>Comment</th>
+            <th>Update</th>
+        </tr>
+        @if (Model != null)
+        {
+            <tr>
+                <td>@Model.TestimonialId</td>
+                <td>@Model.NameSurname</td>
+                <td>@Model.Comment</td>
+                <td><a asp-action="UpdateTestimonial" asp-route-id="@Model.TestimonialId" asp-area="User" class="btn btn-info">Update</a></td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <p>There is nothing to show</p>
+            </tr>
+        }
+    </table>
+    <p>@Html.ValidationSummary()</p>
+
+    <a asp-action="CreateTestimonial" asp-controller="Testimonial" asp-area="User" class="btn btn-primary">Add New Testimonial</a>
+</div>

@@ -57,6 +57,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IReviewDal, EfReviewDal>();
             services.AddScoped<IReviewService, ReviewManager>();
 
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }
