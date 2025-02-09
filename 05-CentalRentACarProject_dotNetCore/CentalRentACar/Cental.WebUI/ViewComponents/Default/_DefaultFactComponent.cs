@@ -10,9 +10,9 @@ namespace Cental.WebUI.ViewComponents.Default
         public IViewComponentResult Invoke()
         {
             UIDashboardDto dto = new UIDashboardDto();
-            var rentedCars = _dashboardService.Where<Car>(x => x.Transmission.Contains("s"));
+            var rentedCars = _dashboardService.Where<Booking>(x => x.BookingStatus == EntityLayer.Enums.BookingStatus.Approved);
 
-            dto.CarsRented = 9;
+            dto.CarsRented = rentedCars.Count();
 
             dto.BrandCount = _dashboardService.GetCount<Brand>();
 

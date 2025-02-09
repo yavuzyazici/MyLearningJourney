@@ -17,7 +17,8 @@ namespace Cental.WebUI.Areas.User.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var data = _bookingService.GetByUserName(User.Identity.Name);
+            var data = _bookingService.GetByUserName(User.Identity.Name).OrderByDescending(x => x.PickUpDate);
+
             var bookings = _mapper.Map<List<UserPanelBookingDto>>(data);
             return View(bookings);
         }
