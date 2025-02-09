@@ -5,7 +5,7 @@ Manager ve User panelinden kiralama durumları kontrol edilecek. ✅
 
 Default/Index tümü ViewComponent ile işlenilmeli. (Testimonial kaldı birtek)
 
-Manager ve User paneli için profil güncelleme olmalı.
+Manager ve User paneli için profil güncelleme olmalı. ✅
 
 About, Contact, Services sayfaları oluşturulup tamamlanmalı.
 
