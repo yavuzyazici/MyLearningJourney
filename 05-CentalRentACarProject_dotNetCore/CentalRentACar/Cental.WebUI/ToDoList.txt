@@ -7,7 +7,7 @@ Default/Index tümü ViewComponent ile işlenilmeli. (Testimonial kaldı birtek)
 
 Manager ve User paneli için profil güncelleme olmalı. ✅
 
-About, Contact, Services sayfaları oluşturulup tamamlanmalı.
+About, Contact, Services sayfaları oluşturulup tamamlanmalı. ✅
 
 User Paneli eklenecek ve araç kiralama durumlarını review durumlarını görecek. (Area olarak)
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.ContactDtos
 {
-    public class Contact : BaseEntity
+    public class UpdateContactDto
     {
         public int ContactId { get; set; }
         public string Description { get; set; }

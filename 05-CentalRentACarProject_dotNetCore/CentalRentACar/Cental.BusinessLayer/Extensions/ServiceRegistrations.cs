@@ -48,6 +48,12 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IBookingDal, EfBookingDal>();
             services.AddScoped<IBookingService, BookingManager>();
 
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
+            services.AddScoped<IBranchDal, EfBranchDal>();
+            services.AddScoped<IBranchService, BranchManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }

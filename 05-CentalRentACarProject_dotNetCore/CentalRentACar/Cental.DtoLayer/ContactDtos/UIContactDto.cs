@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.ContactDtos
 {
-    public class Contact : BaseEntity
+    public class UIContactDto
     {
-        public int ContactId { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
         public string EMail { get; set; }
