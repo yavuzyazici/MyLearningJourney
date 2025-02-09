@@ -54,6 +54,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IBranchDal, EfBranchDal>();
             services.AddScoped<IBranchService, BranchManager>();
 
+            services.AddScoped<IReviewDal, EfReviewDal>();
+            services.AddScoped<IReviewService, ReviewManager>();
+
             services.AddScoped<IImageService, ImageService>();
         }
     }

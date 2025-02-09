@@ -9,7 +9,7 @@ Manager ve User paneli için profil güncelleme olmalı. ✅
 
 About, Contact, Services sayfaları oluşturulup tamamlanmalı. ✅
 
-User Paneli eklenecek ve araç kiralama durumlarını review durumlarını görecek. (Area olarak)
+User Paneli eklenecek ve araç kiralama durumlarını review durumlarını görecek. (Area olarak) ✅
 
 Loginde giriş yapıldığında kullanıcının rolüne göre panele yönlendirme. ✅
 
@@ -27,7 +27,7 @@ Footer dinamik olmalı
 
 Topbar dinamik olmalı
 
-Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Review, Testimonials Manager panelinde olmalı.)
+Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Testimonials, Bookings, SocialMedias Manager panelinde olmalı.)
 
 Manager panelinde Booking, Profil, Social Medias ,Message, Review, Testimonials tablolarının listelenmesi ve CRUD işlemleri.
 
@@ -35,7 +35,7 @@ Manager gelen mesajları okuyup okundu işaretleyebilsin.
 
 Footer abone olma bölümü yapılmalı
 
-UI Layouta bağlı yeni sayfa (İletişim sayfası gibi)
+UI Layouta bağlı yeni sayfa (İletişim sayfası gibi) ✅
 
 UserSocial Update işlemi ✅
 
@@ -43,4 +43,4 @@ Admin Area çekilecek ✅
 
 User Area oluşturulacak ✅
 
-User kiralayabildiği aracı eğer onaylandıysa yorum yazabilsin.
+User kiralayabildiği aracı eğer onaylandıysa yorum yazabilsin. ✅

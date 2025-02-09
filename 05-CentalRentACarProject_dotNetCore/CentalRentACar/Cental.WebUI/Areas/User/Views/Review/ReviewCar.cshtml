@@ -1,0 +1,37 @@
+﻿@using Cental.DtoLayer.ReviewDtos
+@model CreateReviewDto
+@{
+    ViewData["Title"] = "Review Car";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+}
+
+@* CarId, Rating*@
+
+<div class="card-header">
+    <h5>Review</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <input type="hidden" asp-for="BookingId" />
+        <input type="hidden" asp-for="CarId" />
+        <label>Rating</label>
+        <input type="number" min="1" max="5" asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+        <br />
+        <p>
+            @Html.ValidationSummary()
+        </p>
+        <button class="btn btn-outline-primary">Rate</button>
+    </form>
+</div>

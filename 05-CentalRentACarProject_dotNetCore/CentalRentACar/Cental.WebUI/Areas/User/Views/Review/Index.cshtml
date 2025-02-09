@@ -1,0 +1,46 @@
+﻿@using Cental.DtoLayer.ReviewDtos
+@model List<ResultReviewDto>
+@{
+    ViewData["Title"] = "Review Cars";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Review</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Brand Name</th>
+            <th>Price</th>
+            <th>Image URL</th>
+            <th>Kilometer</th>
+            <th>Review Car</th>
+        </tr>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@review.Car.Brand.BrandName</td>
+                <td>@review.Car.Price</td>
+                <td><img src="@review.Car.ImageUrl" width="75" /></td>
+                <td>@review.Car.Kilometer</td>
+                <td><a asp-action="ReviewCar" asp-route-id="@review.BookingId" asp-area="User" class="btn btn-success">Review</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+</div>
