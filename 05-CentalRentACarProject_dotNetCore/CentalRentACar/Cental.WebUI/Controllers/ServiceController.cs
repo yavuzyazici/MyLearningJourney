@@ -4,7 +4,7 @@ namespace Cental.WebUI.Controllers
 {
     public class ServiceController : Controller
     {
-        [Route("service")]
+        [Route("services")]
         [HttpGet]
         public IActionResult Index()
         {
