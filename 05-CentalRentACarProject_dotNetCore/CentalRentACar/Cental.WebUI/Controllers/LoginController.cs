@@ -39,11 +39,11 @@ namespace Cental.WebUI.Controllers
             }
             else if (role == "Manager")
             {
-                return RedirectToAction("Index", "Dashboard", new { area = "Manager" });
+                return RedirectToAction("Index", "Message", new { area = "Manager" });
             }
             else
             {
-                return RedirectToAction("Index", "Dashboard", new { area = "User" });
+                return RedirectToAction("Index", "Booking", new { area = "User" });
             }
         }
         public async Task<IActionResult> Logout()

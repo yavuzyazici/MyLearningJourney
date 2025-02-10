@@ -22,14 +22,18 @@
                         </div>
                         <div class="categories-content rounded-bottom p-4">
                             <h4>@car.Brand.BrandName @car.ModelName</h4>
+                            @{
+                                double avgRating = car.Reviews.Any() ? Math.Round(car.Reviews.Average(x => x.Rating)) : 0;
+                            }
                             <div class="categories-review mb-4">
-                                <div class="me-3">4.5 Review</div>
+                                <div class="me-3">
+                                    @(avgRating > 0 ? avgRating.ToString("0.0") : "0") Review
+                                </div>
                                 <div class="d-flex justify-content-center text-secondary">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star text-body"></i>
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="fas fa-star @(i <= avgRating ? "text-warning" : "text-body")"></i>
+                                    }
                                 </div>
                             </div>
                             <div class="mb-4">
