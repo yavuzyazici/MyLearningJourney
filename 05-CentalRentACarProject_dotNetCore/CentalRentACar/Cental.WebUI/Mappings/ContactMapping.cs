@@ -8,10 +8,12 @@ namespace Cental.WebUI.Mappings
     {
         public ContactMapping()
         {
-             CreateMap<Contact, ResultContactDto>().ReverseMap();
-             CreateMap<Contact, CreateContactDto>().ReverseMap();
-             CreateMap<Contact, UpdateContactDto>().ReverseMap();
-             CreateMap<Contact, UIContactDto>().ReverseMap();
+            CreateMap<Contact, ResultContactDto>().ReverseMap();
+            CreateMap<Contact, CreateContactDto>().ReverseMap();
+            CreateMap<Contact, UpdateContactDto>().ReverseMap();
+            CreateMap<Contact, UIContactDto>().ReverseMap();
+            CreateMap<Contact, UITopbarContactDto>().ReverseMap();
+            CreateMap<Contact, UIFooterContactDto>().ReverseMap();
         }
     }
 }
