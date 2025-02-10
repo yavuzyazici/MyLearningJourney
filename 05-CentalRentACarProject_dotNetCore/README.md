@@ -49,84 +49,84 @@ Admins can handle the overall system management:
 
 | User Homepage |
 |--------------|
-| ![Homepage](CentalRentACar/wwwroot/GithubImages/homemain.png) |
+| ![Homepage](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homemain.png) |
 
 | Car Filtering |
 |--------------|
-| ![Car Filtering](CentalRentACar/wwwroot/GithubImages/homecarsfiltercar.png) |
+| ![Car Filtering](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homecarsfiltercar.png) |
 
 | Reservation Success |
 |---------------------|
-| ![Reservation Success](CentalRentACar/wwwroot/GithubImages/homebookcar.png) |
+| ![Reservation Success](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homebookcar.png) |
 
 | Reservation Fail |
 |-----------------|
-| ![Reservation Fail](CentalRentACar/wwwroot/GithubImages/homebookcarwithoutuser.png) |
+| ![Reservation Fail](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homebookcarwithoutuser.png) |
 
 | Contact Page |
 |-------------|
-| ![Contact](CentalRentACar/wwwroot/GithubImages/homecontact.png) |
+| ![Contact](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homecontact.png) |
 
 | Footer Subscription |
 |---------------------|
-| ![Subscription](CentalRentACar/wwwroot/GithubImages/homefootersubscribe.png) |
+| ![Subscription](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/homefootersubscribe.png) |
 
 ### User Panel
 
 | User Bookings |
 |--------------|
-| ![User Bookings](CentalRentACar/wwwroot/GithubImages/userpanelbookings.png) |
+| ![User Bookings](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/userpanelbookings.png) |
 
 | Profile Management |
 |-------------------|
-| ![Profile](CentalRentACar/wwwroot/GithubImages/userpanelprofile.png) |
+| ![Profile](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/userpanelprofile.png) |
 
 | Review Car |
 |-----------|
-| ![Review Car](CentalRentACar/wwwroot/GithubImages/userpanelreviewcar.png) |
+| ![Review Car](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/userpanelreviewcar.png) |
 
 | Testimonials |
 |-------------|
-| ![Testimonials](CentalRentACar/wwwroot/GithubImages/userpaneltestimonial.png) |
+| ![Testimonials](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/userpaneltestimonial.png) |
 
 ### Manager Panel
 
 | Testimonials Management |
 |-------------------------|
-| ![Manager Testimonials](CentalRentACar/wwwroot/GithubImages/managerpaneltestimonials.png) |
+| ![Manager Testimonials](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/managerpaneltestimonials.png) |
 
 | Booking Management |
 |--------------------|
-| ![Bookings](CentalRentACar/wwwroot/GithubImages/managerpanelbookings.png) |
+| ![Bookings](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/managerpanelbookings.png) |
 
 | Message Management |
 |--------------------|
-| ![Messages](CentalRentACar/wwwroot/GithubImages/managerpanelmessages.png) |
+| ![Messages](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/managerpanelmessages.png) |
 
 | Subscribers |
 |------------|
-| ![Subscribers](CentalRentACar/wwwroot/GithubImages/managerpanelsubscribers.png) |
+| ![Subscribers](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/managerpanelsubscribers.png) |
 
 ### Admin Panel
 
 | Admin Dashboard |
 |----------------|
-| ![Admin Dashboard](CentalRentACar/wwwroot/GithubImages/adminpaneldashboard.png) |
+| ![Admin Dashboard](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/adminpaneldashboard.png) |
 
 | Feature Management |
 |------------------|
-| ![Features](CentalRentACar/wwwroot/GithubImages/adminpanelfeatures.png) |
+| ![Features](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/adminpanelfeatures.png) |
 
 | Role Management |
 |---------------|
-| ![Roles](CentalRentACar/wwwroot/GithubImages/adminpanelroles.png) |
+| ![Roles](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/adminpanelroles.png) |
 
 | Assign Role |
 |------------|
-| ![Assign Role](CentalRentACar/wwwroot/GithubImages/adminpanelassignrole.png) |
+| ![Assign Role](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/adminpanelassignrole.png) |
 
 | Car Management |
 |--------------|
-| ![Car Management](CentalRentACar/wwwroot/GithubImages/adminpanelcars.png) |
+| ![Car Management](CentalRentACar/Cental.WebUI/wwwroot/GithubImages/adminpanelcars.png) |
 
 This project offers an easily manageable and scalable system for both users and administrators.
