@@ -19,9 +19,7 @@ Arabalar için Sayfalama ve Filtreleme yapılmalı. (Sayfalama Admin Car için f
 
 Ana sayfada Team bölümü sosyal medyaları eklenmeli. ✅
 
-Admin, User ve Manager tarafında Dashboard bölümü olmalı.
-
-Admin ve Manager üzerinde dashboard 6 adet kiralanan araç 6 adet son eklenen araç bulunsun.
+Admin tarafında Dashboard bölümü olmalı. ✅
 
 Footer dinamik olmalı ✅
 

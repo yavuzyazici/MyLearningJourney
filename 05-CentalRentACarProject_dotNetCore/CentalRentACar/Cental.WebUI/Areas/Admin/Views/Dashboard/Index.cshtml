@@ -1,0 +1,124 @@
+﻿@using Cental.DtoLayer.DashboardDtos
+@model AdminDashboardDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Layout.cshtml";
+}
+
+<div class="pcoded-content">
+    <div class="row">
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-mail text-c-blue mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.MessageCount</h5>
+                        <span>Message Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-mail text-c-red mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.NonReadedMessageCount</h5>
+                        <span>Non Read Message Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-box text-c-green mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.CarCount</h5>
+                        <span>Car Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-check-circle text-c-yellow mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.RentedCarCount</h5>
+                        <span>Rented Car Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-users text-c-purple mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.UserCount</h5>
+                        <span>User Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-star text-c-orange mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.AverageCarRating</h5>
+                        <span>Average Car Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-thumbs-up text-c-green mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.Total5StarReview</h5>
+                        <span>5 Star Rating Count</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card flat-card">
+                <div class="row-table">
+                    <div class="col-sm-3 card-body">
+                        <i class="feather icon-clock text-c-blue mb-1 d-block"></i>
+                    </div>
+                    <div class="col-sm-9 text-md-center">
+                        <h5>@Model.PendingBookingCount</h5>
+                        <span>Pending Reservations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
