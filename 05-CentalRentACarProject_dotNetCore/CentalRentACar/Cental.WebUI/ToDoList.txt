@@ -27,9 +27,9 @@ Footer dinamik olmalı ✅
 
 Topbar dinamik olmalı ✅
 
-Footer abone olma bölümü yapılmalı
+Footer abone olma bölümü yapılmalı ✅
 
-Manager gelen mesajları okuyup okundu işaretleyebilsin.
+Manager gelen mesajları okuyup okundu işaretleyebilsin. ✅
 
 Admin tarafında tüm tabloların listelenmesi ve CRUD işlemleri (Message, Testimonials, Bookings, SocialMedias Manager panelinde olmalı.) ✅ 
 

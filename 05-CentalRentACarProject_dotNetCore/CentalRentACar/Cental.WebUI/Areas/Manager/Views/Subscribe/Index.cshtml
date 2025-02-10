@@ -1,0 +1,40 @@
+﻿@using Cental.DtoLayer.SubscriberDtos
+@model List<ResultSubscribeDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Subscribers</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var subscriber in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@subscriber.Email</td>
+                <td><a asp-action="DeleteSubscriber" asp-controller="Subscribe" asp-route-id="@subscriber.SubscriberId" asp-area="Manager" class="btn btn-warning" style="color:aliceblue;">Delete Subscriber</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+</div>

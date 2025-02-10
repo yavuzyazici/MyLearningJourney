@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.ContactDtos;
+using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.ViewComponents.Default

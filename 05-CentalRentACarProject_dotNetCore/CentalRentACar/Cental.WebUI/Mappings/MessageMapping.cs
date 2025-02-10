@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cental.DtoLayer.ContactDtos;
+using Cental.DtoLayer.MessageDtos;
 using Cental.EntityLayer.Entities;
 
 namespace Cental.WebUI.Mappings
@@ -9,6 +10,7 @@ namespace Cental.WebUI.Mappings
         public MessageMapping()
         {
             CreateMap<Message, CreateMessageDto>().ReverseMap();
+            CreateMap<Message, ResultMessageDto>().ReverseMap();
         }
     }
 }

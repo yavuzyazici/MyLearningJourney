@@ -14,8 +14,10 @@
                         <p class="mb-3">@Model.Description1</p>
                     </div>
                     <div class="position-relative">
-                        <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                        <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
+                        <form id="formSub" asp-action="Subscribe" asp-controller="Contact" method="post">
+                            <input name="Email" class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -44,3 +46,33 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("formSub").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let form = event.target;
+        let formData = new FormData(form);
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            Swal.fire({
+                title: "Subscribed Successfully!",
+                text: "We saved your email.",
+                icon: "success"
+            });
+
+            form.reset();
+        })
+        .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: "Subscription failed.",
+                icon: "error"
+            });
+        });
+    });
+</script>

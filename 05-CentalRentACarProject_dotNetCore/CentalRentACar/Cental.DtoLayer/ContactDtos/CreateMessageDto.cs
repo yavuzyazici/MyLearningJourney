@@ -13,6 +13,6 @@ namespace Cental.DtoLayer.ContactDtos
         public string Project { get; set; }
         public string Subject { get; set; }
         public string MessageContent { get; set; }
+        public bool IsRead { get; set; }
     }
-
 }

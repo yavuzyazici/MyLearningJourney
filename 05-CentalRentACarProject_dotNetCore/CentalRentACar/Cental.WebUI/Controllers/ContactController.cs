@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.ContactDtos;
+using Cental.DtoLayer.SubscriberDtos;
+using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
-    public class ContactController(IContactService _contactService,IMessageService _messageService, IMapper _mapper) : Controller
+    public class ContactController(IContactService _contactService, IMessageService _messageService, ISubscriberService _subscriberService, IMapper _mapper) : Controller
     {
         [Route("contact")]
         [HttpGet]
@@ -20,6 +22,17 @@ namespace Cental.WebUI.Controllers
         {
             _messageService.TCreate(model);
             return NoContent();
+        }
+        [HttpPost]
+        public IActionResult Subscribe(CreateSubscriberDto model)
+        {
+            if (string.IsNullOrEmpty(model.Email))
+            {
+                return BadRequest("Email cannot be null.");
+            }
+
+            _subscriberService.TCreate(model);
+            return Ok("Success");
         }
     }
 }
