@@ -42,7 +42,7 @@
                 <td>@message.MessageContent</td>
                 <td><span class="badge badge-info">@message.IsRead</span></td>
                 <td><a asp-action="ChangeStatus" asp-controller="Message" asp-route-id="@message.MessageId" asp-area="Manager" class="btn btn-primary" style="color:aliceblue;">Change Status</a></td>
-                <td><a asp-action="DeleteMessage" asp-controller="Message" asp-route-id="@message.MessageId" asp-area="Manager" class="btn btn-primary" style="color:red;">Delete Message</a></td>
+                <td><a asp-action="DeleteMessage" asp-controller="Message" asp-route-id="@message.MessageId" asp-area="Manager" class="btn btn-danger" style="color:aliceblue;">Delete Message</a></td>
             </tr>
             count++;
         }
