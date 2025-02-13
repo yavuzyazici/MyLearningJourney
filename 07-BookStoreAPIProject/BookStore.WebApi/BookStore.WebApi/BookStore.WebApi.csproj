@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookStore.DataAccessLayer\BookStore.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\BookStore.BusinessLayer\BookStore.BusinessLayer.csproj" />
   </ItemGroup>
 
 </Project>

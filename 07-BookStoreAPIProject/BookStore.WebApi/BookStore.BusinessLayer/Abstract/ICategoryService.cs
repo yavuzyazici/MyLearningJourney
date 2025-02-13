@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStore.DataAccessLayer.Abstract
+namespace BookStore.BusinessLayer.Abstract
 {
-    public interface IProductDal : IGenericDal<Product>
+    public interface ICategoryService : IGenericService<Category>
     {
-        int GetProductCount();
     }
 }
