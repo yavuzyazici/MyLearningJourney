@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<h1>Ajax Customer Operations</h1>
+<br />
+<button class="btn btn-primary" id="btn1">Customer List</button>
+<button class="btn btn-info" id="btn1">Add Customer</button>
+<button class="btn btn-danger" id="btn1">Delete Customer</button>
+<button class="btn btn-success" id="btn1">Update Customer</button>
+<button class="btn btn-warning" id="btn1">Get Customer</button>
+
+<hr />
+
+<div class="alert alert-primary">Customer List</div>
+<div id="customerList">
+</div>
+
+<script>
+    $("#btn1").click(function (){
+        $.ajax({
+            contentType: "application/json",
+            dataType:"json",
+            type:"Get",
+            url:"/Customer/CustomerList",
+            success: function (funk1){
+                let customers = jQuery.parseJSON(funk1);
+                console.log(customers);
+
+                let tableHtml = `<table class="table table-bordered">`
+                + "<tr>"
+                + "<th>Customer Id</th>"
+                + "<th>Customer Name</th>"
+                + "<th>Customer Surname</th>"
+                + "</tr>"
+
+                $.each(customers, (index, value) => {
+                    tableHtml += `<tr>`
+                    + `<td>${value.CustomerId}</td>`
+                    + `<td>${value.CustomerName}</td>`
+                    + `<td>${value.CustomerSurname}</td>`
+                    + `</tr>`
+                });
+                tableHtml += "</table>";
+                $("#customerList").html(tableHtml);
+            }
+        });
+    });
+</script>
