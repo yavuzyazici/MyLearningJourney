@@ -1,0 +1,23 @@
+﻿@model BookStore.WebUI.Dtos.ProductDtos.GetByIdProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<form method="post">
+    <div class="container">
+        <input type="hidden" asp-for="ProductId" class="form-control" />
+        <br /><br />
+        <label>Product Name</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+        <label>Product Stock</label>
+        <input type="number" asp-for="ProductStock" class="form-control" />
+        <br />
+        <label>Product Price</label>
+        <input type="text" asp-for="ProductPrice" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Update Product</button>
+    </div>
+</form>

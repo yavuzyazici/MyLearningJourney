@@ -1,0 +1,17 @@
+﻿@model BookStore.WebUI.Dtos.CategoryDtos.CreateCategoryDto
+
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<form method="post">
+    <div class="container">
+        <br /><br />
+        <label>Category Name</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Add Category</button>
+    </div>
+</form>

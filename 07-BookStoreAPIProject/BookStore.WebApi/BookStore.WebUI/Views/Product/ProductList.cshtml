@@ -1,0 +1,32 @@
+﻿@model List<BookStore.WebUI.Dtos.ProductDtos.ResultProductDto>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Product Stock</th>
+            <th>Product Price</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.ProductStock</td>
+                <td>@product.ProductPrice</td>
+                <td><a href="/Product/DeleteProduct/@product.ProductId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Product/UpdateProduct/@product.ProductId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Product/CreateProduct/" class="btn btn-primary">Create Product</a>
+</div>

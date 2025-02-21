@@ -1,0 +1,47 @@
+﻿@using BookStore.WebUI.Dtos.ProductDtos
+@model List<ResultProductDto>
+@*
+    _DefaultBannerComponent
+*@
+
+<section id="billboard">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<button class="prev slick-arrow">
+					<i class="icon icon-arrow-left"></i>
+				</button>
+
+				<div class="main-slider pattern-overlay">
+					@foreach (var banner in Model)
+					{
+						<div class="slider-item">
+							<div class="banner-content">
+								<h2 class="banner-title">@banner.ProductName</h2>
+								<p>
+									@banner.ProductDescription
+								</p>
+								<div class="btn-wrap">
+									<a href="#popular-books" class="btn btn-outline-accent btn-accent-arrow">
+										Read More<i class="icon icon-ns-arrow-right"></i>
+									</a>
+								</div>
+							</div><!--banner-content-->
+							<img width="413" height="654" src="@banner.ImageUrl" alt="banner" class="banner-image">
+						</div>
+
+						<!--slider-item-->
+					}
+				</div><!--slider-->
+
+				<button class="next slick-arrow">
+					<i class="icon icon-arrow-right"></i>
+				</button>
+
+			</div>
+		</div>
+	</div>
+
+</section>

@@ -1,0 +1,28 @@
+﻿@model List<BookStore.WebUI.Dtos.CategoryDtos.ResultCategoryDto>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td><a href="/Category/DeleteCategory/@category.CategoryId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Category/UpdateCategory/@category.CategoryId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Category/CreateCategory/" class="btn btn-primary">Create Category</a>
+</div>
