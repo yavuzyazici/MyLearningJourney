@@ -41,6 +41,11 @@ namespace BookStore.BusinessLayer.Concrete
             return _categoryDal.GetById(id);
         }
 
+        public List<Category> TGetCategoriesWithProducts()
+        {
+            return _categoryDal.GetCategoriesWithProducts();
+        }
+
         public void TUpdate(Category entity)
         {
             _categoryDal.Update(entity);

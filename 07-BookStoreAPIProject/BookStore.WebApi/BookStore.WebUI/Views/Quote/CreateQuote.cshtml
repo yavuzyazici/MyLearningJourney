@@ -1,0 +1,18 @@
+﻿@model BookStore.WebUI.Dtos.QuoteDtos.CreateQuoteDto
+
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <br /><br />
+        <label>Quote</label>
+        <input type="text" asp-for="QuoteText" class="form-control" />
+        <br />
+        <label>Quote Author</label>
+        <input type="text" asp-for="QuoteAuthor" class="form-control" />
+        <button class="btn btn-primary">Add Quote</button>
+    </div>
+</form>

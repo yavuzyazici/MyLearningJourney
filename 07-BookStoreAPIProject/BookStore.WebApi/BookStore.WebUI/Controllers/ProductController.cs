@@ -1,17 +1,25 @@
-﻿using BookStore.WebUI.Dtos.ProductDtos;
+﻿using BookStore.BusinessLayer.Concrete;
+using BookStore.BusinessLayer.Abstract;
+using BookStore.WebUI.Dtos.ProductDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
+using AutoMapper;
+using BookStore.EntityLayer.Concrete;
 
 namespace BookStore.WebUI.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IImageService _imageService;
+        private readonly IMapper _mapper;
 
-        public ProductController(IHttpClientFactory httpClientFactory)
+        public ProductController(IHttpClientFactory httpClientFactory, IImageService imageService, IMapper mapper)
         {
             _httpClientFactory = httpClientFactory;
+            _imageService = imageService;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> ProductList()
@@ -32,6 +40,18 @@ namespace BookStore.WebUI.Controllers
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
         {
             var client = _httpClientFactory.CreateClient();
+            if (createProductDto.ImageFile != null)
+            {
+                try
+                {
+                    createProductDto.ImageUrl = await _imageService.SaveImageAsync(createProductDto.ImageFile);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(createProductDto);
+                }
+            }
             var jsonData = JsonConvert.SerializeObject(createProductDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7190/api/Products", content);
@@ -58,15 +78,29 @@ namespace BookStore.WebUI.Controllers
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<GetByIdProductDto>(jsonData);
-                return View(values);
+                var product = _mapper.Map<UpdateProductDto>(values);
+                return View(product);
             }
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateCategoryDto)
+        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
+            if (updateProductDto.ImageFile != null)
+            {
+                try
+                {
+                    updateProductDto.ImageUrl = await _imageService.SaveImageAsync(updateProductDto.ImageFile);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(updateProductDto);
+                }
+            }
+            var product = _mapper.Map<Product>(updateProductDto);
+            var jsonData = JsonConvert.SerializeObject(product);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync("https://localhost:7190/api/Products/", content);
             if (responseMessage.IsSuccessStatusCode)

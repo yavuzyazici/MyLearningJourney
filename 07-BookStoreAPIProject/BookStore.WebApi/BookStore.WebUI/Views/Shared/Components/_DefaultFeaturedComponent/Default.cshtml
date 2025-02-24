@@ -1,0 +1,44 @@
+﻿@using BookStore.WebUI.Dtos.ProductDtos
+@model List<ResultProductDto>
+@*
+    _DefaultFeaturedComponent
+*@
+
+<section id="featured-books" class="py-5 my-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="section-header align-center">
+					<div class="title">
+						<span>Some quality items</span>
+					</div>
+					<h2 class="section-title">Featured Books</h2>
+				</div>
+
+				<div class="product-list" data-aos="fade-up">
+					<div class="row">
+
+						@foreach (var book in Model)
+						{
+							<div class="col-md-3">
+								<div class="product-item">
+									<figure class="product-style">
+										<img src="@book.ImageUrl" width="220" height="318" alt="Books" class="product-item">
+									</figure>
+									<figcaption>
+										<h3>@book.ProductName</h3>
+										<span>@book.ProductAuthor</span>
+										<div class="item-price">$ @book.ProductPrice</div>
+									</figcaption>
+								</div>
+							</div>
+						}
+					</div><!--ft-books-slider-->
+				</div><!--grid-->
+
+
+			</div><!--inner-content-->
+		</div>
+	</div>
+</section>

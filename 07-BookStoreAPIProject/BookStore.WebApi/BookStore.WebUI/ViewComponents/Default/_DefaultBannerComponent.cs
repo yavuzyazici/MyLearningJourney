@@ -1,26 +1,32 @@
 ﻿using AutoMapper;
 using BookStore.BusinessLayer.Abstract;
+using BookStore.WebUI.Dtos.CategoryDtos;
 using BookStore.WebUI.Dtos.ProductDtos;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace BookStore.WebUI.ViewComponents.Default
 {
     public class _DefaultBannerComponent : ViewComponent
     {
-        private readonly IProductService productService;
-        private readonly IMapper mapper;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public _DefaultBannerComponent(IProductService productService, IMapper mapper)
+        public _DefaultBannerComponent(IHttpClientFactory httpClientFactory)
         {
-            this.productService = productService;
-            this.mapper = mapper;
+            _httpClientFactory = httpClientFactory;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var values = productService.TGetAll().Take(2).ToList();
-            var banners = mapper.Map<List<ResultProductDto>>(values);
-            return View(banners);
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7190/api/Banners");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
+            return View(values);
+            }
+            return View();
         }
     }
 }

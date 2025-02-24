@@ -1,0 +1,16 @@
+﻿@model BookStore.WebUI.Dtos.SubscriberDtos.UpdateSubscriberDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <input type="hidden" asp-for="SubscriberId" class="form-control" />
+        <br /><br />
+        <label>Email</label>
+        <input type="text" asp-for="Email" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Update Subscriber</button>
+    </div>
+</form>

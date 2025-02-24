@@ -9,5 +9,6 @@ namespace BookStore.DataAccessLayer.Abstract
 {
     public interface ICategoryDal : IGenericDal<Category>
     {
+        List<Category> GetCategoriesWithProducts();
     }
 }

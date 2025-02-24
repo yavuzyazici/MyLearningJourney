@@ -11,6 +11,7 @@ namespace BookStore.WebUI.Mapping
             CreateMap<Product, ResultProductDto>().ReverseMap();
             CreateMap<Product, CreateProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductDto>().ReverseMap();
+            CreateMap<GetByIdProductDto, UpdateProductDto>().ReverseMap();
             CreateMap<Product, GetByIdProductDto>().ReverseMap();
         }
     }

@@ -1,0 +1,278 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-box fs-2 text-primary me-2"></i>
+                        <span class="fw-semibold">Product Count</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.ProductCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-dollar fs-2 text-success me-2"></i>
+                        <span class="fw-semibold">Average Product Price</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.AverageProductPrice</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-layer fs-2 text-warning me-2"></i>
+                        <span class="fw-semibold">Average Product Stock</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.AverageProductStock</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-trending-down fs-2 text-danger me-2"></i>
+                        <span class="fw-semibold">Lowest Product Stock</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.LowestProductStock</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-trending-up fs-2 text-success me-2"></i>
+                        <span class="fw-semibold">Highest Product Stock</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.HighestProductStock</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-book fs-2 text-info me-2"></i>
+                        <span class="fw-semibold">Novel Products Stock</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.NovelProductsStock</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-user fs-2 text-primary me-2"></i>
+                        <span class="fw-semibold">Subscriber Count</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.SubscriberCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-envelope fs-2 text-secondary me-2"></i>
+                        <span class="fw-semibold">Latest Subscriber Email</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.LatestSubscriberEmail</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-category fs-2 text-warning me-2"></i>
+                        <span class="fw-semibold">Category Count</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.CategoryCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bxs-quote-single-left fs-2 text-danger me-2"></i>
+                        <span class="fw-semibold">Quote Count</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.QuoteCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-money fs-2 text-success me-2"></i>
+                        <span class="fw-semibold">Most Expensive Product</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.MostExpensiveProduct</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <div class="card-title d-flex align-items-center">
+                        <i class="bx bx-book fs-2 text-info me-2"></i>
+                        <span class="fw-semibold">Novel Product Count</span>
+                    </div>
+                    <h3 class="card-title mb-2">@Model.NovelProductCount</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    google.charts.setOnLoadCallback(drawCategoryChart);
+    function drawCategoryChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Category', 'Number of Products'],
+            ['Novel', @Model.NovelProductCount],
+            ['Story', @Model.StoryProductCount],
+            ['Poetry Book', @Model.PoetryProductCount],
+            ['Academic Book', @Model.AcademicBookProductCount],
+            ['Textbook', @Model.TextbookProductCount]
+        ]);
+
+        var options = {
+            title: '📚 Product Categories Distribution',
+            pieHole: 0.4,
+            colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#AB47BC']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('categoryChart'));
+        chart.draw(data, options);
+    }
+
+    google.charts.setOnLoadCallback(drawStockChart);
+    function drawStockChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Category', 'Stock Remaining'],
+            ['Novel', @Model.NovelStock],
+            ['Story', @Model.StoryStock],
+            ['Poetry Book', @Model.PoetryStock],
+            ['Academic Book', @Model.AcademicBookStock],
+            ['Textbook', @Model.TextbookStock]
+        ]);
+
+        var options = {
+            title: '📦 Stock Status',
+            hAxis: { title: 'Category' },
+            vAxis: { title: 'Stock Remaining' },
+            bars: 'horizontal',
+            colors: ['#4285F4'],
+            legend: { position: 'none' }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('stockChart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm p-3">
+            <div class="card-body">
+                <h5 class="card-title">📚 Product Categories Distribution</h5>
+                <div id="categoryChart" style="width: 100%; height: 350px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm p-3">
+            <div class="card-body">
+                <h5 class="card-title">📦 Stock Status</h5>
+                <div id="stockChart" style="width: 100%; height: 350px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Latest Products</h5>
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Author</th>
+                            <th>Product Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach (var product in Model.LatestProducts)
+                        {
+                            <tr>
+                                <td>@product.ProductName</td>
+                                <td>@product.ProductAuthor</td>
+                                <td>@product.ProductPrice</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Category List</h5>
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach (var category in Model.CategoryList)
+                        {
+                            <tr>
+                                <td>@category.CategoryName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

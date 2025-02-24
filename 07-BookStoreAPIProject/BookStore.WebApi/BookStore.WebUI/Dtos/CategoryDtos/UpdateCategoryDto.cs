@@ -1,4 +1,6 @@
-﻿namespace BookStore.WebUI.Dtos.CategoryDtos
+﻿using BookStore.EntityLayer.Concrete;
+
+namespace BookStore.WebUI.Dtos.CategoryDtos
 {
     public class UpdateCategoryDto
     {

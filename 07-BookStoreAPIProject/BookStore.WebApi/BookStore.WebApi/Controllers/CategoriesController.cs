@@ -22,6 +22,18 @@ namespace BookStore.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet("GetCategoriesWithProducts")]
+        public IActionResult GetCategoriesWithProducts()
+        {
+            var values = _categoryService.TGetCategoriesWithProducts().Where(x=> x.Products != null);
+            return Ok(values);
+        }
+        [HttpGet("GetCategory")]
+        public IActionResult GetCategory(int id)
+        {
+            return Ok(_categoryService.TGetById(id));
+        }
+
         [HttpPost]
         public IActionResult CreateCategory(Category category)
         {

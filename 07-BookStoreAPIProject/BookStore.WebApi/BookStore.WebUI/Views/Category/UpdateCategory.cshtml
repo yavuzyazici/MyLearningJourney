@@ -1,0 +1,16 @@
+﻿@model BookStore.WebUI.Dtos.CategoryDtos.GetByIdCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <input type="hidden" asp-for="CategoryId" class="form-control" />
+        <br /><br />
+        <label>Category Name</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Update Category</button>
+    </div>
+</form>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLayer.Abstract
 {
-    internal interface IImageService
+    public interface IImageService
     {
         /// <summary>
         /// Saves an image file from the computer to the web app. As a path saves to /wwwroot/images/

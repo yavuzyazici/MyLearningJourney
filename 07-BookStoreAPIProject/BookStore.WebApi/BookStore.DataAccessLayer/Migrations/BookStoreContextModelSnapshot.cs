@@ -53,6 +53,10 @@ namespace BookStore.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProductAuthor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProductDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -72,6 +76,44 @@ namespace BookStore.DataAccessLayer.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("BookStore.EntityLayer.Concrete.Quote", b =>
+                {
+                    b.Property<int>("QuoteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuoteId"), 1L, 1);
+
+                    b.Property<string>("QuoteAuthor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QuoteText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("QuoteId");
+
+                    b.ToTable("Quotes");
+                });
+
+            modelBuilder.Entity("BookStore.EntityLayer.Concrete.Subscriber", b =>
+                {
+                    b.Property<int>("SubscriberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubscriberId"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SubscriberId");
+
+                    b.ToTable("Subscribers");
                 });
 
             modelBuilder.Entity("BookStore.EntityLayer.Concrete.Product", b =>

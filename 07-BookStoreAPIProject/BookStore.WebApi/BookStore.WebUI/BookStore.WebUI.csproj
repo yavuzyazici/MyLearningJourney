@@ -7,13 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot - Copy\**" />
+    <Content Remove="wwwroot - Copy\**" />
+    <EmbeddedResource Remove="wwwroot - Copy\**" />
+    <None Remove="wwwroot - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\sneat\.github\workflows\handle-new-issue-comment.yml" />
+    <None Include="wwwroot\sneat\.github\workflows\handle-new-issue.yml" />
+    <None Include="wwwroot\sneat\.github\workflows\issue-staler.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MailKit" Version="4.10.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.18" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BookStore.BusinessLayer\BookStore.BusinessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

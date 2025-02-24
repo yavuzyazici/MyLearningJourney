@@ -1,0 +1,44 @@
+﻿@using BookStore.WebUI.Dtos.ProductDtos
+@model ResultProductDto
+@*
+    _DefaultTodaysBookComponent
+*@
+
+<section id="best-selling" class="leaf-pattern-overlay">
+	<div class="corner-pattern-overlay"></div>
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="col-md-8">
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<figure class="products-thumb">
+							<img src="@Model.ImageUrl" width="500" alt="book" class="single-image">
+						</figure>
+					</div>
+
+					<div class="col-md-6">
+						<div class="product-entry">
+							<h2 class="section-title divider">Todays Book</h2>
+
+							<div class="products-content">
+								<div class="author-name">By @Model.ProductAuthor</div>
+								<h3 class="item-title">@Model.ProductName</h3>
+								<p>
+									@Model.ProductDescription
+								</p>
+								<div class="item-price">$ @Model.ProductPrice</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- / row -->
+
+			</div>
+
+		</div>
+	</div>
+</section>

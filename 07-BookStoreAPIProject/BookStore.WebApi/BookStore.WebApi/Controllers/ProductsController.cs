@@ -20,6 +20,16 @@ namespace BookStore.WebApi.Controllers
         {
             return Ok(_productService.TGetAll());
         }
+        [HttpGet("GetProductsWithCategories")]
+        public IActionResult GetProductsWithCategories()
+        {
+            return Ok(_productService.TGetProductsWithCategories());
+        }
+        [HttpGet("ListFeaturedProduct")]
+        public IActionResult ListFeaturedProduct()
+        {
+            return Ok(_productService.TGetAll().OrderBy(x=> x.ProductId).Take(4));
+        }
 
         [HttpPost]
         public IActionResult CreateProduct(Product product)

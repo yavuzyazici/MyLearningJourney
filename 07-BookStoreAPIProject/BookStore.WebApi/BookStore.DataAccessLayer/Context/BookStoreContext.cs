@@ -13,9 +13,12 @@ namespace BookStore.DataAccessLayer.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=YAVUZ\\SQLEXPRESS; database=BookStoreAPIDb; integrated security = true; trustServerCertificate = true");
+            //optionsBuilder.UseLazyLoadingProxies();
         }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<Subscriber> Subscribers { get; set; }
     }
 }

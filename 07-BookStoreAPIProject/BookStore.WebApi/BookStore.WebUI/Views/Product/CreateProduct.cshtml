@@ -2,12 +2,12 @@
 
 @{
     ViewData["Title"] = "CreateProduct";
-    Layout = null;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="container">
+        <input type="hidden" asp-for="CategoryId" />
         <br /><br />
         <label>Product Name</label>
         <input type="text" asp-for="ProductName" class="form-control" />
@@ -17,6 +17,18 @@
         <br />
         <label>Product Price</label>
         <input type="text" asp-for="ProductPrice" class="form-control" />
+        <br />
+        <label>Product Description</label>
+        <input type="text" asp-for="ProductDescription" class="form-control" />
+        <br />
+        <label>Product Author</label>
+        <input type="text" asp-for="ProductAuthor" class="form-control" />
+        <br />
+        <label>Image File</label>
+        <input class="form-control" type="file" asp-for="ImageFile" id="formFile">
+        <br />
+        <label>Image URL</label>
+        <input class="form-control" type="text" asp-for="ImageUrl" id="formFile">
         <br />
         <button class="btn btn-primary">Add Product</button>
     </div>

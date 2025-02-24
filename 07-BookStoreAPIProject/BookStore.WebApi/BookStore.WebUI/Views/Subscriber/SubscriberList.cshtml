@@ -1,0 +1,28 @@
+﻿@model List<BookStore.WebUI.Dtos.SubscriberDtos.ResultSubscriberDto>
+@{
+    ViewData["Title"] = "SubscriberList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Send Email</th>
+        </tr>
+        @foreach (var sub in Model)
+        {
+            <tr>
+                <td>@sub.SubscriberId</td>
+                <td>@sub.Email</td>
+                <td><a href="/Subscriber/DeleteSubscriber/@sub.SubscriberId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Subscriber/UpdateSubscriber/@sub.SubscriberId" class="btn btn-success">Update</a></td>
+                <td><a href="/Subscriber/SendEmail/@sub.SubscriberId" class="btn btn-primary">Send Email</a></td>
+            </tr>
+        }
+    </table>
+</div>

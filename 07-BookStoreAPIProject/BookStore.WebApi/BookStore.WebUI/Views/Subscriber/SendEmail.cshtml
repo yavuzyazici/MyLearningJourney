@@ -1,0 +1,27 @@
+﻿@model MailRequest
+@{
+    ViewData["Title"] = "SendEmail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <br /><br />
+        <label>Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Sender Address</label>
+        <input type="text" asp-for="SenderAddress" class="form-control" />
+        <br />
+        <label>Reciever Address</label>
+        <input type="text" asp-for="RecieverAddress" class="form-control" />
+        <br />
+        <label>Subject</label>
+        <input type="text" asp-for="Subject" class="form-control" />
+        <br />
+        <label>Body</label>
+        <input type="text" asp-for="MailBody" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Send Mail</button>
+    </div>
+</form>

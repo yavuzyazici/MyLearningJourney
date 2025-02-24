@@ -10,5 +10,6 @@ namespace BookStore.BusinessLayer.Abstract
     public interface IProductService : IGenericService<Product>
     {
         public int TGetProductCount();
+        public List<Product> TGetProductsWithCategories();
     }
 }

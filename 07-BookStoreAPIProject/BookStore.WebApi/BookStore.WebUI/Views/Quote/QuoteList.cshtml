@@ -1,0 +1,29 @@
+﻿@model List<BookStore.WebUI.Dtos.QuoteDtos.ResultQuoteDto>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Quote</th>
+            <th>Quote Author</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var quote in Model)
+        {
+            <tr>
+                <td>@quote.QuoteId</td>
+                <td>@quote.QuoteText</td>
+                <td>@quote.QuoteAuthor</td>
+                <td><a href="/Quote/DeleteQuote/@quote.QuoteId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Quote/UpdateQuote/@quote.QuoteId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Quote/CreateQuote/" class="btn btn-primary">Create Quote</a>
+</div>
