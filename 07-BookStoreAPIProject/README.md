@@ -1,4 +1,4 @@
-# Cental Rent a Car Project
+# Book Store API
 
 This project provides a user-friendly book store platform. It you to manage and represent your books on web.
 
