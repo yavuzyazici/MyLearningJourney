@@ -1,0 +1,6 @@
+@RapidApiImdbProject_HostAddress = http://localhost:5239
+
+GET {{RapidApiImdbProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
