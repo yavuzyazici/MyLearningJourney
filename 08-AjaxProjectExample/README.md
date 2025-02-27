@@ -115,4 +115,4 @@ $("#btn5").click(function() {
 
 | Default |
 |--------------|
-| ![Default Page](AjaxProjectExample/AjaxProjectExample/wwwroot/GitHubImages/ajaxProjectHome.png) |
+| ![Default Page](AjaxProjectExample/AjaxProjectExample/wwwroot/GithubImages/ajaxProjectHome.png) |
