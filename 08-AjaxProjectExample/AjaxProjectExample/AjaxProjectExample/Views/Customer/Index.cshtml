@@ -4,19 +4,53 @@
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <h1>Ajax Customer Operations</h1>
 <br />
 <button class="btn btn-primary" id="btn1">Customer List</button>
-<button class="btn btn-info" id="btn1">Add Customer</button>
-<button class="btn btn-danger" id="btn1">Delete Customer</button>
-<button class="btn btn-success" id="btn1">Update Customer</button>
-<button class="btn btn-warning" id="btn1">Get Customer</button>
+<button class="btn btn-info" id="btn2">Add Customer</button>
+<button class="btn btn-danger" id="btn3">Delete Customer</button>
+<button class="btn btn-success" id="btn4">Update Customer</button>
+<button class="btn btn-warning" id="btn5">Get Customer</button>
 
 <hr />
 
 <div class="alert alert-primary">Customer List</div>
-<div id="customerList">
+<div id="customerList"></div>
+
+<hr />
+
+<div>
+    <label>Müşteri Adı</label>
+    <input type="text" id="txtCustomerName" class="form-control" />
+    <br />
+    <label>Müşteri Soyadı</label>
+    <input type="text" id="txtCustomerSurname" class="form-control" />
+</div>
+
+<hr />
+
+<div>
+    <input type="text" class="form-control" id="txtDeleteId" placeholder="Write id of the value that you want to delete" />
+</div>
+
+<hr />
+
+<div>
+    <input type="text" class="form-control" id="txtEditId" placeholder="Customer Id from the customer that you want to update" />
+    <br />
+    <input type="text" class="form-control" id="txtEditName" placeholder="Customer name from the customer that you want to update" />
+    <br />
+    <input type="text" class="form-control" id="txtEditSurname" placeholder="Customer Surname from the customer that you want to update" />
+    <br />
+</div>
+
+<hr />
+
+<div>
+    <input type="text" class="form-control" id="txtGetId" placeholder="Customer Id from the customer that you want to get data"/>
 </div>
 
 <script>
@@ -24,7 +58,7 @@
         $.ajax({
             contentType: "application/json",
             dataType:"json",
-            type:"Get",
+            type:"GET",
             url:"/Customer/CustomerList",
             success: function (funk1){
                 let customers = jQuery.parseJSON(funk1);
@@ -46,6 +80,61 @@
                 });
                 tableHtml += "</table>";
                 $("#customerList").html(tableHtml);
+            }
+        });
+    });
+
+    $("#btn2").click(function (){
+        let values = {
+            CustomerName: $("#txtCustomerName").val(),
+            CustomerSurname: $("#txtCustomerSurname").val()
+        };
+
+        $.ajax({
+            url: "/Customer/CreateCustomer/",
+            data: values,
+            success: function (funk2){
+                let result = jQuery.parseJSON(funk2);
+                swal("Customer added succesfully", "Customer Added!", "success");
+            }
+        });
+    });
+
+    $("#btn3").click(function(){
+        let id = $("#txtDeleteId").val();
+        $.ajax({
+            url: "/Customer/DeleteCustomer/" + id,
+            success: function(funk3){
+            swal("Customer deleted succesfully", "Customer Deleted", "success");
+            }
+        });
+    });
+
+    $("#btn4").click(function(){
+        let values = {
+            CustomerId: $("#txtEditId").val(),
+            CustomerName: $("#txtEditName").val(),
+            CustomerSurname: $("#txtEditSurname").val()
+        };
+
+        $.ajax({
+            url: "/Customer/UpdateCustomer/",
+            data: values,
+            success: function(funk4){
+               swal("Customer updated succesfully", "Customer Updated!", "success")
+            }
+        });
+    });
+
+    $("#btn5").click(function() {
+        let id = $("#txtGetId").val();
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            url: "/Customer/GetCustomer/" + id,
+            success: function(funk5){
+                let result = jQuery.parseJSON(funk5);
+                console.log(result);
             }
         });
     });
