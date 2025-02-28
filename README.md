@@ -12,4 +12,4 @@ This repository contains the projects I have developed on .NET Core and MVC whil
 6. [First Project With API](./06-FirstProjectWithAPI)
 7. [Book Store API Project](./07-BookStoreAPIProject)
 8. [Ajax Project Example](./08-AjaxProjectExample)
-9. [Rapid Api Imdb Project](./09-RapidApiImdbProject)
+9. [Rapid Api Projects](./09-RapidApiProjects)
