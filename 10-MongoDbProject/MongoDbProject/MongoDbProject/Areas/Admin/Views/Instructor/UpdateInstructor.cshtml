@@ -1,0 +1,39 @@
+﻿@using MongoDbProject.Dtos.InstructorDtos
+@model UpdateInstructorDto
+@{
+    ViewData["Title"] = "UpdateInstructor";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Update Instructor</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <input type="hidden" asp-for="InstructorId"/>
+        <label>Title</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <br />
+        <label>Name</label>
+        <input type="text" asp-for="FirstName" class="form-control" />
+        <br />
+        <label>Last Name</label>
+        <input type="text" asp-for="LastName" class="form-control" />
+        <br />
+        <label>Image URL</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+</div>
