@@ -1,0 +1,51 @@
+﻿@using MongoDbProject.Dtos.ContactDtos
+@model List<ResultContactDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Contacts</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var contacts in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@contacts.Address</td>
+                <td>@contacts.Description.Substring(0,20)...</td>
+                <td>@contacts.PhoneNumber</td>
+                <td>@contacts.EMail</td>
+                <td><a asp-action="DeleteContact" asp-route-id="@contacts.ContactId" asp-area="Admin" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateContact" asp-route-id="@contacts.ContactId" asp-area="Admin" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+
+    <a asp-action="CreateContact" asp-controller="Contact" asp-area="Admin" class="btn btn-primary">Add New Contact</a>
+</div>

@@ -4,10 +4,11 @@ namespace MongoDbProject.Services.InstructorServices
 {
     public interface IInstructorService
     {
-        Task<List<ResultInstructorDto>> GetAllInstructorAsync();
-        Task<UpdateInstructorDto> GetInstructorByIdAsync(string id);
-        Task CreateInstructorAsync(CreateInstructorDto createInstructorDto);
-        Task UpdateInstructorAsync(UpdateInstructorDto updateInstructorDto);
-        Task DeleteInstructorAsync(string id);
+        Task<List<ResultInstructorDto>> GetAllAsync();
+        Task<UpdateInstructorDto> GetByIdAsync(string id);
+        Task<ResultInstructorDto> GetByNameAsync(string name);
+        Task CreateAsync(CreateInstructorDto createInstructorDto);
+        Task UpdateAsync(UpdateInstructorDto updateInstructorDto);
+        Task DeleteAsync(string id);
     }
 }

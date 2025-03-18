@@ -1,0 +1,48 @@
+﻿@using MongoDbProject.Dtos.EventDtos
+@model UpdateEventDto
+@{
+    ViewData["Title"] = "UpdateEvent";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Update Event</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="EventId"/>
+        <label>Title</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <br />
+        <label>Description</label>
+        <textarea type="text" asp-for="Description" class="form-control" rows="4"></textarea>
+        <br />
+        <label>Location</label>
+        <input type="text" asp-for="Location" class="form-control" />
+        <br />
+        <label>Image URL</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <label>Upload Image</label>
+        <input type="file" asp-for="ImageFile" class="form-control-file" />
+        <br />
+        <label>Time</label>
+        <input type="text" asp-for="Time" class="form-control" />
+        <br />
+        <label>Date</label>
+        <input type="text" asp-for="ShortDate" class="form-control" />
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+</div>

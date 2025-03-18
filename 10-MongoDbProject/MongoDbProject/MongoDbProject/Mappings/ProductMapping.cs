@@ -8,9 +8,11 @@ namespace MongoDbProject.Mappings
     {
         public ProductMapping()
         {
-            CreateMap<Product,CreateProductDto>().ReverseMap();
-            CreateMap<Product,UpdateProductDto>().ReverseMap();
-            CreateMap<Product,ResultProductDto>().ReverseMap();
+            CreateMap<Product, CreateProductDto>().ReverseMap();
+            CreateMap<Product, UpdateProductDto>().ReverseMap();
+            CreateMap<Product, ResultProductDto>().ReverseMap();
+            CreateMap<Product, UIProductDto>().ReverseMap();
+            CreateMap<ResultProductDto, UIProductDto>().ReverseMap();
         }
     }
 }

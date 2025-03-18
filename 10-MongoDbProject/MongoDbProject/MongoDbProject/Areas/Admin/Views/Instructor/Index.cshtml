@@ -35,7 +35,7 @@
         {
             <tr>
                 <td>@count</td>
-                <td><img src="@tutors.ImageUrl" style="width:75px; height:75px" /></td>
+                <td><img src="@(tutors.ImageUrl== null ? "/images/no-pic.png" : tutors.ImageUrl)" style="width:75px; height:75px" /></td>
                 <td>@tutors.FullName</td>
                 <td>@tutors.Title</td>
                 <td><a asp-action="DeleteInstructor" asp-route-id="@tutors.InstructorId" asp-area="Admin" class="btn btn-danger">Delete</a></td>

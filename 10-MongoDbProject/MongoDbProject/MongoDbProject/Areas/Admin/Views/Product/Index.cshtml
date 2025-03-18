@@ -1,0 +1,53 @@
+﻿@using MongoDbProject.Dtos.ProductDtos
+@model List<ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Products</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Product Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Tutor</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var products in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td><img src="@products.ImageUrl" style="width:75px; height:75px" /></td>
+                <td>@products.Title</td>
+                <td>@products.Description</td>
+                <td>@products.Price</td>
+                <td>@products.InstructorName</td>
+                <td><a asp-action="DeleteProduct" asp-route-id="@products.ProductId" asp-area="Admin" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateProduct" asp-route-id="@products.ProductId" asp-area="Admin" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+
+    <a asp-action="CreateProduct" asp-controller="Product" asp-area="Admin" class="btn btn-primary">Add New Product</a>
+</div>

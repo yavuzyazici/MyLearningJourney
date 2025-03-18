@@ -1,0 +1,39 @@
+﻿@using MongoDbProject.Dtos.ContactDtos
+@model UpdateContactDto
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Update Contact</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <input type="hidden" asp-for="ContactId"/>
+        <label>Address</label>
+        <input type="text" asp-for="Address" class="form-control" />
+        <br />
+        <label>Description</label>
+        <textarea type="text" asp-for="Description" class="form-control" rows="4"></textarea>
+        <br />
+        <label>Phone</label>
+        <input type="tel" asp-for="PhoneNumber" class="form-control" />
+        <br />
+        <label>EMail</label>
+        <input type="email" asp-for="EMail" class="form-control" />
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+</div>

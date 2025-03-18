@@ -20,30 +20,36 @@ namespace MongoDbProject.Services.InstructorServices
             _instructorCollection = database.GetCollection<Instructor>(databaseSettings.InstructorCollecionName);
         }
 
-        public async Task CreateInstructorAsync(CreateInstructorDto createInstructorDto)
+        public async Task CreateAsync(CreateInstructorDto createInstructorDto)
         {
             var instructor = _mapper.Map<Instructor>(createInstructorDto);
             await _instructorCollection.InsertOneAsync(instructor);
         }
 
-        public async Task DeleteInstructorAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            await _instructorCollection.DeleteOneAsync(x=>x.InstructorId == id);
+            await _instructorCollection.DeleteOneAsync(x => x.InstructorId == id);
         }
 
-        public async Task<List<ResultInstructorDto>> GetAllInstructorAsync()
+        public async Task<List<ResultInstructorDto>> GetAllAsync()
         {
             var values = await _instructorCollection.AsQueryable().ToListAsync();
             return _mapper.Map<List<ResultInstructorDto>>(values);
         }
 
-        public async Task<UpdateInstructorDto> GetInstructorByIdAsync(string id)
+        public async Task<UpdateInstructorDto> GetByIdAsync(string id)
         {
-            var value = await _instructorCollection.Find(x=>x.InstructorId == id).FirstOrDefaultAsync();
+            var value = await _instructorCollection.Find(x => x.InstructorId == id).FirstOrDefaultAsync();
             return _mapper.Map<UpdateInstructorDto>(value);
         }
 
-        public async Task UpdateInstructorAsync(UpdateInstructorDto updateInstructorDto)
+        public async Task<ResultInstructorDto> GetByNameAsync(string name)
+        {
+            var value = await _instructorCollection.Find(x => x.FirstName + " " + x.LastName == name).FirstOrDefaultAsync();
+            return _mapper.Map<ResultInstructorDto>(value);
+        }
+
+        public async Task UpdateAsync(UpdateInstructorDto updateInstructorDto)
         {
             var instructor = _mapper.Map<Instructor>(updateInstructorDto);
             await _instructorCollection.FindOneAndReplaceAsync(x => x.InstructorId == instructor.InstructorId, instructor);

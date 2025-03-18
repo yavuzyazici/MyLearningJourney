@@ -1,0 +1,51 @@
+﻿@using MongoDbProject.Dtos.AboutDtos
+@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="card-header">
+    <h5>Update About</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <form method="post">
+        <input type="hidden" asp-for="AboutId"/>
+        <label>Title</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <br />
+        <label>Description</label>
+        <textarea type="text" asp-for="Description" class="form-control" rows="4"></textarea>
+        <br />
+        <label>Feature1</label>
+        <input type="text" asp-for="Feature1" class="form-control" />
+        <br />
+        <label>Feature2</label>
+        <input type="text" asp-for="Feature2" class="form-control" />
+        <br />
+        <label>Feature3</label>
+        <input type="text" asp-for="Feature3" class="form-control" />
+        <br />
+        <label>Feature4</label>
+        <input type="text" asp-for="Feature4" class="form-control" />
+        <br />
+        <label>Feature5</label>
+        <input type="text" asp-for="Feature5" class="form-control" />
+        <br />
+        <label>Feature6</label>
+        <input type="text" asp-for="Feature6" class="form-control" />
+        <br />
+        <button class="btn btn-outline-primary">Update</button>
+    </form>
+</div>

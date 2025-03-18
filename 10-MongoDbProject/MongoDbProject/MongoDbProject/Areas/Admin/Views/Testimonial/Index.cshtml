@@ -1,0 +1,49 @@
+﻿@using MongoDbProject.Dtos.TestimonialDtos
+@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+    int count = 1;
+}
+
+<div class="card-header">
+    <h5>Testimonials</h5>
+    <div class="card-header-right">
+        <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="feather icon-more-horizontal"></i>
+            </button>
+            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> Expand</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Testimonial Image</th>
+            <th>Job Title</th>
+            <th>Review</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        @foreach (var testimonials in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td><img src="@(testimonials.ImageUrl== null ? "/images/no-pic.png" : testimonials.ImageUrl)" style="width:75px; height:75px" /></td>
+                <td>@testimonials.JobTitle</td>
+                <td>@testimonials.Review</td>
+                <td><a asp-action="DeleteTestimonial" asp-route-id="@testimonials.TestimonialId" asp-area="Admin" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action="UpdateTestimonial" asp-route-id="@testimonials.TestimonialId" asp-area="Admin" class="btn btn-info">Update</a></td>
+            </tr>
+            count++;
+        }
+    </table>
+
+    <a asp-action="CreateTestimonial" asp-controller="Testimonial" asp-area="Admin" class="btn btn-primary">Add New Testimonial</a>
+</div>

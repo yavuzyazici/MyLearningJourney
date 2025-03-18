@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="card-body">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="InstructorId"/>
         <label>Title</label>
         <input type="text" asp-for="Title" class="form-control" />
@@ -31,8 +31,20 @@
         <label>Last Name</label>
         <input type="text" asp-for="LastName" class="form-control" />
         <br />
+        <label>Facebook URL</label>
+        <input type="text" asp-for="FacebookURL" class="form-control" />
+        <br />
+        <label>Twitter URL</label>
+        <input type="text" asp-for="TwitterURL" class="form-control" />
+        <br />
+        <label>Instagram URL</label>
+        <input type="text" asp-for="InstagramURL" class="form-control" />
+        <br />
         <label>Image URL</label>
-        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <input type="text" asp-for="ImageUrl" formnovalidate class="form-control" />
+        <br />
+        <label>Upload Image</label>
+        <input type="file" asp-for="ImageFile" class="form-control-file" />
         <br />
         <button class="btn btn-outline-primary">Update</button>
     </form>
