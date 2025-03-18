@@ -13,3 +13,4 @@ This repository contains the projects I have developed on .NET Core and MVC whil
 7. [Book Store API Project](./07-BookStoreAPIProject)
 8. [Ajax Project Example](./08-AjaxProjectExample)
 9. [Rapid Api Projects](./09-RapidApiProjects)
+9. [MongoDb Project](./10-MongoDbProject)
